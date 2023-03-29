@@ -19,7 +19,6 @@ module.exports = {
     plugins: [
         'react',
         '@typescript-eslint',
-        'i18next',
         'react-hooks',
     ],
     rules: {
