@@ -1,13 +1,12 @@
-import {classNames} from 'shared/lib/classNames/classNames';
+import { classNames } from 'shared/lib/classNames/classNames';
+import { memo, ReactNode } from 'react';
+import { Link, LinkProps } from 'react-router-dom';
 import cls from './AppLink.module.scss';
-import {memo, ReactNode} from 'react';
-import {Link, LinkProps} from "react-router-dom";
 
 export enum AppLinkVariant {
     PRIMARY = 'primary',
     INVERTED = 'inverted'
 }
-
 
 interface AppLinkProps extends LinkProps {
     className?: string;
@@ -16,7 +15,6 @@ interface AppLinkProps extends LinkProps {
 }
 
 export const AppLink = memo((props: AppLinkProps) => {
-
     const {
         className,
         children,
