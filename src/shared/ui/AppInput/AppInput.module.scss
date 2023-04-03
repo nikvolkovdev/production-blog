@@ -1,0 +1,13 @@
+.AppInputWrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.placeholder {
+    margin-right: 5px;
+}
+
+.input {
+    background: var(--inverted-bg-color);
+    color: var(--inverted-primary-color);
+}

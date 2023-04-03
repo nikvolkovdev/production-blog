@@ -8,7 +8,7 @@ const App = () => {
     const { theme } = useTheme();
 
     return (
-        <div className={classNames('app', {}, [theme])}>
+        <div className={classNames('app', {})}>
             <Navbar />
             <div className="content-page">
                 <Sidebar />
