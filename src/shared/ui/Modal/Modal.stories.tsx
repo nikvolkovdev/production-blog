@@ -1,16 +1,16 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { LoginForm } from './LoginForm';
+import { Modal } from './Modal';
 
 export default {
-    title: 'features/LoginForm',
-    component: LoginForm,
+    title: 'shared/Modal',
+    component: Modal,
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-} as ComponentMeta<typeof LoginForm>;
+} as ComponentMeta<typeof Modal>;
 
-const Template: ComponentStory<typeof LoginForm> = (args) => <LoginForm {...args} />;
+const Template: ComponentStory<typeof Modal> = (args) => <Modal {...args} />;
 
 export const Normal = Template.bind({});
 Normal.args = {};
