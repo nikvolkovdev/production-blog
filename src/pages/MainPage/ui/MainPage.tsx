@@ -1,8 +1,10 @@
 import React from 'react';
+import { Counter } from 'entities/Counter/ui/Counter';
 
 const MainPage = () => (
     <div>
-        MAIN PAGE
+        Main Page
+        <Counter />
     </div>
 );
 
