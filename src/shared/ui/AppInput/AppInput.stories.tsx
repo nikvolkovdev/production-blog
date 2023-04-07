@@ -36,4 +36,4 @@ PlaceholderDark.args = {
     value: 'Text',
     placeholder: 'Login',
 };
-Dark.decorators = [ThemeDecorator(Theme.DARK)];
+PlaceholderDark.decorators = [ThemeDecorator(Theme.DARK)];

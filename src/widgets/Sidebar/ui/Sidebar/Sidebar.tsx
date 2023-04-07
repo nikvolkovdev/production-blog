@@ -1,12 +1,10 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { memo, useState } from 'react';
+import { memo, useMemo, useState } from 'react';
 import { ThemeSwitcher } from 'features/ThemeSwitcher/ui/ThemeSwitcher';
 import { AppButton, ButtonSize, ButtonVariant } from 'shared/ui/AppButton/AppButton';
-import { AppLink, AppLinkVariant } from 'shared/ui/AppLink/AppLink';
-import { AppRoutes, ROUTE_PATH } from 'app/providers/router/lib/routerConfig/routerConfig';
+import { SidebarItemsList } from 'widgets/Sidebar/model/items';
+import { SidebarItem } from '../SidebarItem/SidebarItem';
 import cls from './Sidebar.module.scss';
-import MainIcon from '../../../../shared/assets/main.svg';
-import AboutIcon from '../../../../shared/assets/about.svg';
 
 interface SidebarProps {
     className?: string;
@@ -29,18 +27,9 @@ export const Sidebar = memo((props: SidebarProps) => {
             className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}
         >
             <div className={cls.items}>
-                <div className={cls.item}>
-                    <AppLink to={ROUTE_PATH[AppRoutes.MAIN]} className={cls.item} variant={AppLinkVariant.INVERTED}>
-                        <MainIcon className={cls.icon} />
-                        <span className={cls.link}>{!collapsed && 'Главная'}</span>
-                    </AppLink>
-                </div>
-                <div className={cls.item}>
-                    <AppLink to={ROUTE_PATH[AppRoutes.ABOUT]} className={cls.item} variant={AppLinkVariant.INVERTED}>
-                        <AboutIcon className={cls.icon} />
-                        <span className={cls.link}>{!collapsed && 'О сайте'}</span>
-                    </AppLink>
-                </div>
+                { SidebarItemsList.map((item) => (
+                    <SidebarItem item={item} key={item.path} collapsed={collapsed} />
+                ))}
             </div>
             <div className={cls.switchers}>
                 <ThemeSwitcher />

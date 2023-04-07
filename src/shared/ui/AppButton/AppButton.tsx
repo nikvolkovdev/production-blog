@@ -23,6 +23,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     size?: ButtonSize;
     children?: ReactNode;
     buttonType?: 'button' | 'submit' | 'reset';
+    disabled?: boolean;
 }
 
 export const AppButton = memo((props: ButtonProps) => {
@@ -33,15 +34,21 @@ export const AppButton = memo((props: ButtonProps) => {
         square,
         size = ButtonSize.M,
         buttonType = 'button',
+        disabled = false,
         ...otherProps
     } = props;
 
     return (
         <button
-            className={classNames(cls.AppButton, { [cls.square]: square }, [className, cls[variant], cls[size]])}
+            className={classNames(
+                cls.AppButton,
+                { [cls.square]: square, [cls.disabled]: disabled },
+                [className, cls[variant], cls[size]],
+            )}
             // eslint-disable-next-line react/button-has-type
             type={buttonType}
             {...otherProps}
+            disabled={disabled}
         >
             {children}
         </button>

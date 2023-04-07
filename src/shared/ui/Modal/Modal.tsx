@@ -13,7 +13,7 @@ interface ModalProps {
     lazy?: boolean;
 }
 
-export const Modal = memo((props: ModalProps) => {
+export const Modal = (props: ModalProps) => {
     const [isClosing, setIsClosing] = useState(false);
 
     const {
@@ -84,4 +84,4 @@ export const Modal = memo((props: ModalProps) => {
             </div>
         </Portal>
     );
-});
+};

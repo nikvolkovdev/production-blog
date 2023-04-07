@@ -38,6 +38,12 @@ ClearInverted.args = {
     variant: ButtonVariant.CLEAR_INVERTED,
 };
 
+export const Disabled = Template.bind({});
+Disabled.args = {
+    children: 'text',
+    disabled: true,
+};
+
 export const PrimaryDark = Template.bind({});
 PrimaryDark.args = {
     children: 'text',
@@ -64,3 +70,10 @@ ClearInvertedDark.args = {
     variant: ButtonVariant.CLEAR_INVERTED,
 };
 ClearInvertedDark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const DisabledDark = Template.bind({});
+DisabledDark.args = {
+    children: 'text',
+    disabled: true,
+};
+DisabledDark.decorators = [ThemeDecorator(Theme.DARK)];

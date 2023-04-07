@@ -1,6 +1,9 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { LoginForm } from './LoginForm';
+import { StoreDecorator } from 'shared/config/storybook/StoreProvider';
+import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
+import { Theme } from 'app/providers/ThemeProvider/ui/ThemeContext';
+import LoginForm from './LoginForm';
 
 export default {
     title: 'features/LoginForm',
@@ -14,3 +17,12 @@ const Template: ComponentStory<typeof LoginForm> = (args) => <LoginForm {...args
 
 export const Normal = Template.bind({});
 Normal.args = {};
+Normal.decorators = [StoreDecorator({
+    loginForm: { username: 'adm', password: '12' },
+})];
+
+export const Dark = Template.bind({});
+Dark.args = {};
+Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
+    loginForm: { username: 'adm', password: '12' },
+})];

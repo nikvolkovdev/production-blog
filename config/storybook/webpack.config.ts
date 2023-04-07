@@ -1,4 +1,4 @@
-import webpack, { RuleSetRule } from 'webpack';
+import webpack, { DefinePlugin, RuleSetRule } from 'webpack';
 import path from 'path';
 import { BuildPaths } from '../buildWebpackConfig/types/config';
 import { buildCssLoader } from '../buildWebpackConfig/lib/buildCssLoader';
@@ -11,7 +11,13 @@ export default ({ config }: {config: webpack.Configuration}) => {
         src: path.resolve(__dirname, '..', '..', 'src'),
     };
 
-    config.resolve.modules.push(paths.src);
+    if (config.resolve.modules) {
+        config!.resolve!.modules = [
+            path.resolve(paths.src),
+            'node_modules',
+        ];
+    }
+
     config.resolve.extensions.push('.ts', '.tsx');
 
     config.module.rules.push(buildCssLoader(true));
@@ -31,6 +37,10 @@ export default ({ config }: {config: webpack.Configuration}) => {
             },
         ],
     });
+
+    config.plugins.push(new DefinePlugin({
+        __IS_DEV__: true,
+    }));
 
     return config;
 };
