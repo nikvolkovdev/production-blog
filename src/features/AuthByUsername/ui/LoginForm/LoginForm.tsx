@@ -77,6 +77,7 @@ const LoginForm = memo((props: LoginFormProps) => {
                     placeholder="Введите username"
                     onChange={onChangeUsername}
                     value={username}
+                    spaceBetween
                 />
                 <AppInput
                     type="text"
@@ -84,6 +85,7 @@ const LoginForm = memo((props: LoginFormProps) => {
                     placeholder="Введите пароль"
                     onChange={onChangePassword}
                     value={password}
+                    spaceBetween
                 />
                 <AppButton
                     className={cls.loginBtn}

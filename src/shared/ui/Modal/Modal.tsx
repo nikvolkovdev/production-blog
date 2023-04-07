@@ -1,6 +1,6 @@
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import React, {
-    memo, ReactNode, useCallback, useEffect, useRef, useState,
+    memo, MutableRefObject, ReactNode, useCallback, useEffect, useRef, useState,
 } from 'react';
 import { Portal } from 'shared/ui/Portal/Portal';
 import cls from './Modal.module.scss';
@@ -24,7 +24,7 @@ export const Modal = (props: ModalProps) => {
         lazy,
     } = props;
 
-    const timeRef = useRef<ReturnType<typeof setTimeout>>();
+    const timeRef = useRef<ReturnType<typeof setTimeout>>() as MutableRefObject<ReturnType<typeof setTimeout>>;
     const [isMounted, setIsMounted] = useState(false);
 
     const onContentClick = (e: React.MouseEvent) => {

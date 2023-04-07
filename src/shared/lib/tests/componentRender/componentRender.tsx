@@ -3,7 +3,6 @@ import { ReactNode } from 'react';
 import { MemoryRouter } from 'react-router-dom';
 
 import { render } from '@testing-library/react';
-import { DeepPartial } from '@reduxjs/toolkit';
 
 export interface componentRenderOptions {
     route?: string;

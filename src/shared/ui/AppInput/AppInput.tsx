@@ -18,6 +18,7 @@ interface AppInputProps extends HTMLInputProps{
     onChange?: (value: string) => void;
     variant?: InputVariant;
     autofocus?: boolean;
+    spaceBetween?: boolean;
 }
 
 export const AppInput = memo((props: AppInputProps) => {
@@ -29,6 +30,7 @@ export const AppInput = memo((props: AppInputProps) => {
         type = 'text',
         placeholder,
         autofocus,
+        spaceBetween = false,
         ...otherProps
     } = props;
 
@@ -47,7 +49,7 @@ export const AppInput = memo((props: AppInputProps) => {
     }, [autofocus]);
 
     return (
-        <div className={classNames(cls.AppInputWrapper, {}, [className])}>
+        <div className={classNames(cls.AppInputWrapper, { [cls.spaceBetween]: spaceBetween }, [className])}>
             {placeholder && (
                 <div className={cls.placeholder}>
                     {placeholder}

@@ -7,6 +7,7 @@ const config = (env: BuildEnv): webpack.Configuration => {
     const mode = env.mode || 'development';
     const isDev = mode === 'development';
     const PORT = env.port || 3000;
+    const apiUrl = env.apiUrl || 'http://localhost:8000';
 
     const paths: BuildPaths = {
         entry: path.resolve(__dirname, 'src', 'index.tsx'),
@@ -20,6 +21,7 @@ const config = (env: BuildEnv): webpack.Configuration => {
         paths,
         isDev,
         port: PORT,
+        apiUrl,
     };
 
     return buildWebpackConfig(options);

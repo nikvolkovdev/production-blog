@@ -1,7 +1,5 @@
-import { DeepPartial } from '@reduxjs/toolkit';
 import { LoginSchema } from 'features/AuthByUsername';
 import { loginActions, loginReducer } from 'features/AuthByUsername/model/slice/loginSlice';
-import { StateSchema } from 'app/providers/StoreProvider';
 
 describe('loginSlice.test', () => {
     test('should return modified username', () => {

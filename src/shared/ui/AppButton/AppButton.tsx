@@ -30,7 +30,7 @@ export const AppButton = memo((props: ButtonProps) => {
     const {
         className,
         children,
-        variant,
+        variant = ButtonVariant.OUTLINE,
         square,
         size = ButtonSize.M,
         buttonType = 'button',
