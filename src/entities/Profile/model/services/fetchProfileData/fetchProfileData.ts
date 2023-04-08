@@ -12,6 +12,10 @@ export const fetchProfileData = createAsyncThunk<Profile, void, ThunkConfig<stri
             // получить мы хотим именно тип пользователя
             const response = await extra.api.get<Profile>('/profile');
 
+            if (!response.data) {
+                throw new Error();
+            }
+
             return response.data;
         } catch (e) {
             console.log(e);

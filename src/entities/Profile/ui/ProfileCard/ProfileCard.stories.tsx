@@ -1,5 +1,9 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Country } from 'entities/Country';
+import { Currency } from 'entities/Currency';
+import { ValidateProfileError } from 'entities/Profile';
+import avatar from 'shared/assets/tests/avatar.jpg';
 import { ProfileCard } from './ProfileCard';
 
 export default {
@@ -13,4 +17,25 @@ export default {
 const Template: ComponentStory<typeof ProfileCard> = (args) => <ProfileCard {...args} />;
 
 export const Normal = Template.bind({});
-Normal.args = {};
+Normal.args = {
+    data: {
+        username: 'admin',
+        age: 22,
+        country: Country.KAZAKHSTAN,
+        firstname: 'Nikita',
+        lastname: 'Volkov',
+        city: 'Almaty',
+        currency: Currency.KZT,
+        avatar,
+    },
+};
+
+export const isLoading = Template.bind({});
+isLoading.args = {
+    isLoading: true,
+};
+
+export const Error = Template.bind({});
+Error.args = {
+    error: ValidateProfileError.INCORRECT_USER_DATA,
+};

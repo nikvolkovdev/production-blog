@@ -4,7 +4,7 @@ import { StoreDecorator } from 'shared/config/storybook/StoreProvider';
 import { ProfilePageHeader } from './ProfilePageHeader';
 
 export default {
-    title: 'shared/ProfilePageHeader',
+    title: 'entities/ProfilePageHeader',
     component: ProfilePageHeader,
     argTypes: {
         backgroundColor: { control: 'color' },

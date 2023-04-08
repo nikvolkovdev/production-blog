@@ -3,6 +3,9 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { StoreDecorator } from 'shared/config/storybook/StoreProvider';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider/ui/ThemeContext';
+import { Country } from 'entities/Country';
+import { Currency } from 'entities/Currency';
+import avatar from 'shared/assets/tests/avatar.jpg';
 import ProfilePage from './ProfilePage';
 
 export default {
@@ -17,8 +20,34 @@ const Template: ComponentStory<typeof ProfilePage> = (args) => <ProfilePage {...
 
 export const Normal = Template.bind({});
 Normal.args = {};
-Normal.decorators = [StoreDecorator({})];
+Normal.decorators = [StoreDecorator({
+    profile: {
+        form: {
+            username: 'admin',
+            age: 22,
+            country: Country.KAZAKHSTAN,
+            firstname: 'Nikita',
+            lastname: 'Volkov',
+            city: 'Almaty',
+            currency: Currency.KZT,
+            avatar,
+        },
+    },
+})];
 
 export const Dark = Template.bind({});
 Dark.args = {};
-Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({})];
+Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
+    profile: {
+        form: {
+            username: 'admin',
+            age: 22,
+            country: Country.KAZAKHSTAN,
+            firstname: 'Nikita',
+            lastname: 'Volkov',
+            city: 'Almaty',
+            currency: Currency.KZT,
+            avatar,
+        },
+    },
+})];

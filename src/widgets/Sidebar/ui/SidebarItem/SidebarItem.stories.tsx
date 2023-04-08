@@ -1,5 +1,6 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { StoreDecorator } from 'shared/config/storybook/StoreProvider';
 import { SidebarItem } from './SidebarItem';
 
 export default {
@@ -14,3 +15,5 @@ const Template: ComponentStory<typeof SidebarItem> = (args) => <SidebarItem {...
 
 export const Normal = Template.bind({});
 Normal.args = {};
+Normal.decorators = [StoreDecorator({
+})];
