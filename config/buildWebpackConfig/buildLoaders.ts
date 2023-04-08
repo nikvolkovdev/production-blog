@@ -1,7 +1,7 @@
 import webpack from 'webpack';
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { BuildOptions } from './types/config';
 import { buildCssLoader } from './lib/buildCssLoader';
+import { buildBabelLoader } from './lib/buildBabelLoader';
 
 const fileLoader = {
     test: /\.(png|jpe?g|gif)$/i,
@@ -28,6 +28,7 @@ const tsLoader = {
 };
 
 export const buildLoaders = (options: BuildOptions): webpack.RuleSetRule[] => [
+    buildBabelLoader(options),
     fileLoader,
     svgLoader,
     tsLoader,
