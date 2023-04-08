@@ -1,8 +1,8 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { memo } from 'react';
 import { AppLink, AppLinkVariant } from 'shared/ui/AppLink/AppLink';
-import { AppRoutes, ROUTE_PATH } from 'app/providers/router/lib/routerConfig/routerConfig';
-import MainIcon from 'shared/assets/main.svg';
+import { useSelector } from 'react-redux';
+import { getUserAuthData } from 'entities/User';
 import { SidebarItemType } from '../../model/items';
 import cls from './SidebarItem.module.scss';
 
@@ -16,6 +16,12 @@ export const SidebarItem = memo((props: SidebarItemProps) => {
         item,
         collapsed,
     } = props;
+
+    const isAuth = useSelector(getUserAuthData);
+
+    if (item.authOnly && !isAuth) {
+        return null;
+    }
 
     return (
         <AppLink to={item.path} className={cls.item} variant={AppLinkVariant.INVERTED}>
