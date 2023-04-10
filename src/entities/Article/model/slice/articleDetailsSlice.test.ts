@@ -1,21 +1,12 @@
-import React from 'react';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Article } from 'entities/Article';
+import { Country } from 'entities/Country';
+import { Currency } from 'entities/Currency';
+import { updateProfileData } from 'entities/Profile';
+import { Article, ArticleDetailsSchema } from 'entities/Article';
 import { ArticleBlockType, ArticleType } from 'entities/Article/model/types/article';
-import { StoreDecorator } from 'shared/config/storybook/StoreProvider';
-import ArticleDetailsPage from './ArticleDetailsPage';
+import { fetchArticleById } from 'entities/Article/model/services/fetchArticleById/fetchArticleById';
+import { articleDetailsReducer } from 'entities/Article/model/slice/articleDetailsSlice';
 
-export default {
-    title: 'pages/ArticleDetailsPage',
-    component: ArticleDetailsPage,
-    argTypes: {
-        backgroundColor: { control: 'color' },
-    },
-} as ComponentMeta<typeof ArticleDetailsPage>;
-
-const Template: ComponentStory<typeof ArticleDetailsPage> = (args) => <ArticleDetailsPage {...args} />;
-
-const article: Article = {
+const data: Article = {
     id: '1',
     title: 'Javascript news',
     subtitle: 'Что нового в JS за 2022 год?',
@@ -103,9 +94,32 @@ const article: Article = {
     ],
 };
 
-export const Normal = Template.bind({});
-Normal.decorators = [StoreDecorator({
-    articleDetails: {
-        data: article,
-    },
-})];
+describe('articleDetailsSlice.test', () => {
+    test('test fetch article service pending', () => {
+        const state: DeepPartial<ArticleDetailsSchema> = {
+            isLoading: false,
+        };
+        expect(articleDetailsReducer(
+            state as ArticleDetailsSchema,
+            fetchArticleById.pending,
+        ))
+            .toEqual({
+                isLoading: true,
+            });
+    });
+
+    test('test fetch article service fulfilled', () => {
+        const state: DeepPartial<ArticleDetailsSchema> = {
+            isLoading: true,
+        };
+        expect(articleDetailsReducer(
+            state as ArticleDetailsSchema,
+            fetchArticleById.fulfilled(data, '', '1'),
+        ))
+            .toEqual({
+                isLoading: false,
+                error: undefined,
+                data,
+            });
+    });
+});

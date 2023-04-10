@@ -1,8 +1,6 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
-import { Theme } from 'app/providers/ThemeProvider/ui/ThemeContext';
-import { AppText, AppTextVariant } from './AppText';
+import { AppText, AppTextVariant, TextSize } from './AppText';
 
 export default {
     title: 'shared/AppText',
@@ -40,4 +38,18 @@ export const ErrorDescription = Template.bind({});
 ErrorDescription.args = {
     description: 'Title',
     variant: AppTextVariant.ERROR,
+};
+
+export const SizeL = Template.bind({});
+SizeL.args = {
+    title: 'Title',
+    description: 'description',
+    size: TextSize.L,
+};
+
+export const SizeM = Template.bind({});
+SizeM.args = {
+    title: 'Title',
+    description: 'description',
+    size: TextSize.M,
 };

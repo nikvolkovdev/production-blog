@@ -1,6 +1,13 @@
 .AppButton {
     cursor: pointer;
     padding: 10px 15px;
+    color: var(--primary-color);
+
+    &:hover {
+        opacity: 0.7;
+        fill-opacity: 80%;
+        stroke-opacity: 80%;
+    }
 }
 
 .clear,
