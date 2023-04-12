@@ -18,6 +18,7 @@ import {
 import { AddNewCommentForm } from 'features/addNewComment';
 import { AppButton, ButtonVariant } from 'shared/ui/AppButton/AppButton';
 import { ROUTE_PATH } from 'app/providers/router/lib/routerConfig/routerConfig';
+import { AppPage } from 'shared/ui/AppPage/AppPage';
 import { articleDetailsCommentsReducer, getArticleComments } from '../../model/slices/articleDetailsCommentsSlice';
 import cls from './ArticleDetailsPage.module.scss';
 
@@ -63,7 +64,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-            <div className={classNames('', {}, [className])}>
+            <AppPage className={classNames('', {}, [className])}>
                 <AppButton variant={ButtonVariant.OUTLINE} onClick={onBackToList}>
                     Назад к списку
                 </AppButton>
@@ -79,7 +80,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
                     </>
                 )}
 
-            </div>
+            </AppPage>
         </DynamicModuleLoader>
 
     );

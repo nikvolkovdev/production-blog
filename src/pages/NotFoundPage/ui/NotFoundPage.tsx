@@ -1,5 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { memo } from 'react';
+import { AppPage } from 'shared/ui/AppPage/AppPage';
 import cls from './NotFoundPage.module.scss';
 
 interface NotFoundPageProps {
@@ -12,8 +13,8 @@ export const NotFoundPage = memo((props: NotFoundPageProps) => {
     } = props;
 
     return (
-        <div className={classNames(cls.NotFoundPage, {}, [className])}>
+        <AppPage className={classNames(cls.NotFoundPage, {}, [className])}>
             Страница не найдена
-        </div>
+        </AppPage>
     );
 });

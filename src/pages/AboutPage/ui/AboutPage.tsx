@@ -1,9 +1,10 @@
 import React from 'react';
+import { AppPage } from 'shared/ui/AppPage/AppPage';
 
 const AboutPage = () => (
-    <div>
+    <AppPage>
         About Page
-    </div>
+    </AppPage>
 );
 
 export default AboutPage;
