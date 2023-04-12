@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { StoreDecorator } from 'shared/config/storybook/StoreProvider';
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
 import { ProfilePageHeader } from './ProfilePageHeader';
 
 export default {

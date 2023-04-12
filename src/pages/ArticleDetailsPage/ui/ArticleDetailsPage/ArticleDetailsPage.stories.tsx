@@ -2,7 +2,7 @@ import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Article } from 'entities/Article';
 import { ArticleBlockType, ArticleType } from 'entities/Article/model/types/article';
-import { StoreDecorator } from 'shared/config/storybook/StoreProvider';
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
 import ArticleDetailsPage from './ArticleDetailsPage';
 
 export default {
@@ -22,6 +22,10 @@ const article: Article = {
     img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
     views: 1022,
     createdAt: '26.02.2022',
+    user: {
+        id: '1',
+        username: 'Nikita V',
+    },
     type: [ArticleType.IT],
     blocks: [
         {

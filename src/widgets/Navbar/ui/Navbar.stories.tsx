@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider/ui/ThemeContext';
 import { Navbar } from 'widgets/Navbar';
-import { StoreDecorator } from 'shared/config/storybook/StoreProvider';
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
 
 export default {
     title: 'widgets/Navbar',

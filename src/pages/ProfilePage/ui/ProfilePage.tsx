@@ -17,6 +17,8 @@ import { useSelector } from 'react-redux';
 import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country';
 import { AppText, AppTextVariant } from 'shared/ui/AppText/AppText';
+import { useParams } from 'react-router-dom';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 import cls from './ProfilePage.module.scss';
 
@@ -47,13 +49,14 @@ const ProfilePage = memo((props: ProfilePageProps) => {
         [ValidateProfileError.SERVER_ERROR]: 'Произошла серверная ошибка',
     };
 
+    const profileId = useParams<{id: string}>();
     const dispatch = useAppDispatch();
 
-    useEffect(() => {
-        if (__PROJECT__ !== 'storybook') {
-            dispatch(fetchProfileData());
+    useInitialEffect(() => {
+        if (profileId.id) {
+            dispatch(fetchProfileData(profileId.id));
         }
-    }, [dispatch]);
+    });
 
     const onChangeFirstname = useCallback((firstname: string | undefined) => {
         dispatch(profileActions.updateProfile({ firstname: firstname || '' }));

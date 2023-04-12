@@ -5,12 +5,9 @@ import { updateProfileData } from '../services/updateProfileData/updateProfileDa
 
 const initialState: ProfileSchema = {
     data: undefined,
-    error: '',
-    form: undefined,
+    error: undefined,
     isLoading: false,
-    readonly: false,
-    // validateErrors: '',
-
+    readonly: true,
 };
 
 export const profileSlice = createSlice({
@@ -27,11 +24,10 @@ export const profileSlice = createSlice({
         },
         updateProfile: (state, action: PayloadAction<Profile>) => {
             state.form = {
-                ...state.data,
+                ...state.form,
                 ...action.payload,
             };
         },
-
     },
     extraReducers: (builder) => {
         builder
@@ -57,6 +53,7 @@ export const profileSlice = createSlice({
                 state.data = action.payload;
                 state.form = action.payload;
                 state.readonly = true;
+                state.validateErrors = undefined;
             })
             .addCase(updateProfileData.rejected, (state, action) => {
                 state.isLoading = false;

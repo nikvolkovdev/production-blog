@@ -19,7 +19,10 @@
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
       "createdAt": "26.02.2022",
-      "type": ["IT"],
+      "userId": "1",
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -96,10 +99,28 @@
       "userId": "1"
     },
     {
-      "id": "3",
-      "text": "some comment 3",
       "articleId": "1",
-      "userId": "1"
+      "userId": "1",
+      "text": "dasdas",
+      "id": "mU0I1xj"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "hello",
+      "id": "HvtxzAZ"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "dasd",
+      "id": "UZV4DPG"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "sasha - chukcha",
+      "id": "a43BN7N"
     }
   ],
   "users": [
@@ -108,39 +129,38 @@
       "username": "admin",
       "password": "123",
       "role": "ADMIN",
-      "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnPGqX4s6HDBoVTLwIhy3fFmdxvMiDIfUtdA&usqp=CAU"
+      "avatar": "https://cs13.pikabu.ru/post_img/big/2023/02/13/8/1676295806122712757.png"
     },
     {
       "id": "2",
       "username": "user",
       "password": "123",
       "role": "USER",
-      "avatar": "https://cs13.pikabu.ru/post_img/big/2023/02/13/8/1676295806122712757.png"
+      "avatar": "https://shapka-youtube.ru/wp-content/uploads/2021/03/mrachnaya-avatarka-dlya-parney.jpg"
     }
   ],
-  "profile":
-  [
+  "profile": [
     {
-      "id": 1,
-      "first": "Nikita",
-      "lastname": "Volkov",
+      "id": "1",
+      "firstname": "Nikita",
+      "lastname": "V",
       "age": 33,
-      "currency": "KZT",
+      "currency": "RUB",
       "country": "Belarus",
       "city": "Moscow",
       "username": "admin213",
-      "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnPGqX4s6HDBoVTLwIhy3fFmdxvMiDIfUtdA&usqp=CAU"
+      "avatar": "https://cs13.pikabu.ru/post_img/big/2023/02/13/8/1676295806122712757.png"
     },
     {
-      "id": 2,
-      "first": "Sasha",
-      "lastname": "Pobedonostseva",
-      "age": 33,
-      "currency": "KZT",
-      "country": "Belarus",
+      "id": "2",
+      "firstname": "ulbi tv",
+      "lastname": "asf",
+      "age": 465,
+      "currency": "RUB",
+      "country": "Russia",
       "city": "Moscow",
-      "username": "admin213",
-      "avatar": "https://cdn-icons-png.flaticon.com/512/5556/5556468.png"
+      "username": "ulbi tv",
+      "avatar": "https://shapka-youtube.ru/wp-content/uploads/2021/03/mrachnaya-avatarka-dlya-parney.jpg"
     }
   ]
 }

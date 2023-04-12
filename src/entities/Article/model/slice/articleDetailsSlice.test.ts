@@ -1,6 +1,3 @@
-import { Country } from 'entities/Country';
-import { Currency } from 'entities/Currency';
-import { updateProfileData } from 'entities/Profile';
 import { Article, ArticleDetailsSchema } from 'entities/Article';
 import { ArticleBlockType, ArticleType } from 'entities/Article/model/types/article';
 import { fetchArticleById } from 'entities/Article/model/services/fetchArticleById/fetchArticleById';
@@ -13,6 +10,10 @@ const data: Article = {
     img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
     views: 1022,
     createdAt: '26.02.2022',
+    user: {
+        id: '1',
+        username: 'Nikita V',
+    },
     type: [ArticleType.IT],
     blocks: [
         {

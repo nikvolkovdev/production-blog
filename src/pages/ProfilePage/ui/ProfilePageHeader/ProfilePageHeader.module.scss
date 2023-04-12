@@ -1,7 +1,6 @@
 .ProfilePageHeader {
     display: flex;
     margin-bottom: 20px;
-    justify-content: flex-end;
 }
 
 .saveBtn {
@@ -11,4 +10,8 @@
 .profile {
     margin-right: 10px;
     padding-top: 5px;
+}
+
+.btnWrapper {
+    margin-left: auto;
 }

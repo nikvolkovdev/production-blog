@@ -47,10 +47,6 @@ export const ProfileCard = memo((props: ProfileCardProps) => {
         readOnly = true,
     } = props;
 
-    const mods: Mods = {
-        [cls.editing]: !readOnly,
-    };
-
     if (isLoading) {
         return (
             <div className={classNames(cls.ProfileCard, {}, [className, cls.loading])}>
@@ -71,6 +67,10 @@ export const ProfileCard = memo((props: ProfileCardProps) => {
             </div>
         );
     }
+
+    const mods: Mods = {
+        [cls.editing]: !readOnly,
+    };
 
     return (
         <div className={classNames(cls.ProfileCard, mods, [className])}>

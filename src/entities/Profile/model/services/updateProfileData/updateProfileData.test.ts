@@ -10,6 +10,7 @@ jest.mock('axios');
 const mockedAxios = jest.mocked(axios, true);
 
 const data = {
+    id: '1',
     username: 'admin',
     age: 22,
     country: Country.KAZAKHSTAN,

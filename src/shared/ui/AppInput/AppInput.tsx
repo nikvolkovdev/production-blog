@@ -70,6 +70,8 @@ export const AppInput = memo((props: AppInputProps) => {
                 className={classNames(cls.input, {}, [cls[variant]])}
                 readOnly={readOnly}
                 {...otherProps}
+                /* eslint-disable-next-line jsx-a11y/no-autofocus */
+                autoFocus={isFocused}
             />
         </div>
     );
