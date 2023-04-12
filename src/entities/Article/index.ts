@@ -7,3 +7,4 @@ export {
     getArticleDetailsError,
 } from './model/selectors/getArticleDetails';
 export {} from './ui/ArticleList/ArticleList';
+export { ArticleViewSelector } from './ui/ArticleViewSelector/ArticleViewSelector';
