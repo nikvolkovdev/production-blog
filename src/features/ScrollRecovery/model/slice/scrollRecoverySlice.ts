@@ -9,8 +9,8 @@ export const scrollRecoverySlice = createSlice({
     name: 'ScrollRecovery',
     initialState,
     reducers: {
-        setScrollPosition: (state, action: PayloadAction<{ path: string, position: number }>) => {
-            state.scroll[action.payload.path] = action.payload.position;
+        setScrollPosition: (state, { payload }: PayloadAction<{ path: string; position: number }>) => {
+            state.scroll[payload.path] = payload.position;
         },
     },
 });

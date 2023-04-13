@@ -3,14 +3,16 @@ import { ThunkConfig } from 'app/providers/StoreProvider';
 import { articlePageActions } from 'pages/ArticlesPage/model/slices/articlesPageSlice';
 import { fetchArticlesList } from 'pages/ArticlesPage/model/services/fetchArticlesList';
 import { getArticlesPageInited } from 'pages/ArticlesPage/model/selectors/getArticlesPageInited';
+import { ArticleSortField } from 'entities/Article';
+import { SortOrder } from 'shared/types';
+import { ArticleType } from 'entities/Article/model/types/article';
 
 interface initArticlesPageProps {
-    page?: number;
 }
 
-export const initArticlesPage = createAsyncThunk<void, void, ThunkConfig<string>>(
+export const initArticlesPage = createAsyncThunk<void, URLSearchParams, ThunkConfig<string>>(
     'articlesPage/initArticlesPage',
-    async (props, thunkAPI) => {
+    async (searchParams, thunkAPI) => {
         const {
             extra, rejectWithValue, getState, dispatch,
         } = thunkAPI;
@@ -18,10 +20,29 @@ export const initArticlesPage = createAsyncThunk<void, void, ThunkConfig<string>
         const inited = getArticlesPageInited(getState());
 
         if (!inited) {
+            const orderFromUrl = searchParams.get('order') as SortOrder;
+            const sortFromUrl = searchParams.get('sort') as ArticleSortField;
+            const searchFromUrl = searchParams.get('search');
+            const typeFromUrl = searchParams.get('type') as ArticleType;
+
+            if (orderFromUrl) {
+                dispatch(articlePageActions.setOrder(orderFromUrl));
+            }
+
+            if (sortFromUrl) {
+                dispatch(articlePageActions.setSort(sortFromUrl));
+            }
+
+            if (searchFromUrl) {
+                dispatch(articlePageActions.setSearch(searchFromUrl));
+            }
+
+            if (typeFromUrl) {
+                dispatch(articlePageActions.setType(typeFromUrl));
+            }
+
             dispatch(articlePageActions.initState());
-            dispatch(fetchArticlesList({
-                page: 1,
-            }));
+            dispatch(fetchArticlesList({}));
         }
     },
 );

@@ -8,7 +8,6 @@ import { fetchArticlesList } from 'pages/ArticlesPage/model/services/fetchArticl
 import { getArticlesPageIsLoading } from 'pages/ArticlesPage/model/selectors/getArticlesPageIsLoading';
 
 interface FetchArticlesListProps {
-    page?: number;
 }
 
 export const fetchNextArticlesPage = createAsyncThunk<void, void, ThunkConfig<string>>(
@@ -23,9 +22,7 @@ export const fetchNextArticlesPage = createAsyncThunk<void, void, ThunkConfig<st
 
         if (hasMore && !isLoading) {
             dispatch(articlePageActions.setPage(page + 1));
-            dispatch(fetchArticlesList({
-                page: page + 1,
-            }));
+            dispatch(fetchArticlesList({}));
         }
     },
 );
