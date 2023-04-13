@@ -19,7 +19,7 @@ import { Country } from 'entities/Country';
 import { AppText, AppTextVariant } from 'shared/ui/AppText/AppText';
 import { useParams } from 'react-router-dom';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
-import { AppPage } from 'shared/ui/AppPage/AppPage';
+import { AppPage } from 'widgets/AppPage/AppPage';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 import cls from './ProfilePage.module.scss';
 

@@ -1,6 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { memo } from 'react';
-import { AppPage } from 'shared/ui/AppPage/AppPage';
+import { AppPage } from 'widgets/AppPage/AppPage';
 import cls from './NotFoundPage.module.scss';
 
 interface NotFoundPageProps {

@@ -45,7 +45,7 @@ const AddNewCommentForm = memo((props: addNewCommentFormProps) => {
             <div className={classNames(cls.addNewCommentForm, {}, [className])}>
                 <AppInput
                     placeholder="Введите текст комментария"
-                    value={text || ''}
+                    value={text ?? ''}
                     onChange={onCommentTextChange}
                     className={cls.input}
                 />

@@ -1,5 +1,5 @@
 import React from 'react';
-import { AppPage } from 'shared/ui/AppPage/AppPage';
+import { AppPage } from 'widgets/AppPage/AppPage';
 
 const MainPage = () => (
     <AppPage>
