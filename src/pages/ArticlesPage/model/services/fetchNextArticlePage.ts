@@ -12,7 +12,7 @@ interface FetchArticlesListProps {
 }
 
 export const fetchNextArticlesPage = createAsyncThunk<void, void, ThunkConfig<string>>(
-    'articlePage/fetchNextArticlesPage',
+    'articlesPage/fetchNextArticlesPage',
     async (props, thunkAPI) => {
         const {
             extra, rejectWithValue, getState, dispatch,

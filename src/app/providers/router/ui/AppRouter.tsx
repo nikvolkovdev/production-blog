@@ -7,7 +7,8 @@ import { RequireAuth } from 'app/providers/router/ui/RequireAuth';
 export const AppRouter = () => {
     const renderWithWrapper = useCallback((route: AppRoutesProps) => {
         const element = (
-            <div>{route.element}</div>
+            // eslint-disable-next-line react/jsx-no-useless-fragment
+            <>{route.element}</>
         );
 
         return (

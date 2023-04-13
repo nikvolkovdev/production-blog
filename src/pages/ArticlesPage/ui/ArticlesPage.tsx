@@ -5,12 +5,12 @@ import { ArticleView, ArticleViewSelector } from 'entities/Article';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDisptach';
-import { fetchArticlesList } from 'pages/ArticlesPage/model/services/fetchArticlesList';
 import { useSelector } from 'react-redux';
 import { AppPage } from 'shared/ui/AppPage/AppPage';
 import { getArticlesPageNumber } from 'pages/ArticlesPage/model/selectors/getArticlesPageNumber';
 import { getArticlePageHasMore } from 'pages/ArticlesPage/model/selectors/getArticlePageHasMore';
-import { fetchNextArticlesPage } from 'pages/ArticlesPage/model/services/fetchNextArticlePage';
+import { fetchNextArticlesPage } from '../model/services/fetchNextArticlePage';
+import { initArticlesPage } from '../model/services/initArticlesPage';
 import { getArticlesPageError } from '../model/selectors/getArticlesPageError';
 import { getArticlesPageView } from '../model/selectors/getArticlesPageView';
 import { getArticlesPageIsLoading } from '../model/selectors/getArticlesPageIsLoading';
@@ -38,10 +38,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
     const hasMore = useSelector(getArticlePageHasMore);
 
     useInitialEffect(() => {
-        dispatch(articlePageActions.initState());
-        dispatch(fetchArticlesList({
-            page: 1,
-        }));
+        dispatch(initArticlesPage());
     });
 
     const onChangeView = useCallback((view: ArticleView) => {
@@ -53,7 +50,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
     }, [dispatch]);
 
     return (
-        <DynamicModuleLoader reducers={reducers}>
+        <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
             <AppPage onScrollEnd={onLoadNextPart} className={classNames('', {}, [className])}>
                 <ArticleViewSelector view={view || ArticleView.BIG} onViewClick={onChangeView} />
                 <ArticleList
