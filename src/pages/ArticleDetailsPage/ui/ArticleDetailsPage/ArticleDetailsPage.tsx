@@ -29,6 +29,9 @@ import {
     fetchArticleRecommendations,
 } from 'pages/ArticleDetailsPage/model/services/fetchArticleRecommendations/fetchArticleRecommendations';
 import { articleDetailsPageReducer } from 'pages/ArticleDetailsPage/model/slices';
+import {
+    ArticleDetailsPageHeader,
+} from 'pages/ArticleDetailsPage/ui/ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import { getArticleComments } from '../../model/slices/articleDetailsCommentsSlice';
 import cls from './ArticleDetailsPage.module.scss';
 
@@ -79,9 +82,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <AppPage className={classNames('', {}, [className])}>
-                <AppButton variant={ButtonVariant.OUTLINE} onClick={onBackToList}>
-                    Назад к списку
-                </AppButton>
+                <ArticleDetailsPageHeader />
                 <ArticleDetails id={id || ''} />
                 {!commentsError && (
                     <>

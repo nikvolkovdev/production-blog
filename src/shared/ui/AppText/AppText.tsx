@@ -4,6 +4,7 @@ import cls from './AppText.module.scss';
 
 export enum AppTextVariant {
     PRIMARY = 'primary',
+    INVERTED = 'inverted',
     ERROR = 'error',
 }
 

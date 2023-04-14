@@ -4,6 +4,9 @@ import { AppButton, ButtonVariant } from 'shared/ui/AppButton/AppButton';
 import { LoginModal } from 'features/AuthByUsername';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUserAuthData, userActions } from 'entities/User';
+import { AppText, AppTextVariant } from 'shared/ui/AppText/AppText';
+import { AppLink, AppLinkVariant } from 'shared/ui/AppLink/AppLink';
+import { ROUTE_PATH } from 'app/providers/router/lib/routerConfig/routerConfig';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -33,6 +36,14 @@ export const Navbar = memo((props: NavbarProps) => {
     if (authData) {
         return (
             <header className={classNames(cls.Navbar, {}, [className])}>
+                <AppText className={cls.appName} title="Hmm..!?" variant={AppTextVariant.INVERTED} />
+                <AppLink
+                    to={ROUTE_PATH.article_create}
+                    variant={AppLinkVariant.INVERTED}
+                    className={cls.createBtn}
+                >
+                    Создать статью
+                </AppLink>
                 <AppButton
                     variant={ButtonVariant.CLEAR_INVERTED}
                     className={cls.links}
