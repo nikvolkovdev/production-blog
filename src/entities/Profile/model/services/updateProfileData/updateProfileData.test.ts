@@ -3,7 +3,7 @@ import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
 import { AsyncThunk } from '@reduxjs/toolkit';
-import { Profile, ValidateProfileError } from 'entities/Profile';
+import { Profile, ValidateProfileError } from '../../types/Profile';
 import { updateProfileData } from './updateProfileData';
 
 jest.mock('axios');

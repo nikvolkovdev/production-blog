@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider/ui/ThemeContext';
-import { AppLink } from 'shared/ui/AppLink/AppLink';
+import { AppLink } from './AppLink';
 
 export default {
     title: 'shared/AppLink',

@@ -2,7 +2,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { memo, useCallback } from 'react';
 import { AppSelect } from 'shared/ui/AppSelect/AppSelect';
 
-import { Country } from 'entities/Country';
+import { Country } from '../model/types/country';
 import cls from './CountrySelect.module.scss';
 
 interface CountrySelectProps {

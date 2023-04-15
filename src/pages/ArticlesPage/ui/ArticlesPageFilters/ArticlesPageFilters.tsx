@@ -1,23 +1,22 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { memo, useCallback, useMemo } from 'react';
 import { ArticleSortField, ArticleView, ArticleViewSelector } from 'entities/Article';
-import { articlePageActions } from 'pages/ArticlesPage/model/slices/articlesPageSlice';
 import { useSelector } from 'react-redux';
-import { getArticlesPageView } from 'pages/ArticlesPage/model/selectors/getArticlesPageView';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDisptach';
 import { Card } from 'shared/ui/Card/Card';
 import { AppInput } from 'shared/ui/AppInput/AppInput';
 import { ArticleSortSelector } from 'entities/Article/ui/ArticleSortSelector/ArticleSortSelector';
 import { SortOrder } from 'shared/types';
-import { getArticlesPageSort } from 'pages/ArticlesPage/model/selectors/getArticlesPageSort';
-import { getArticlesPageOrder } from 'pages/ArticlesPage/model/selectors/getArticlesPageOrder';
-import { getArticlesPageSearch } from 'pages/ArticlesPage/model/selectors/getArticlesPageSearch';
-import { fetchArticlesList } from 'pages/ArticlesPage/model/services/fetchArticlesList';
 import { useDebounce } from 'shared/lib/hooks/useDebounce';
-import { TabItem, Tabs } from 'shared/ui/Tabs/Tabs';
 import { ArticleType } from 'entities/Article/model/types/article';
-import { getArticlesPageType } from 'pages/ArticlesPage/model/selectors/getArticlesPageType';
 import { ArticleTypeTabs } from 'entities/Article/ui/ArticleTypeTabs/ArticleTypeTabs';
+import { getArticlesPageSort } from '../../model/selectors/getArticlesPageSort';
+import { getArticlesPageOrder } from '../../model/selectors/getArticlesPageOrder';
+import { getArticlesPageSearch } from '../../model/selectors/getArticlesPageSearch';
+import { fetchArticlesList } from '../../model/services/fetchArticlesList';
+import { getArticlesPageType } from '../../model/selectors/getArticlesPageType';
+import { getArticlesPageView } from '../../model/selectors/getArticlesPageView';
+import { articlePageActions } from '../../model/slices/articlesPageSlice';
 import cls from './ArticlesPageFilters.module.scss';
 
 interface ArticlesPageFiltersProps {

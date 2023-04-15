@@ -2,8 +2,8 @@ import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
-import { ValidateProfileError } from 'entities/Profile';
 import avatar from 'shared/assets/tests/avatar.jpg';
+import { ValidateProfileError } from '../../model/types/Profile';
 import { ProfileCard } from './ProfileCard';
 
 export default {

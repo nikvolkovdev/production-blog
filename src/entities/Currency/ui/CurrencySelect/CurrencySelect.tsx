@@ -1,7 +1,7 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { memo, useCallback } from 'react';
 import { AppSelect } from 'shared/ui/AppSelect/AppSelect';
-import { Currency } from 'entities/Currency/model/types/currency';
+import { Currency } from '../../model/types/currency';
 import cls from './CurrencySelect.module.scss';
 
 interface CurrencySelectProps {

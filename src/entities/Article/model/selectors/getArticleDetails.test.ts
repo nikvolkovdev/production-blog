@@ -1,9 +1,9 @@
+import { StateSchema } from 'app/providers/StoreProvider';
 import {
     getArticleDetailsData,
     getArticleDetailsError,
     getArticleDetailsIsLoading,
-} from 'entities/Article';
-import { StateSchema } from 'app/providers/StoreProvider';
+} from '../selectors/getArticleDetails';
 
 describe('getArticleDetails.test', () => {
     test('should return error', () => {

@@ -5,6 +5,7 @@ import { AppButton, ButtonVariant } from 'shared/ui/AppButton/AppButton';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDisptach';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { HStack } from 'shared/ui/Stack';
 import { addNewCommentActions, addNewCommentReducer } from '../../model/slice/addNewCommentSlice';
 import {
     getAddCommentFormError,
@@ -42,7 +43,7 @@ const AddNewCommentForm = memo((props: addNewCommentFormProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-            <div className={classNames(cls.addNewCommentForm, {}, [className])}>
+            <HStack justify="between" max className={classNames(cls.addNewCommentForm, {}, [className])}>
                 <AppInput
                     placeholder="Введите текст комментария"
                     value={text ?? ''}
@@ -52,7 +53,7 @@ const AddNewCommentForm = memo((props: addNewCommentFormProps) => {
                 <AppButton variant={ButtonVariant.OUTLINE} onClick={onSendHandler}>
                     Отправить
                 </AppButton>
-            </div>
+            </HStack>
         </DynamicModuleLoader>
     );
 });

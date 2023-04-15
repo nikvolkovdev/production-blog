@@ -1,9 +1,10 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { memo, useMemo, useState } from 'react';
+import { memo, useState } from 'react';
 import { ThemeSwitcher } from 'features/ThemeSwitcher/ui/ThemeSwitcher';
 import { AppButton, ButtonSize, ButtonVariant } from 'shared/ui/AppButton/AppButton';
 import { useSelector } from 'react-redux';
-import { getSidebarItems } from 'widgets/Sidebar/model/selectors/getSidebarItems';
+import { VStack } from 'shared/ui/Stack/VStack/VStack';
+import { getSidebarItems } from '../../model/selectors/getSidebarItems';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
 import cls from './Sidebar.module.scss';
 
@@ -28,7 +29,7 @@ export const Sidebar = memo((props: SidebarProps) => {
             data-testid="sidebar"
             className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}
         >
-            <div className={cls.items}>
+            <VStack gap="8" className={cls.items}>
                 { sidebarItemsList.map((item) => (
                     <SidebarItem
                         item={item}
@@ -36,7 +37,7 @@ export const Sidebar = memo((props: SidebarProps) => {
                         collapsed={collapsed}
                     />
                 ))}
-            </div>
+            </VStack>
             <div className={cls.switchers}>
                 <ThemeSwitcher />
                 <AppButton

@@ -1,9 +1,9 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { memo } from 'react';
 import { AppText } from 'shared/ui/AppText/AppText';
-import { AppComment } from 'entities/Comment/model/types/AppComment';
+import { VStack } from 'shared/ui/Stack';
+import { AppComment } from '../../model/types/AppComment';
 import { CommentCard } from '../CommentCard/CommentCard';
-import cls from './CommentList.module.scss';
 
 interface CommentListProps {
     className?: string;
@@ -20,21 +20,21 @@ export const CommentList = memo((props: CommentListProps) => {
 
     if (isLoading) {
         return (
-            <div className={classNames(cls.CommentList, {}, [className])}>
+            <VStack gap="16" className={classNames('', {}, [className])}>
                 <CommentCard isLoading />
                 <CommentCard isLoading />
                 <CommentCard isLoading />
-            </div>
+            </VStack>
         );
     }
 
     return (
-        <div className={classNames(cls.CommentList, {}, [className])}>
+        <VStack gap="16" className={classNames('', {}, [className])}>
             {comments?.length
                 ? comments.map((comment) => (
-                    <CommentCard key={comment.id} isLoading={isLoading} className={cls.comment} comment={comment} />
+                    <CommentCard key={comment.id} isLoading={isLoading} className="" comment={comment} />
                 ))
                 : <AppText title="Комментариев пока нет" />}
-        </div>
+        </VStack>
     );
 });

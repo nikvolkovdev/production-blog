@@ -20,6 +20,7 @@ module.exports = {
         'react',
         '@typescript-eslint',
         'react-hooks',
+        'my-import-paths-check',
     ],
     rules: {
         'react/jsx-indent': [2, 4],
@@ -44,6 +45,7 @@ module.exports = {
         'no-param-reassign': 'off',
         'no-undef': 'off',
         'react/no-array-index-key': 'off',
+        'my-import-paths-check/path-checker': 'error',
         'max-len': ['error', { ignoreComments: true, code: 120 }],
     },
     globals: {

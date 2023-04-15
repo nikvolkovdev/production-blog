@@ -7,31 +7,26 @@ import { CommentList } from 'entities/Comment';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useSelector } from 'react-redux';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
-import {
-    fetchCommentsByArticleId,
-} from 'pages/ArticleDetailsPage/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDisptach';
-
-import {
-    addCommentForArticle,
-} from 'pages/ArticleDetailsPage/model/services/addCommentForArticle/addCommentForArticle';
 import { AddNewCommentForm } from 'features/addNewComment';
-import { AppButton, ButtonVariant } from 'shared/ui/AppButton/AppButton';
 import { ROUTE_PATH } from 'app/providers/router/lib/routerConfig/routerConfig';
 import { AppPage } from 'widgets/AppPage/AppPage';
-import { getArticleRecommendations } from 'pages/ArticleDetailsPage/model/slices/articleDetailsRecommendationSlice';
+import { ArticleList } from 'entities/Article/ui/ArticleList/ArticleList';
+import { VStack } from 'shared/ui/Stack';
+import { ArticleDetailsPageHeader } from '../../ui/ArticleDetailsPageHeader/ArticleDetailsPageHeader';
+import { articleDetailsPageReducer } from '../../model/slices';
+import {
+    fetchArticleRecommendations,
+} from '../../model/services/fetchArticleRecommendations/fetchArticleRecommendations';
 import {
     getArticleRecommendationsError,
     getArticleRecommendationsIsLoading,
-} from 'pages/ArticleDetailsPage/model/selectors/getRecommendationsState';
-import { ArticleList } from 'entities/Article/ui/ArticleList/ArticleList';
+} from '../../model/selectors/getRecommendationsState';
+import { getArticleRecommendations } from '../../model/slices/articleDetailsRecommendationSlice';
+import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
 import {
-    fetchArticleRecommendations,
-} from 'pages/ArticleDetailsPage/model/services/fetchArticleRecommendations/fetchArticleRecommendations';
-import { articleDetailsPageReducer } from 'pages/ArticleDetailsPage/model/slices';
-import {
-    ArticleDetailsPageHeader,
-} from 'pages/ArticleDetailsPage/ui/ArticleDetailsPageHeader/ArticleDetailsPageHeader';
+    fetchCommentsByArticleId,
+} from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { getArticleComments } from '../../model/slices/articleDetailsCommentsSlice';
 import cls from './ArticleDetailsPage.module.scss';
 
@@ -82,26 +77,27 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <AppPage className={classNames('', {}, [className])}>
-                <ArticleDetailsPageHeader />
-                <ArticleDetails id={id || ''} />
-                {!commentsError && (
-                    <>
-                        <AppText size={TextSize.L} className={cls.commentTitle} title="Рекомендуем" />
-                        <ArticleList
-                            articles={recommendations}
-                            isLoading={recommendationsIsLoading}
-                            className={cls.recommendations}
-                            target="_blank"
-                        />
-                        <AppText size={TextSize.L} className={cls.commentTitle} title="Комментарии" />
-                        <AddNewCommentForm onSendComment={onSendComment} />
-                        <CommentList
-                            isLoading={commentsIsLoading}
-                            comments={comments}
-                        />
-                    </>
-                )}
-
+                <VStack gap="16" max>
+                    <ArticleDetailsPageHeader />
+                    <ArticleDetails id={id || ''} />
+                    {!commentsError && (
+                        <>
+                            <AppText size={TextSize.L} className={cls.commentTitle} title="Рекомендуем" />
+                            <ArticleList
+                                articles={recommendations}
+                                isLoading={recommendationsIsLoading}
+                                className={cls.recommendations}
+                                target="_blank"
+                            />
+                            <AppText size={TextSize.L} className={cls.commentTitle} title="Комментарии" />
+                            <AddNewCommentForm onSendComment={onSendComment} />
+                            <CommentList
+                                isLoading={commentsIsLoading}
+                                comments={comments}
+                            />
+                        </>
+                    )}
+                </VStack>
             </AppPage>
         </DynamicModuleLoader>
 
