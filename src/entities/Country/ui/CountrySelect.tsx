@@ -2,6 +2,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { memo, useCallback } from 'react';
 import { AppSelect } from 'shared/ui/AppSelect/AppSelect';
 
+import { ListBox } from 'shared/ui/ListBox/ListBox';
 import { Country } from '../model/types/country';
 import cls from './CountrySelect.module.scss';
 
@@ -33,13 +34,26 @@ export const CountrySelect = memo((props: CountrySelectProps) => {
     }, [onChangeCountry]);
 
     return (
-        <AppSelect
-            className={classNames(cls.CountrySelect, {}, [className])}
-            label="Укажите страну"
-            options={options}
+        <ListBox
+            onChange={onChangeHandler}
             value={value}
-            onChangeValue={onChangeHandler}
-            readOnly={readOnly}
+            defaultValue="Укажите страну"
+            className={className}
+            items={options}
+            readonly={readOnly}
+            direction="top"
+            label="Укажите страну"
         />
     );
+
+    // return (
+    //     <AppSelect
+    //         className={classNames(cls.CountrySelect, {}, [className])}
+    //         label="Укажите страну"
+    //         options={options}
+    //         value={value}
+    //         onChangeValue={onChangeHandler}
+    //         readOnly={readOnly}
+    //     />
+    // );
 });

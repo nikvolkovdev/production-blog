@@ -3,9 +3,12 @@ import { Flex, FlexProps } from '../Flex/Flex';
 type VStackProps = Omit<FlexProps, 'direction'>
 
 export const VStack = (props: VStackProps) => {
-    const { align = 'start' } = props;
+    const { align = 'start', children, ...otherProps } = props;
 
     return (
-        <Flex direction="column" {...props} align={align} />
+        // @ts-ignore
+        <Flex direction="column" align={align} {...otherProps}>
+            {children}
+        </Flex>
     );
 };

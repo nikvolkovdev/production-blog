@@ -1,6 +1,7 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { memo, useCallback } from 'react';
 import { AppSelect } from 'shared/ui/AppSelect/AppSelect';
+import { ListBox } from 'shared/ui/ListBox/ListBox';
 import { Currency } from '../../model/types/currency';
 import cls from './CurrencySelect.module.scss';
 
@@ -31,13 +32,25 @@ export const CurrencySelect = memo((props: CurrencySelectProps) => {
     }, [onChangeCurrency]);
 
     return (
-        <AppSelect
-            className={classNames(cls.CurrencySelect, {}, [className])}
-            label="Укажите валюту"
-            options={options}
+        <ListBox
+            onChange={onChangeHandler}
             value={value}
-            onChangeValue={onChangeHandler}
-            readOnly={readOnly}
+            items={options}
+            defaultValue="Укажите валюту"
+            className={className}
+            readonly={readOnly}
+            label="Укажите валюту"
         />
     );
+
+    // return (
+    //     <AppSelect
+    //         className={classNames(cls.CurrencySelect, {}, [className])}
+    //         label="Укажите валюту"
+    //         options={options}
+    //         value={value}
+    //         onChangeValue={onChangeHandler}
+    //         readOnly={readOnly}
+    //     />
+    // );
 });
