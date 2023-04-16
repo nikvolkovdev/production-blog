@@ -7,6 +7,8 @@ import { getUserAuthData, userActions } from 'entities/User';
 import { AppText, AppTextVariant } from 'shared/ui/AppText/AppText';
 import { AppLink, AppLinkVariant } from 'shared/ui/AppLink/AppLink';
 import { ROUTE_PATH } from 'app/providers/router/lib/routerConfig/routerConfig';
+import { Dropdown } from 'shared/ui/Dropdown/Dropdown';
+import { AppAvatar } from 'shared/ui/AppAvatar/AppAvatar';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -44,13 +46,21 @@ export const Navbar = memo((props: NavbarProps) => {
                 >
                     Создать статью
                 </AppLink>
-                <AppButton
-                    variant={ButtonVariant.CLEAR_INVERTED}
-                    className={cls.links}
-                    onClick={onLogout}
-                >
-                    Выйти
-                </AppButton>
+                <Dropdown
+                    direction="bottom left"
+                    className={cls.dropdown}
+                    items={[
+                        {
+                            content: 'Профиль',
+                            href: ROUTE_PATH.profile + authData.id,
+                        }, {
+                            content: 'Выйти',
+                            onClick: onLogout,
+                        },
+
+                    ]}
+                    trigger={<AppAvatar size={30} src={authData.avatar} />}
+                />
             </header>
         );
     }
