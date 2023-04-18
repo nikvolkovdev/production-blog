@@ -4,8 +4,8 @@ import {
 import { userReducer } from 'entities/User';
 import { createReducerManager } from 'app/providers/StoreProvider/config/reducerManager';
 import { $api } from 'shared/api/api';
-import { NavigateOptions, To } from 'react-router-dom';
 import { scrollRecoveryReducer } from 'features/ScrollRecovery';
+import { rtkApi } from 'shared/api/rtkApi';
 import { StateSchema, ThunkExtraArg } from './StateSchema';
 
 export function createReduxStore(
@@ -16,6 +16,7 @@ export function createReduxStore(
         ...asyncReducers,
         user: userReducer,
         scrollRecovery: scrollRecoveryReducer,
+        [rtkApi.reducerPath]: rtkApi.reducer,
     };
 
     const reducerManager = createReducerManager(rootReducers);
@@ -32,7 +33,7 @@ export function createReduxStore(
             thunk: {
                 extraArgument: extraArg,
             },
-        }),
+        }).concat(rtkApi.middleware),
     });
 
     // @ts-ignore
