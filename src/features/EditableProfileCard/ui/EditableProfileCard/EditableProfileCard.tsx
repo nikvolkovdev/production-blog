@@ -20,7 +20,6 @@ import {
     getProfileValidateErrors,
 } from '../../model/selectors/getProfileValidateErrors/getProfileValidateErrors';
 import { getProfileForm } from '../../model/selectors/getProfileForm/getProfileForm';
-import cls from './EditableProfileCard.module.scss';
 
 const reducers: ReducersList = {
     profile: profileReducer,
@@ -89,7 +88,7 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <div className={classNames(cls.EditableProfileCard, {}, [className])}>
+            <div className={classNames('', {}, [className])}>
                 {validateErrors?.length && validateErrors.map((err) => (
                     <AppText
                         key={err}
