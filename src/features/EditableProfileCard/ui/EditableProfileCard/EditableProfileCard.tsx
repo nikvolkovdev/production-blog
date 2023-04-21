@@ -8,6 +8,7 @@ import { Country } from 'entities/Country';
 import { AppText, AppTextVariant } from 'shared/ui/AppText/AppText';
 import { ProfileCard } from 'entities/Profile';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { VStack } from 'shared/ui/Stack';
 import {
     getProfileIsLoading,
 } from '../../model/selectors/getProfileIsLoading/getProfileIsLoading';
@@ -20,6 +21,7 @@ import {
     getProfileValidateErrors,
 } from '../../model/selectors/getProfileValidateErrors/getProfileValidateErrors';
 import { getProfileForm } from '../../model/selectors/getProfileForm/getProfileForm';
+import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
 
 const reducers: ReducersList = {
     profile: profileReducer,
@@ -88,12 +90,15 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <div className={classNames('', {}, [className])}>
+            <VStack gap="8" max className={classNames('EditableProfileCard', {}, [className])}>
+                <EditableProfileCardHeader />
+
                 {validateErrors?.length && validateErrors.map((err) => (
                     <AppText
                         key={err}
                         variant={AppTextVariant.ERROR}
                         description={validateErrorMap[err]}
+                        data-testid="EditableProfileCard.Error"
                     />
                 ))}
                 <ProfileCard
@@ -110,7 +115,7 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
                     onChangeCurrency={onChangeCurrency}
                     onChangeCountry={onChangeCountry}
                 />
-            </div>
+            </VStack>
         </DynamicModuleLoader>
     );
 });
