@@ -1,8 +1,11 @@
 export { ArticleDetails } from './ui/ArticleDetails/ArticleDetails';
 export {
-    Article, ArticleView, ArticleSortField, ArticleType,
+    ArticleView, ArticleSortField, ArticleType,
+} from './model/consts/consts';
+export type {
+    Article,
 } from './model/types/article';
-export { ArticleDetailsSchema } from './model/types/articleDetailsSchema';
+export type { ArticleDetailsSchema } from './model/types/articleDetailsSchema';
 export {
     getArticleDetailsData,
     getArticleDetailsIsLoading,

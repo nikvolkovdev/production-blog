@@ -4,7 +4,7 @@ import { AppButton, ButtonVariant } from 'shared/ui/AppButton/AppButton';
 import { AppIcon } from 'shared/ui/AppIcon/AppIcon';
 import PlateIcon from 'shared/assets/icons/plate.svg';
 import FullPlateIcon from 'shared/assets/icons/full-plate.svg';
-import { ArticleView } from '../../model/types/article';
+import { ArticleView } from '../../model/consts/consts';
 import cls from './ArticleViewSelector.module.scss';
 
 interface ArticleViewSelectorProps {

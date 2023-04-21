@@ -4,8 +4,8 @@ import { Card } from 'shared/ui/Card/Card';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
 import cls from './ArticleListItem.module.scss';
 import {
-    Article, ArticleBlockType, ArticleTextBlock, ArticleView,
-} from '../../model/types/article';
+    ArticleView,
+} from '../../model/consts/consts';
 
 interface ArticleListItemSkeletonProps {
     className?: string;

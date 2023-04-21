@@ -1,6 +1,8 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { memo, useCallback, useMemo } from 'react';
-import { ArticleSortField, ArticleView, ArticleViewSelector } from 'entities/Article';
+import {
+    ArticleSortField, ArticleType, ArticleView, ArticleViewSelector,
+} from 'entities/Article';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDisptach';
 import { Card } from 'shared/ui/Card/Card';
@@ -8,7 +10,6 @@ import { AppInput } from 'shared/ui/AppInput/AppInput';
 import { ArticleSortSelector } from 'entities/Article/ui/ArticleSortSelector/ArticleSortSelector';
 import { SortOrder } from 'shared/types';
 import { useDebounce } from 'shared/lib/hooks/useDebounce';
-import { ArticleType } from 'entities/Article/model/types/article';
 import { ArticleTypeTabs } from 'entities/Article/ui/ArticleTypeTabs/ArticleTypeTabs';
 import { getArticlesPageSort } from '../../model/selectors/getArticlesPageSort';
 import { getArticlesPageOrder } from '../../model/selectors/getArticlesPageOrder';

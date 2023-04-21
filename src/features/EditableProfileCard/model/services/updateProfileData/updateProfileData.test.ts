@@ -4,7 +4,7 @@ import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
 import { AsyncThunk } from '@reduxjs/toolkit';
 import { Profile } from 'entities/Profile';
-import { ValidateProfileError } from '../../types/EditableProfileCardSchema';
+import { ValidateProfileError } from '../../consts/consts';
 import { updateProfileData } from './updateProfileData';
 
 jest.mock('axios');

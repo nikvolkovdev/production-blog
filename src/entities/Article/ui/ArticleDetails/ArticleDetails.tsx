@@ -9,7 +9,8 @@ import { AppAvatar } from 'shared/ui/AppAvatar/AppAvatar';
 import { AppIcon } from 'shared/ui/AppIcon/AppIcon';
 import { HStack, VStack } from 'shared/ui/Stack';
 import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
-import { ArticleBlock, ArticleBlockType } from '../../model/types/article';
+import { ArticleBlock } from '../../model/types/article';
+import { ArticleBlockType } from '../../model/consts/consts';
 import {
     getArticleDetailsData,
     getArticleDetailsError,

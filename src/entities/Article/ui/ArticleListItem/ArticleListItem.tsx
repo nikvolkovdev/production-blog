@@ -11,8 +11,11 @@ import { ROUTE_PATH } from 'app/providers/router/lib/routerConfig/routerConfig';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
 import cls from './ArticleListItem.module.scss';
 import {
-    Article, ArticleBlockType, ArticleTextBlock, ArticleView,
+    Article, ArticleTextBlock,
 } from '../../model/types/article';
+import {
+    ArticleBlockType, ArticleView,
+} from '../../model/consts/consts';
 import EyeIcon from '../../../../shared/assets/icons/eye-20-20.svg';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 
