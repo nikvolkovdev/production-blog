@@ -7,7 +7,7 @@ import 'app/styles/index.scss';
 import AboutPage from './AboutPage';
 
 export default {
-    title: 'pages/AboutPage',
+    title: 'pages/AdminPanelPage',
     component: AboutPage,
     argTypes: {
         backgroundColor: { control: 'color' },
