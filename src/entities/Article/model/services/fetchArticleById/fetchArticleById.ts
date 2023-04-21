@@ -2,13 +2,15 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from 'app/providers/StoreProvider';
 import { Article } from '../../types/article';
 
-export const fetchArticleById = createAsyncThunk<Article, string, ThunkConfig<string>>(
+export const fetchArticleById = createAsyncThunk<Article, string | undefined, ThunkConfig<string>>(
     'article/fetchArticleId',
     async (articleId, thunkAPI) => {
         const { extra, rejectWithValue } = thunkAPI;
 
         try {
-            // получить мы хотим именно тип пользователя
+            if (!articleId) {
+                throw new Error();
+            }
             const response = await extra.api.get<Article>(`/articles/${articleId}`, {
                 params: {
                     _expand: 'user',
@@ -22,7 +24,7 @@ export const fetchArticleById = createAsyncThunk<Article, string, ThunkConfig<st
             return response.data;
         } catch (e) {
             console.log(e);
-            return rejectWithValue('Вы ввели неверный логин или пароль');
+            return rejectWithValue('Нет такой статьи');
         }
     },
 );

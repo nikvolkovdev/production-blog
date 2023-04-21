@@ -632,14 +632,18 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "roles": ["ADMIN"],
+      "roles": [
+        "ADMIN"
+      ],
       "avatar": "https://i.pinimg.com/originals/3f/37/07/3f37077c62d9cfe48e46b195b232f7e2.jpg"
     },
     {
       "id": "2",
       "username": "user",
       "password": "123",
-      "roles": ["USER"],
+      "roles": [
+        "USER"
+      ],
       "avatar": "https://cs13.pikabu.ru/post_img/big/2023/02/13/8/1676295806122712757.png"
     }
   ],
@@ -658,7 +662,7 @@
     {
       "id": "2",
       "firstname": "ulbi tv",
-      "lastname": "asf",
+      "lastname": "ssadas",
       "age": 465,
       "currency": "RUB",
       "country": "Russia",

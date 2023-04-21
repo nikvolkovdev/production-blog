@@ -39,7 +39,7 @@ export const ArticleDetailsComments = memo((props: ArticleDetailsCommentsProps) 
     }, [dispatch]);
 
     return (
-        <VStack gap="16" className={classNames(cls.ArticleDetailsComments, {}, [className])}>
+        <VStack gap="16" max className={classNames(cls.ArticleDetailsComments, {}, [className])}>
             {!commentsError && (
                 <>
                     <AppText size={TextSize.L} className={cls.commentTitle} title="Комментарии" />

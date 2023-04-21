@@ -18,10 +18,6 @@ const ProfilePage = memo((props: ProfilePageProps) => {
 
     const profile = useParams<{id: string}>();
 
-    if (!profile.id) {
-        return <AppText title="Профиль с таким id не найден" />;
-    }
-
     return (
         <AppPage className={classNames(cls.ProfilePage, {}, [className])}>
 
