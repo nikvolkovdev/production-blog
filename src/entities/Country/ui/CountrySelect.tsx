@@ -1,10 +1,6 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import { memo, useCallback } from 'react';
-import { AppSelect } from 'shared/ui/AppSelect/AppSelect';
-
-import { ListBox } from 'shared/ui/ListBox/ListBox';
+import { ListBox } from 'shared/ui/Popups/ui/ListBox/ListBox';
 import { Country } from '../model/types/country';
-import cls from './CountrySelect.module.scss';
 
 interface CountrySelectProps {
     className?: string;

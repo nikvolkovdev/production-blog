@@ -2,9 +2,11 @@ import { useState, Fragment, ReactNode } from 'react';
 import { Listbox as HListBox } from '@headlessui/react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { DropDownDirection } from 'shared/types/ui';
-import { HStack } from '../Stack/HStack/HStack';
+import { mapDirectionClass } from '../../styles/consts';
+import { HStack } from '../../../Stack/HStack/HStack';
 import cls from './ListBox.module.scss';
-import { AppButton } from '../AppButton/AppButton';
+import { AppButton } from '../../../AppButton/AppButton';
+import popupCls from '../../styles/popup.module.scss';
 
 export interface ListBoxItem {
     value: string;
@@ -29,25 +31,22 @@ export function ListBox(props: ListBoxProps) {
     } = props;
     const [selectedPerson, setSelectedPerson] = useState();
 
-    const mapDirectionClass: Record<DropDownDirection, string> = {
-        'bottom left': cls.optionBottomLeft,
-        'bottom right': cls.optionBottomRight,
-        'top left': cls.optionsTopLeft,
-        'top right': cls.optionsTopRight,
-    };
-
     return (
         <HStack gap="4" align="center">
-            {label && <span className={classNames('', { [cls.label]: readonly }, [])}>{label}</span>}
+            {label && (
+                <span className={classNames('', { [cls.label]: readonly }, [className])}>
+                    {label}
+                </span>
+            )}
             <HListBox
                 disabled={readonly}
                 as="div"
                 value={selectedPerson}
                 onChange={onChange}
-                className={classNames(cls.ListBox, {}, [className])}
+                className={classNames(cls.ListBox, {}, [className, popupCls.popup])}
             >
                 <HListBox.Button
-                    className={cls.trigger}
+                    className={popupCls.trigger}
                 >
                     <AppButton disabled={readonly}>
                         {value ?? defaultValue}
@@ -63,8 +62,8 @@ export function ListBox(props: ListBoxProps) {
                         >
                             {({ active, selected }) => (
                                 <li className={classNames(cls.item, {
-                                    [cls.active]: active,
-                                    [cls.disabled]: item.disabled,
+                                    [popupCls.active]: active,
+                                    [popupCls.disabled]: item.disabled,
                                 }, [])}
                                 >
                                     {item.content}
