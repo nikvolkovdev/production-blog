@@ -1,14 +1,14 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import { HTMLAttributeAnchorTarget, memo, useCallback } from 'react';
-import { AppText } from 'shared/ui/AppText/AppText';
-import { AppIcon } from 'shared/ui/AppIcon/AppIcon';
-import { Card } from 'shared/ui/Card/Card';
-import { useHover } from 'shared/lib/hooks/useHover';
-import { AppAvatar } from 'shared/ui/AppAvatar/AppAvatar';
-import { AppButton, ButtonVariant } from 'shared/ui/AppButton/AppButton';
 import { useNavigate } from 'react-router-dom';
-import { ROUTE_PATH } from 'app/providers/router/lib/routerConfig/routerConfig';
-import { AppLink } from 'shared/ui/AppLink/AppLink';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { AppText } from '@/shared/ui/AppText/AppText';
+import { AppIcon } from '@/shared/ui/AppIcon/AppIcon';
+import { Card } from '@/shared/ui/Card/Card';
+import { useHover } from '@/shared/lib/hooks/useHover';
+import { AppAvatar } from '@/shared/ui/AppAvatar/AppAvatar';
+import { AppButton, ButtonVariant } from '@/shared/ui/AppButton/AppButton';
+import { ROUTE_PATH } from '@/app/providers/router/lib/routerConfig/routerConfig';
+import { AppLink } from '@/shared/ui/AppLink/AppLink';
 import cls from './ArticleListItem.module.scss';
 import {
     Article, ArticleTextBlock,

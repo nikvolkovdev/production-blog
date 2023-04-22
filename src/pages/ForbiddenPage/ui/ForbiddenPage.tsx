@@ -1,6 +1,6 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import { memo } from 'react';
-import { AppPage } from 'widgets/AppPage/AppPage';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { AppPage } from '@/widgets/AppPage/AppPage';
 
 interface ForbiddenPageProps {
     className?: string;

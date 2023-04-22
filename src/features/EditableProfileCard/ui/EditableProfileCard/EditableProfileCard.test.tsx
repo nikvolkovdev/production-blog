@@ -1,10 +1,10 @@
 import { screen } from '@testing-library/react';
-import { Profile } from 'entities/Profile';
-import { Currency } from 'entities/Currency';
-import { Country } from 'entities/Country';
 // eslint-disable-next-line import/no-named-default
 import { default as userEvent } from '@testing-library/user-event';
-import { $api } from 'shared/api/api';
+import { Profile } from '@/entities/Profile';
+import { Currency } from '@/entities/Currency';
+import { Country } from '@/entities/Country';
+import { $api } from '@/shared/api/api';
 import { profileReducer } from '../../model/slice/profileSlice';
 import { componentRender } from '../../../../shared/lib/tests/componentRender/componentRender';
 import { EditableProfileCard } from './EditableProfileCard';

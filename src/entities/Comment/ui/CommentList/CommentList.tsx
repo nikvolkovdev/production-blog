@@ -1,7 +1,7 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import { memo } from 'react';
-import { AppText } from 'shared/ui/AppText/AppText';
-import { VStack } from 'shared/ui/Stack';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { AppText } from '@/shared/ui/AppText/AppText';
+import { VStack } from '@/shared/ui/Stack';
 import { AppComment } from '../../model/types/AppComment';
 import { CommentCard } from '../CommentCard/CommentCard';
 

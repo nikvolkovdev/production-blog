@@ -1,10 +1,10 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
-import { Theme } from 'app/providers/ThemeProvider/ui/ThemeContext';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
+import { Theme } from '@/app/providers/ThemeProvider/ui/ThemeContext';
 import { ThemeSwitcher } from '../ui/ThemeSwitcher';
 
-import 'app/styles/index.scss';
+import '@/app/styles/index.scss';
 
 export default {
     title: 'features/ThemeSwitcher',

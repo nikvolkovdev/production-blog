@@ -1,6 +1,6 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import { memo } from 'react';
-import { AppButton, ButtonVariant } from 'shared/ui/AppButton/AppButton';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { AppButton, ButtonVariant } from '@/shared/ui/AppButton/AppButton';
 import cls from './PageError.module.scss';
 
 interface PageErrorProps {

@@ -1,9 +1,9 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import { memo } from 'react';
-import { AppPage } from 'widgets/AppPage/AppPage';
-import { EditableProfileCard } from 'features/EditableProfileCard';
 import { useParams } from 'react-router-dom';
-import { AppText } from 'shared/ui/AppText/AppText';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { AppPage } from '@/widgets/AppPage/AppPage';
+import { EditableProfileCard } from '@/features/EditableProfileCard';
+import { AppText } from '@/shared/ui/AppText/AppText';
 
 import cls from './ProfilePage.module.scss';
 

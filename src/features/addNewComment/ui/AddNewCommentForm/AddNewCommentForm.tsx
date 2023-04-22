@@ -1,11 +1,11 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import { memo, useCallback } from 'react';
-import { AppInput } from 'shared/ui/AppInput/AppInput';
-import { AppButton, ButtonVariant } from 'shared/ui/AppButton/AppButton';
 import { useSelector } from 'react-redux';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDisptach';
-import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { HStack } from 'shared/ui/Stack';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { AppInput } from '@/shared/ui/AppInput/AppInput';
+import { AppButton, ButtonVariant } from '@/shared/ui/AppButton/AppButton';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDisptach';
+import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { HStack } from '@/shared/ui/Stack';
 import { addNewCommentActions, addNewCommentReducer } from '../../model/slice/addNewCommentSlice';
 import {
     getAddCommentFormError,

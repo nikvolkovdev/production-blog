@@ -1,9 +1,9 @@
 import { memo } from 'react';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDisptach';
 import { useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
-import { ArticleList } from 'entities/Article';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDisptach';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
+import { ArticleList } from '@/entities/Article';
 import { initArticlesPage } from '../../model/services/initArticlesPage';
 import { getArticles } from '../../model/slices/articlesPageSlice';
 import { getArticlesPageIsLoading } from '../../model/selectors/getArticlesPageIsLoading';

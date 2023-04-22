@@ -1,15 +1,15 @@
-import { classNames, Mods } from 'shared/lib/classNames/classNames';
-
 import { memo } from 'react';
-import { AppText, AppTextVariant, TextAlign } from 'shared/ui/AppText/AppText';
-import { AppInput } from 'shared/ui/AppInput/AppInput';
-import { Loader } from 'shared/ui/Loader/Loader';
-import { AppAvatar } from 'shared/ui/AppAvatar/AppAvatar';
-import { Currency } from 'entities/Currency/model/types/currency';
-import { CurrencySelect } from 'entities/Currency/ui/CurrencySelect/CurrencySelect';
-import { Country } from 'entities/Country/model/types/country';
-import { CountrySelect } from 'entities/Country';
-import { HStack, VStack } from 'shared/ui/Stack';
+import { classNames, Mods } from '@/shared/lib/classNames/classNames';
+
+import { AppText, AppTextVariant, TextAlign } from '@/shared/ui/AppText/AppText';
+import { AppInput } from '@/shared/ui/AppInput/AppInput';
+import { Loader } from '@/shared/ui/Loader/Loader';
+import { AppAvatar } from '@/shared/ui/AppAvatar/AppAvatar';
+import { Currency } from '@/entities/Currency/model/types/currency';
+import { CurrencySelect } from '@/entities/Currency/ui/CurrencySelect/CurrencySelect';
+import { Country } from '@/entities/Country/model/types/country';
+import { CountrySelect } from '@/entities/Country';
+import { HStack, VStack } from '@/shared/ui/Stack';
 import { Profile } from '../../model/types/Profile';
 import cls from './ProfileCard.module.scss';
 

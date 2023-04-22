@@ -1,6 +1,6 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import { memo, ReactNode, useCallback } from 'react';
-import CopyIcon from 'shared/assets/icons/code-20-20.svg';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import CopyIcon from '@/shared/assets/icons/code-20-20.svg';
 import cls from './Code.module.scss';
 import { AppButton, ButtonVariant } from '../AppButton/AppButton';
 

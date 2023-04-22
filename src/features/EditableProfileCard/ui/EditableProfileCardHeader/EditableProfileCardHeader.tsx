@@ -1,11 +1,11 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
-import { getUserAuthData } from 'entities/User';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDisptach';
-import { HStack } from 'shared/ui/Stack';
-import { AppText } from 'shared/ui/AppText/AppText';
-import { AppButton, ButtonVariant } from 'shared/ui/AppButton/AppButton';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { getUserAuthData } from '@/entities/User';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDisptach';
+import { HStack } from '@/shared/ui/Stack';
+import { AppText } from '@/shared/ui/AppText/AppText';
+import { AppButton, ButtonVariant } from '@/shared/ui/AppButton/AppButton';
 import { profileActions } from '../../model/slice/profileSlice';
 import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
 import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';

@@ -11,7 +11,7 @@
     "baseUrl": ".",
     "esModuleInterop": true,
     "paths": {
-      "*" : ["./src/*"]
+      "@/*" : ["./src/*"]
     },
     "allowSyntheticDefaultImports": true,
     "isolatedModules": true,
