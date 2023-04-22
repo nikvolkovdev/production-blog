@@ -2,6 +2,7 @@ import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import React, {
     memo, MutableRefObject, ReactNode, useCallback, useEffect, useRef, useState,
 } from 'react';
+import { Overlay } from 'shared/Overlay/Overlay';
 import { Portal } from '../Portal/Portal';
 import cls from './Modal.module.scss';
 
@@ -27,9 +28,9 @@ export const Modal = (props: ModalProps) => {
     const timeRef = useRef<ReturnType<typeof setTimeout>>() as MutableRefObject<ReturnType<typeof setTimeout>>;
     const [isMounted, setIsMounted] = useState(false);
 
-    const onContentClick = (e: React.MouseEvent) => {
-        e.stopPropagation();
-    };
+    // const onContentClick = (e: React.MouseEvent) => {
+    //     e.stopPropagation();
+    // };
 
     const onCloseModal = useCallback(() => {
         if (onClose) {
@@ -76,10 +77,10 @@ export const Modal = (props: ModalProps) => {
     return (
         <Portal>
             <div className={classNames(cls.Modal, mods, [className])}>
-                <div className={cls.overlay} onClick={onCloseModal}>
-                    <div className={cls.content} onClick={onContentClick}>
-                        {children}
-                    </div>
+                <Overlay onClick={onCloseModal} />
+                {/* <div className={cls.content} onClick={onContentClick}> */}
+                <div className={cls.content}>
+                    {children}
                 </div>
             </div>
         </Portal>
