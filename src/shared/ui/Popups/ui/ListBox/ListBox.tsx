@@ -46,6 +46,7 @@ export function ListBox(props: ListBoxProps) {
                 className={classNames(cls.ListBox, {}, [className, popupCls.popup])}
             >
                 <HListBox.Button
+                    as="div"
                     className={popupCls.trigger}
                 >
                     <AppButton disabled={readonly}>

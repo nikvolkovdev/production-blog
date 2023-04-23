@@ -60,7 +60,7 @@ export const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
     }, [dispatch, fetchData]);
 
     const onChangeSearch = useCallback((search: string) => {
-        dispatch(articlePageActions.setSearch(search));
+        dispatch(articlePageActions.setSearch(search ?? ''));
         dispatch(articlePageActions.setPage(1));
         debouncedFetchData();
     }, [dispatch, debouncedFetchData]);
@@ -83,7 +83,7 @@ export const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
                 <ArticleViewSelector view={view || ArticleView.BIG} onViewClick={onChangeView} />
             </div>
             <Card className={cls.search}>
-                <AppInput onChange={onChangeSearch} placeholder="Поиск" value={search} />
+                <AppInput onChange={onChangeSearch} placeholder="Поиск" value={search ?? ''} />
             </Card>
             <ArticleTypeTabs className={cls.tabs} value={type} onChangeType={onChangeType} />
         </div>

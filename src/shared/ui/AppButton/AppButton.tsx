@@ -1,4 +1,6 @@
-import { ButtonHTMLAttributes, memo, ReactNode } from 'react';
+import React, {
+    ButtonHTMLAttributes, ForwardedRef, memo, ReactNode,
+} from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './AppButton.module.scss';
 
@@ -25,33 +27,38 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     children?: ReactNode;
     buttonType?: 'button' | 'submit' | 'reset';
     disabled?: boolean;
+    fullWidth?: boolean;
 }
 
-export const AppButton = memo((props: ButtonProps) => {
-    const {
-        className,
-        children,
-        variant = ButtonVariant.OUTLINE,
-        square,
-        size = ButtonSize.M,
-        buttonType = 'button',
-        disabled = false,
-        ...otherProps
-    } = props;
+export const AppButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
+    (props: ButtonProps, ref: ForwardedRef<HTMLButtonElement>) => {
+        const {
+            className,
+            children,
+            variant = ButtonVariant.OUTLINE,
+            square,
+            size = ButtonSize.M,
+            buttonType = 'button',
+            fullWidth,
+            disabled = false,
+            ...otherProps
+        } = props;
 
-    return (
-        <button
-            className={classNames(
-                cls.AppButton,
-                { [cls.square]: square, [cls.disabled]: disabled },
-                [className, cls[variant], cls[size]],
-            )}
-            // eslint-disable-next-line react/button-has-type
-            type={buttonType}
-            {...otherProps}
-            disabled={disabled}
-        >
-            {children}
-        </button>
-    );
-});
+        return (
+            <button
+                className={classNames(
+                    cls.AppButton,
+                    { [cls.square]: square, [cls.disabled]: disabled, [cls.fullWidth]: fullWidth },
+                    [className, cls[variant], cls[size]],
+                )}
+                // eslint-disable-next-line react/button-has-type
+                type={buttonType}
+                {...otherProps}
+                disabled={disabled}
+                ref={ref}
+            >
+                {children}
+            </button>
+        );
+    },
+);
