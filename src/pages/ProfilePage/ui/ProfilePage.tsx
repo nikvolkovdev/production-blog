@@ -6,6 +6,7 @@ import { EditableProfileCard } from '@/features/EditableProfileCard';
 import { AppText } from '@/shared/ui/AppText/AppText';
 
 import cls from './ProfilePage.module.scss';
+import { ProfileRating } from '@/features/profileRating/ui/ProfileRating';
 
 interface ProfilePageProps {
     className?: string;
@@ -22,7 +23,7 @@ const ProfilePage = memo((props: ProfilePageProps) => {
         <AppPage className={classNames(cls.ProfilePage, {}, [className])}>
 
             <EditableProfileCard id={profile.id} />
-
+            <ProfileRating profileId={profile.id || ''} />
         </AppPage>
     );
 });

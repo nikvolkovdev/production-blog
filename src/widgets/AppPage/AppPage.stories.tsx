@@ -3,7 +3,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { AppPage } from './AppPage';
 
 export default {
-    title: 'shared/AppPage',
+    title: 'widgets/AppPage',
     component: AppPage,
     argTypes: {
         backgroundColor: { control: 'color' },
