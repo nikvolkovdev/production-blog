@@ -2,7 +2,7 @@ import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { getUserAuthData } from '@/entities/User';
-import { useGetProfileRating, useRateProfile } from '@/features/profileRating/api/profileRatingApi';
+import { useGetProfileRating, useRateProfile } from '../api/profileRatingApi';
 import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
 import { RatingCard } from '@/entities/Rating';
 

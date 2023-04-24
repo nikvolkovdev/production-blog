@@ -1,7 +1,8 @@
 import { memo } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { AppPage } from '@/widgets/AppPage/AppPage';
+
 import cls from './NotFoundPage.module.scss';
+import { AppPage } from '@/widgets/AppPage';
 
 interface NotFoundPageProps {
     className?: string;

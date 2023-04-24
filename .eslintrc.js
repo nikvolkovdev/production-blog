@@ -45,7 +45,13 @@ module.exports = {
         'no-param-reassign': 'off',
         'no-undef': 'off',
         'react/no-array-index-key': 'off',
-        'my-import-paths-check/path-checker': 'error',
+        'my-import-paths-check/path-checker': ['error', { alias: '@' }],
+        'my-import-paths-check/public-api-imports': ['error',
+            {
+                alias: '@',
+                testFilesPatterns: ['**/*.test.*', '**/*.story.*', '**/StoreDecorator.tsx'],
+            },
+        ],
         'max-len': ['error', { ignoreComments: true, code: 120 }],
     },
     globals: {

@@ -1,6 +1,7 @@
 import React from 'react';
-import { AppPage } from '@/widgets/AppPage/AppPage';
+
 import { RatingCard } from '@/entities/Rating';
+import { AppPage } from '@/widgets/AppPage';
 
 const MainPage = () => (
     <AppPage>

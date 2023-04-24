@@ -1,8 +1,8 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { PageLoader } from './PageLoader';
-import { ThemeDecorator } from '../../../shared/config/storybook/ThemeDecorator';
-import { Theme } from '../../../app/providers/ThemeProvider/ui/ThemeContext';
+import { Theme } from '@/app/providers/ThemeProvider';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 
 export default {
     title: 'widgets/PageLoader',

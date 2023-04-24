@@ -8,9 +8,9 @@ import { ArticleDetailsSchema } from '@/entities/Article';
 import { AddNewCommentSchema } from '@/features/addNewComment';
 import { ArticlesPageSchema } from '@/pages/ArticlesPage';
 import { ScrollRecoverySchema } from '@/features/ScrollRecovery';
-import { ArticleDetailsPageSchema } from '@/pages/ArticleDetailsPage/model/types';
 import { rtkApi } from '@/shared/api/rtkApi';
 import { ProfileSchema } from '@/features/EditableProfileCard';
+import { ArticleDetailsPageSchema } from '@/pages/ArticleDetailsPage';
 
 export interface StateSchema {
     user: UserSchema;

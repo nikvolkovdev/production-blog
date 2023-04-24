@@ -1,12 +1,10 @@
 import { memo } from 'react';
 import { useParams } from 'react-router-dom';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { AppPage } from '@/widgets/AppPage/AppPage';
 import { EditableProfileCard } from '@/features/EditableProfileCard';
-import { AppText } from '@/shared/ui/AppText/AppText';
-
 import cls from './ProfilePage.module.scss';
-import { ProfileRating } from '@/features/profileRating/ui/ProfileRating';
+import { ProfileRating } from '@/features/profileRating';
+import { AppPage } from '@/widgets/AppPage';
 
 interface ProfilePageProps {
     className?: string;

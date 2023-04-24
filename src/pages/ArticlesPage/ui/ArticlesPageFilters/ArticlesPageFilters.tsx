@@ -2,15 +2,14 @@ import { memo, useCallback, useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import {
-    ArticleSortField, ArticleType, ArticleView, ArticleViewSelector,
+    ArticleSortField, ArticleSortSelector, ArticleType, ArticleTypeTabs, ArticleView, ArticleViewSelector,
 } from '@/entities/Article';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDisptach';
 import { Card } from '@/shared/ui/Card/Card';
 import { AppInput } from '@/shared/ui/AppInput/AppInput';
-import { ArticleSortSelector } from '@/entities/Article/ui/ArticleSortSelector/ArticleSortSelector';
 import { SortOrder } from '@/shared/types';
 import { useDebounce } from '@/shared/lib/hooks/useDebounce';
-import { ArticleTypeTabs } from '@/entities/Article/ui/ArticleTypeTabs/ArticleTypeTabs';
+
 import { getArticlesPageSort } from '../../model/selectors/getArticlesPageSort';
 import { getArticlesPageOrder } from '../../model/selectors/getArticlesPageOrder';
 import { getArticlesPageSearch } from '../../model/selectors/getArticlesPageSearch';

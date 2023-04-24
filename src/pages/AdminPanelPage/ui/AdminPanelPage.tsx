@@ -1,5 +1,5 @@
 import React from 'react';
-import { AppPage } from '@/widgets/AppPage/AppPage';
+import { AppPage } from '@/widgets/AppPage';
 
 const AdminPanelPage = () => (
     <AppPage>
