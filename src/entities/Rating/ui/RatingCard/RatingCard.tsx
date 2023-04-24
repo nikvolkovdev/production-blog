@@ -18,15 +18,16 @@ interface RatingCardProps {
     hasFeedback?: boolean;
     onCancel?: (starsCount: number) => void;
     onAccept?: (starsCount: number, feedback?: string) => void;
+    rate?: number;
 }
 
 export const RatingCard = memo((props: RatingCardProps) => {
     const {
-        className, title, feedbackTitle, hasFeedback = true, onCancel, onAccept,
+        className, title, feedbackTitle, hasFeedback = true, onCancel, onAccept, rate,
     } = props;
 
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [starsCount, setStarsCount] = useState(0);
+    const [starsCount, setStarsCount] = useState(rate ?? 0);
     const [feedback, setFeedback] = useState('');
 
     const onSelectStars = useCallback((selectedStarsCount: number) => {
@@ -58,38 +59,37 @@ export const RatingCard = memo((props: RatingCardProps) => {
     return (
         <Card className={classNames(cls.RatingCard, {}, [className])}>
             <VStack align="center" gap="8">
-                <AppText title={title} />
-                <StarRating size={40} onSelect={onSelectStars} />
-
-                <BrowserView>
-                    <Modal isOpen={isModalOpen} onClose={cancelHandler} lazy>
-                        <VStack max gap="32">
-                            {modalContent}
-                            <HStack max gap="16" justify="end">
-                                <AppButton onClick={acceptHandler} variant={ButtonVariant.OUTLINE}>
-                                    Отправить
-                                </AppButton>
-                                <AppButton onClick={cancelHandler} variant={ButtonVariant.OUTLINE_RED}>
-                                    Закрыть
-                                </AppButton>
-                            </HStack>
-                        </VStack>
-                    </Modal>
-                </BrowserView>
-
-                <MobileView>
-                    <Drawer isOpen={isModalOpen} onClose={cancelHandler} lazy>
-                        <VStack gap="32">
-                            {modalContent}
-                            <AppButton onClick={acceptHandler} size={ButtonSize.L} fullWidth>
+                <AppText title={starsCount ? 'Спасибо за оценку!' : title} />
+                <StarRating selectedStars={starsCount} size={40} onSelect={onSelectStars} />
+            </VStack>
+            <BrowserView>
+                <Modal isOpen={isModalOpen} onClose={cancelHandler} lazy>
+                    <VStack max gap="32">
+                        {modalContent}
+                        <HStack max gap="16" justify="end">
+                            <AppButton onClick={acceptHandler} variant={ButtonVariant.OUTLINE}>
                                 Отправить
                             </AppButton>
-                        </VStack>
+                            <AppButton onClick={cancelHandler} variant={ButtonVariant.OUTLINE_RED}>
+                                Закрыть
+                            </AppButton>
+                        </HStack>
+                    </VStack>
+                </Modal>
+            </BrowserView>
 
-                    </Drawer>
-                </MobileView>
+            <MobileView>
+                <Drawer isOpen={isModalOpen} onClose={cancelHandler} lazy>
+                    <VStack gap="32">
+                        {modalContent}
+                        <AppButton onClick={acceptHandler} size={ButtonSize.L} fullWidth>
+                            Отправить
+                        </AppButton>
+                    </VStack>
 
-            </VStack>
+                </Drawer>
+            </MobileView>
+
         </Card>
     );
 });
