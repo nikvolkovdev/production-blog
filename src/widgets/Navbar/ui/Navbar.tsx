@@ -8,7 +8,6 @@ import {
 } from '@/entities/User';
 import { AppText, AppTextVariant } from '@/shared/ui/AppText/AppText';
 import { AppLink, AppLinkVariant } from '@/shared/ui/AppLink/AppLink';
-import { ROUTE_PATH } from '@/app/providers/router/lib/routerConfig/routerConfig';
 import { Dropdown } from '@/shared/ui/Popups/ui/Dropdown/Dropdown';
 import { AppAvatar } from '@/shared/ui/AppAvatar/AppAvatar';
 import { HStack } from '@/shared/ui/Stack';
@@ -16,6 +15,7 @@ import { NotificationButton } from '@/features/NotificationButton';
 import { AvatarDropdown } from '@/features/AvatarDropdown';
 import { Drawer } from '@/shared/ui/Drawer/Drawer';
 import cls from './Navbar.module.scss';
+import { ROUTE_PATH } from '@/shared/const/router';
 
 interface NavbarProps {
     className?: string;

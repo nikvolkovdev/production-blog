@@ -7,7 +7,6 @@ import { Card } from '@/shared/ui/Card/Card';
 import { useHover } from '@/shared/lib/hooks/useHover';
 import { AppAvatar } from '@/shared/ui/AppAvatar/AppAvatar';
 import { AppButton, ButtonVariant } from '@/shared/ui/AppButton/AppButton';
-import { ROUTE_PATH } from '@/app/providers/router/lib/routerConfig/routerConfig';
 import { AppLink } from '@/shared/ui/AppLink/AppLink';
 import cls from './ArticleListItem.module.scss';
 import {
@@ -18,6 +17,7 @@ import {
 } from '../../model/consts/consts';
 import EyeIcon from '../../../../shared/assets/icons/eye-20-20.svg';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
+import { ROUTE_PATH } from '@/shared/const/router';
 
 interface ArticleListItemProps {
     className?: string;
