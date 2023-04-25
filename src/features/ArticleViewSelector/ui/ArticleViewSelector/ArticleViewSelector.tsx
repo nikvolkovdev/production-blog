@@ -4,8 +4,8 @@ import { AppButton, ButtonVariant } from '@/shared/ui/AppButton';
 import { AppIcon } from '@/shared/ui/AppIcon';
 import PlateIcon from '@/shared/assets/icons/plate.svg';
 import FullPlateIcon from '@/shared/assets/icons/full-plate.svg';
-import { ArticleView } from '../../model/consts/consts';
 import cls from './ArticleViewSelector.module.scss';
+import { ArticleView } from '@/entities/Article';
 
 interface ArticleViewSelectorProps {
     className?: string;
