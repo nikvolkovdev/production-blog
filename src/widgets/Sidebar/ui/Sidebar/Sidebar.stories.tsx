@@ -2,9 +2,9 @@ import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
-import { Theme } from '@/app/providers/ThemeProvider/ui/ThemeContext';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
 import { Sidebar } from './Sidebar';
+import { Theme } from '@/shared/const/theme';
 
 export default {
     title: 'widgets/Sidebar',

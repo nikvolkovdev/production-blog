@@ -1,8 +1,8 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
-import { Theme } from '@/app/providers/ThemeProvider/ui/ThemeContext';
 import { LoginModal } from './LoginModal';
+import { Theme } from '@/shared/const/theme';
 
 export default {
     title: 'features/LoginModal',

@@ -46,6 +46,12 @@ module.exports = {
         'no-undef': 'off',
         'react/no-array-index-key': 'off',
         'my-import-paths-check/path-checker': ['error', { alias: '@' }],
+        'my-import-paths-check/layer-imports': ['error',
+            {
+                alias: '@',
+                ignoreImportPatterns: ['**/StoreProvider', '**/testing'],
+            },
+        ],
         'my-import-paths-check/public-api-imports': ['error',
             {
                 alias: '@',
