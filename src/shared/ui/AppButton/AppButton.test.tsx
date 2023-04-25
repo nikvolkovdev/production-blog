@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { AppButton, ButtonSize, ButtonVariant } from './AppButton';
+import { AppButton, ButtonVariant } from './AppButton';
 
 describe('AppButton', () => {
     test('render AppButton', () => {

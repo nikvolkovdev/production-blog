@@ -1,5 +1,5 @@
 import React, {
-    ButtonHTMLAttributes, ForwardedRef, memo, ReactNode,
+    ButtonHTMLAttributes, ForwardedRef, ReactNode,
 } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './AppButton.module.scss';
