@@ -77,10 +77,9 @@ describe('features/EditableProfileCard', () => {
         componentRender(<EditableProfileCard id="1" />, options);
         await userEvent.click(screen.getByTestId('EditableProfileCardHeader.EditButton'));
 
-        await userEvent.clear(screen.getByTestId('ProfileCard.firstname'));
+        await userEvent.type(screen.getByTestId('ProfileCard.firstname'), 'user');
 
         await userEvent.click(screen.getByTestId('EditableProfileCardHeader.SaveButton'));
-        await userEvent.type(screen.getByTestId('ProfileCard.firstname'), 'user');
 
         expect(mockPutReq).toHaveBeenCalled();
     });
