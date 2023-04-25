@@ -17,7 +17,7 @@ import {
 } from '../../model/consts/consts';
 import EyeIcon from '../../../../shared/assets/icons/eye-20-20.svg';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
-import { ROUTE_PATH } from '@/shared/const/router';
+import { getRouteArticleDetails } from '@/shared/const/router';
 
 interface ArticleListItemProps {
     className?: string;
@@ -38,7 +38,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
     const navigate = useNavigate();
 
     const onOpenArticle = useCallback(() => {
-        navigate(ROUTE_PATH.article_details + article.id);
+        navigate(getRouteArticleDetails(article.id));
     }, [article.id, navigate]);
 
     if (view === ArticleView.BIG) {
@@ -59,7 +59,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                         <ArticleTextBlockComponent block={textBlock} className={cls.textBlock} />
                     )}
                     <div className={cls.footer}>
-                        <AppLink to={ROUTE_PATH.article_details + article.id}>
+                        <AppLink to={getRouteArticleDetails(article.id)}>
                             <AppButton variant={ButtonVariant.OUTLINE}>
                                 Читать далее...
                             </AppButton>
@@ -75,7 +75,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
     return (
         <AppLink
             target={target}
-            to={ROUTE_PATH.article_details + article.id}
+            to={getRouteArticleDetails(article.id)}
             className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
             {...bindHover}
         >

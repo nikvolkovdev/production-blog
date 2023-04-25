@@ -5,19 +5,21 @@ import AboutIcon from '@/shared/assets/icons/about.svg';
 import ProfileIcon from '@/shared/assets/icons/profile.svg';
 import ArticleIcon from '@/shared/assets/icons/article-20-20.svg';
 import { SidebarItemType } from '../types/sidebar';
-import { ROUTE_PATH } from '@/shared/const/router';
+import {
+    getRouteAbout, getRouteArticles, getRouteMain, getRouteProfile,
+} from '@/shared/const/router';
 
 export const getSidebarItems = createSelector(
     getUserAuthData,
     (userData) => {
         const sidebarItemsList: SidebarItemType[] = [
             {
-                path: ROUTE_PATH.main,
+                path: getRouteMain(),
                 text: 'Главная',
                 Icon: MainIcon,
             },
             {
-                path: ROUTE_PATH.about,
+                path: getRouteAbout(),
                 text: 'О сайте',
                 Icon: AboutIcon,
             },
@@ -26,13 +28,13 @@ export const getSidebarItems = createSelector(
         if (userData) {
             sidebarItemsList.push(
                 {
-                    path: ROUTE_PATH.profile + userData.id,
+                    path: getRouteProfile(userData.id),
                     text: 'Профиль',
                     Icon: ProfileIcon,
                     authOnly: true,
                 },
                 {
-                    path: ROUTE_PATH.articles,
+                    path: getRouteArticles(),
                     text: 'Статьи',
                     Icon: ArticleIcon,
                     authOnly: true,

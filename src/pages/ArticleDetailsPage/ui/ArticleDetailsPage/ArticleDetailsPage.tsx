@@ -40,7 +40,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
             <AppPage className={classNames('', {}, [className])}>
                 <VStack gap="16" max>
                     <ArticleDetailsPageHeader />
-                    <ArticleDetails id={id || ''} />
+                    <ArticleDetails id={id} />
                     <ArticleRating articleId={id} />
                     <ArticleRecommendationsList />
                     <ArticleDetailsComments id={id} className={cls.commentTitle} />
