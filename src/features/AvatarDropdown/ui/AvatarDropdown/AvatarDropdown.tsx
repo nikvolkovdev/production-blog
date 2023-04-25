@@ -1,7 +1,7 @@
 import { memo, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { AppAvatar } from '@/shared/ui/AppAvatar/AppAvatar';
+import { AppAvatar } from '@/shared/ui/AppAvatar';
 import { Dropdown } from '@/shared/ui/Popups';
 import {
     getUserAuthData, isUserAdmin, isUserManager, userActions,

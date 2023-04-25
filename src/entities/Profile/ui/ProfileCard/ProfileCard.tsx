@@ -1,10 +1,10 @@
 import { memo } from 'react';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 
-import { AppText, AppTextVariant, TextAlign } from '@/shared/ui/AppText/AppText';
-import { AppInput } from '@/shared/ui/AppInput/AppInput';
-import { Loader } from '@/shared/ui/Loader/Loader';
-import { AppAvatar } from '@/shared/ui/AppAvatar/AppAvatar';
+import { AppText, AppTextVariant, TextAlign } from '@/shared/ui/AppText';
+import { AppInput } from '@/shared/ui/AppInput';
+import { Loader } from '@/shared/ui/Loader';
+import { AppAvatar } from '@/shared/ui/AppAvatar';
 import { Country, CountrySelect } from '@/entities/Country';
 import { HStack, VStack } from '@/shared/ui/Stack';
 import { Profile } from '../../model/types/Profile';

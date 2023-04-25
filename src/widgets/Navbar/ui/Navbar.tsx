@@ -1,19 +1,19 @@
 import { memo, useCallback, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { AppButton, ButtonVariant } from '@/shared/ui/AppButton/AppButton';
+import { AppButton, ButtonVariant } from '@/shared/ui/AppButton';
 import { LoginModal } from '@/features/AuthByUsername';
 import {
     getUserAuthData, isUserAdmin, isUserManager, userActions,
 } from '@/entities/User';
-import { AppText, AppTextVariant } from '@/shared/ui/AppText/AppText';
-import { AppLink, AppLinkVariant } from '@/shared/ui/AppLink/AppLink';
-import { Dropdown } from '@/shared/ui/Popups/ui/Dropdown/Dropdown';
-import { AppAvatar } from '@/shared/ui/AppAvatar/AppAvatar';
+import { AppText, AppTextVariant } from '@/shared/ui/AppText';
+import { AppLink, AppLinkVariant } from '@/shared/ui/AppLink';
+import { Dropdown } from '@/shared/ui/Popups';
+import { AppAvatar } from '@/shared/ui/AppAvatar';
 import { HStack } from '@/shared/ui/Stack';
 import { NotificationButton } from '@/features/NotificationButton';
 import { AvatarDropdown } from '@/features/AvatarDropdown';
-import { Drawer } from '@/shared/ui/Drawer/Drawer';
+import { Drawer } from '@/shared/ui/Drawer';
 import cls from './Navbar.module.scss';
 import { ROUTE_PATH } from '@/shared/const/router';
 

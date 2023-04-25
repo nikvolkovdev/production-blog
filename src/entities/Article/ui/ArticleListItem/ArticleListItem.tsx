@@ -1,13 +1,13 @@
 import { HTMLAttributeAnchorTarget, memo, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { AppText } from '@/shared/ui/AppText/AppText';
-import { AppIcon } from '@/shared/ui/AppIcon/AppIcon';
-import { Card } from '@/shared/ui/Card/Card';
+import { AppText } from '@/shared/ui/AppText';
+import { AppIcon } from '@/shared/ui/AppIcon';
+import { Card } from '@/shared/ui/Card';
 import { useHover } from '@/shared/lib/hooks/useHover';
-import { AppAvatar } from '@/shared/ui/AppAvatar/AppAvatar';
-import { AppButton, ButtonVariant } from '@/shared/ui/AppButton/AppButton';
-import { AppLink } from '@/shared/ui/AppLink/AppLink';
+import { AppAvatar } from '@/shared/ui/AppAvatar';
+import { AppButton, ButtonVariant } from '@/shared/ui/AppButton';
+import { AppLink } from '@/shared/ui/AppLink';
 import cls from './ArticleListItem.module.scss';
 import {
     Article, ArticleTextBlock,

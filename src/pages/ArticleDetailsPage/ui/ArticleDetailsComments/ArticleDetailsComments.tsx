@@ -1,7 +1,7 @@
 import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { AppText, TextSize } from '@/shared/ui/AppText/AppText';
+import { AppText, TextSize } from '@/shared/ui/AppText';
 import { AddNewCommentForm } from '@/features/addNewComment';
 import { CommentList } from '@/entities/Comment';
 import { getArticleDetailsError, getArticleDetailsIsLoading } from '@/entities/Article';

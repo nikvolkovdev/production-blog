@@ -1,9 +1,9 @@
 import { memo } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { AppAvatar } from '@/shared/ui/AppAvatar/AppAvatar';
-import { AppText } from '@/shared/ui/AppText/AppText';
-import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
-import { AppLink } from '@/shared/ui/AppLink/AppLink';
+import { AppAvatar } from '@/shared/ui/AppAvatar';
+import { AppText } from '@/shared/ui/AppText';
+import { Skeleton } from '@/shared/ui/Skeleton';
+import { AppLink } from '@/shared/ui/AppLink';
 import { VStack } from '@/shared/ui/Stack';
 import { AppComment } from '../../model/types/AppComment';
 import cls from './CommentCard.module.scss';

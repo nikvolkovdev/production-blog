@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { AppButton, ButtonVariant } from '@/shared/ui/AppButton/AppButton';
-import { AppIcon } from '@/shared/ui/AppIcon/AppIcon';
+import { AppButton, ButtonVariant } from '@/shared/ui/AppButton';
+import { AppIcon } from '@/shared/ui/AppIcon';
 import PlateIcon from '@/shared/assets/icons/plate.svg';
 import FullPlateIcon from '@/shared/assets/icons/full-plate.svg';
 import { ArticleView } from '../../model/consts/consts';

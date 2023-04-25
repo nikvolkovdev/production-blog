@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { AppText, TextSize } from '@/shared/ui/AppText/AppText';
+import { AppText, TextSize } from '@/shared/ui/AppText';
 import { ArticleList } from '@/entities/Article';
 import { VStack } from '@/shared/ui/Stack';
 import { useArticleRecommendationsList } from '../../api/articleRecommendationsApi';

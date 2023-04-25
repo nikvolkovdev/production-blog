@@ -2,9 +2,9 @@ import { memo, useCallback, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
 
-import { AppButton, ButtonVariant } from '@/shared/ui/AppButton/AppButton';
-import { AppInput } from '@/shared/ui/AppInput/AppInput';
-import { AppText, AppTextVariant } from '@/shared/ui/AppText/AppText';
+import { AppButton, ButtonVariant } from '@/shared/ui/AppButton';
+import { AppInput } from '@/shared/ui/AppInput';
+import { AppText, AppTextVariant } from '@/shared/ui/AppText';
 import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDisptach';
 import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';

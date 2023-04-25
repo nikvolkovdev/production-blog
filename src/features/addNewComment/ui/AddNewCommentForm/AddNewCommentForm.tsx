@@ -1,8 +1,8 @@
 import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { AppInput } from '@/shared/ui/AppInput/AppInput';
-import { AppButton, ButtonVariant } from '@/shared/ui/AppButton/AppButton';
+import { AppInput } from '@/shared/ui/AppInput';
+import { AppButton, ButtonVariant } from '@/shared/ui/AppButton';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDisptach';
 import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { HStack } from '@/shared/ui/Stack';

@@ -1,6 +1,6 @@
 import { memo, useCallback, useMemo } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { AppSelect, SelectOption } from '@/shared/ui/AppSelect/AppSelect';
+import { AppSelect, SelectOption } from '@/shared/ui/AppSelect';
 import { SortOrder } from '@/shared/types';
 import { ArticleSortField } from '../../model/consts/consts';
 import cls from './ArticleSortSelector.module.scss';
