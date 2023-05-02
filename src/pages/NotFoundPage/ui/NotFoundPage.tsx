@@ -14,7 +14,7 @@ export const NotFoundPage = memo((props: NotFoundPageProps) => {
     } = props;
 
     return (
-        <AppPage className={classNames(cls.NotFoundPage, {}, [className])}>
+        <AppPage className={classNames(cls.NotFoundPage, {}, [className])} data-testid="NotFoundPage">
             Страница не найдена
         </AppPage>
     );

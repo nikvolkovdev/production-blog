@@ -7,7 +7,7 @@ import {
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDisptach';
 import { Card } from '@/shared/ui/Card';
 import { AppInput } from '@/shared/ui/AppInput';
-import { SortOrder } from '@/shared/types';
+import { SortOrder } from '@/shared/types/sort';
 import { useDebounce } from '@/shared/lib/hooks/useDebounce';
 
 import { getArticlesPageSort } from '../../model/selectors/getArticlesPageSort';

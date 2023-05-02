@@ -18,7 +18,7 @@ const ProfilePage = memo((props: ProfilePageProps) => {
     const profile = useParams<{id: string}>();
 
     return (
-        <AppPage className={classNames(cls.ProfilePage, {}, [className])}>
+        <AppPage className={classNames(cls.ProfilePage, {}, [className])} data-testid="ProfilePage">
 
             <EditableProfileCard id={profile.id} />
             <ProfileRating profileId={profile.id || ''} />
