@@ -543,6 +543,19 @@
           ]
         }
       ]
+    },
+    {
+      "title": "TESTING ARTICLE",
+      "subtitle": "Что нового в JS за 2022 год?",
+      "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
+      "views": 1022,
+      "createdAt": "26.04.2022",
+      "userId": "1",
+      "type": [
+        "IT"
+      ],
+      "blocks": [],
+      "id": "lduzPA_"
     }
   ],
   "comments": [
@@ -711,6 +724,17 @@
       "country": "Russia",
       "city": "Moscow",
       "username": "ulbi tv",
+      "avatar": "https://cs13.pikabu.ru/post_img/big/2023/02/13/8/1676295806122712757.png"
+    },
+    {
+      "id": "4",
+      "firstname": "nik",
+      "lastname": "ssadas",
+      "age": 465,
+      "currency": "RUB",
+      "country": "Russia",
+      "city": "Moscow",
+      "username": "Test User",
       "avatar": "https://cs13.pikabu.ru/post_img/big/2023/02/13/8/1676295806122712757.png"
     }
   ],
