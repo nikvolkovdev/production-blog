@@ -679,6 +679,15 @@
         "USER"
       ],
       "avatar": "https://cs13.pikabu.ru/post_img/big/2023/02/13/8/1676295806122712757.png"
+    },
+    {
+      "id": "4",
+      "username": "testuser",
+      "password": "123",
+      "roles": [
+        "ADMIN"
+      ],
+      "avatar": "https://cs13.pikabu.ru/post_img/big/2023/02/13/8/1676295806122712757.png"
     }
   ],
   "profile": [
