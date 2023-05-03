@@ -7,12 +7,13 @@ interface ForbiddenPageProps {
 }
 
 export const ForbiddenPage = memo((props: ForbiddenPageProps) => {
-    const {
-        className,
-    } = props;
+    const { className } = props;
 
     return (
-        <AppPage className={classNames('', {}, [className])} data-testid="ForbiddenPage">
+        <AppPage
+            className={classNames('', {}, [className])}
+            data-testid="ForbiddenPage"
+        >
             У вас нет доступа к этой странице
         </AppPage>
     );

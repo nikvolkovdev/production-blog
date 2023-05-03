@@ -4,9 +4,15 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { AppInput } from '@/shared/ui/AppInput';
 import { AppButton, ButtonVariant } from '@/shared/ui/AppButton';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDisptach';
-import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import {
+    DynamicModuleLoader,
+    ReducersList,
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { HStack } from '@/shared/ui/Stack';
-import { addNewCommentActions, addNewCommentReducer } from '../../model/slice/addNewCommentSlice';
+import {
+    addNewCommentActions,
+    addNewCommentReducer,
+} from '../../model/slice/addNewCommentSlice';
 import {
     getAddCommentFormError,
     getAddCommentFormText,
@@ -23,18 +29,18 @@ const reducers: ReducersList = {
 };
 
 const AddNewCommentForm = memo((props: addNewCommentFormProps) => {
-    const {
-        className,
-        onSendComment,
-    } = props;
+    const { className, onSendComment } = props;
 
     const text = useSelector(getAddCommentFormText);
     const error = useSelector(getAddCommentFormError);
     const dispatch = useAppDispatch();
 
-    const onCommentTextChange = useCallback((value: string) => {
-        dispatch(addNewCommentActions.setText(value));
-    }, [dispatch]);
+    const onCommentTextChange = useCallback(
+        (value: string) => {
+            dispatch(addNewCommentActions.setText(value));
+        },
+        [dispatch],
+    );
 
     const onSendHandler = useCallback(() => {
         onSendComment(text || '');
@@ -56,7 +62,11 @@ const AddNewCommentForm = memo((props: addNewCommentFormProps) => {
                     className={cls.input}
                     data-testid="AddCommentForm.Input"
                 />
-                <AppButton variant={ButtonVariant.OUTLINE} onClick={onSendHandler} data-testid="AddCommentForm.Button">
+                <AppButton
+                    variant={ButtonVariant.OUTLINE}
+                    onClick={onSendHandler}
+                    data-testid="AddCommentForm.Button"
+                >
                     Отправить
                 </AppButton>
             </HStack>

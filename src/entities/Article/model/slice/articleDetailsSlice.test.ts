@@ -34,15 +34,16 @@ const data: Article = {
             id: '4',
             type: ArticleBlockType.CODE,
             // eslint-disable-next-line max-len
-            code: 'export default {\n'
-                + '    title: \'entities/ArticleDetails\',\n'
-                + '    component: ArticleDetails,\n'
-                + '    argTypes: {\n'
-                + '        backgroundColor: { control: \'color\' },\n'
-                + '    },\n'
-                + '} as ComponentMeta<typeof ArticleDetails>;\n'
-                + '\n'
-                + 'const Template: ComponentStory<typeof ArticleDetails> = (args) => <ArticleDetails {...args} />;',
+            code:
+                'export default {\n' +
+                "    title: 'entities/ArticleDetails',\n" +
+                '    component: ArticleDetails,\n' +
+                '    argTypes: {\n' +
+                "        backgroundColor: { control: 'color' },\n" +
+                '    },\n' +
+                '} as ComponentMeta<typeof ArticleDetails>;\n' +
+                '\n' +
+                'const Template: ComponentStory<typeof ArticleDetails> = (args) => <ArticleDetails {...args} />;',
         },
         {
             id: '5',
@@ -101,27 +102,29 @@ describe('articleDetailsSlice.test', () => {
         const state: DeepPartial<ArticleDetailsSchema> = {
             isLoading: false,
         };
-        expect(articleDetailsReducer(
-            state as ArticleDetailsSchema,
-            fetchArticleById.pending,
-        ))
-            .toEqual({
-                isLoading: true,
-            });
+        expect(
+            articleDetailsReducer(
+                state as ArticleDetailsSchema,
+                fetchArticleById.pending,
+            ),
+        ).toEqual({
+            isLoading: true,
+        });
     });
 
     test('test fetch article service fulfilled', () => {
         const state: DeepPartial<ArticleDetailsSchema> = {
             isLoading: true,
         };
-        expect(articleDetailsReducer(
-            state as ArticleDetailsSchema,
-            fetchArticleById.fulfilled(data, '', '1'),
-        ))
-            .toEqual({
-                isLoading: false,
-                error: undefined,
-                data,
-            });
+        expect(
+            articleDetailsReducer(
+                state as ArticleDetailsSchema,
+                fetchArticleById.fulfilled(data, '', '1'),
+            ),
+        ).toEqual({
+            isLoading: false,
+            error: undefined,
+            data,
+        });
     });
 });

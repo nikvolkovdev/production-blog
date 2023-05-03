@@ -12,8 +12,10 @@ export default {
     },
 } as ComponentMeta<typeof addNewCommentForm>;
 
-// @ts-ignore
-const Template: ComponentStory<typeof addNewCommentForm> = (args) => <addNewCommentForm {...args} />;
+const Template: ComponentStory<typeof addNewCommentForm> = (args) => (
+    // @ts-ignore
+    <addNewCommentForm {...args} />
+);
 
 export const Normal = Template.bind({});
 Normal.args = {

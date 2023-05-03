@@ -3,7 +3,7 @@ import path from 'path';
 import { BuildPaths } from '../buildWebpackConfig/types/config';
 import { buildCssLoader } from '../buildWebpackConfig/lib/buildCssLoader';
 
-export default ({ config }: {config: webpack.Configuration}) => {
+export default ({ config }: { config: webpack.Configuration }) => {
     const paths: BuildPaths = {
         output: '',
         entry: '',
@@ -12,10 +12,7 @@ export default ({ config }: {config: webpack.Configuration}) => {
     };
 
     if (config!.resolve!.modules) {
-        config!.resolve!.modules = [
-            path.resolve(paths.src),
-            'node_modules',
-        ];
+        config!.resolve!.modules = [path.resolve(paths.src), 'node_modules'];
     }
 
     config!.resolve!.extensions!.push('.ts', '.tsx');
@@ -45,11 +42,13 @@ export default ({ config }: {config: webpack.Configuration}) => {
         ],
     });
 
-    config!.plugins!.push(new DefinePlugin({
-        __IS_DEV__: true,
-        __API__: JSON.stringify('https://testapi.com'),
-        __PROJECT__: JSON.stringify('storybook'),
-    }));
+    config!.plugins!.push(
+        new DefinePlugin({
+            __IS_DEV__: true,
+            __API__: JSON.stringify('https://testapi.com'),
+            __PROJECT__: JSON.stringify('storybook'),
+        }),
+    );
 
     return config;
 };

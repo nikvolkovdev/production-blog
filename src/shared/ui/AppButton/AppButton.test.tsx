@@ -8,7 +8,11 @@ describe('AppButton', () => {
     });
 
     test('render AppButton with clear theme', () => {
-        render(<AppButton buttonType="button" variant={ButtonVariant.CLEAR}>Test</AppButton>);
+        render(
+            <AppButton buttonType="button" variant={ButtonVariant.CLEAR}>
+                Test
+            </AppButton>,
+        );
         expect(screen.getByText('Test')).toHaveClass('clear');
     });
 });

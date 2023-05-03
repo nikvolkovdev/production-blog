@@ -13,7 +13,9 @@ export default {
     },
 } as ComponentMeta<typeof ArticleDetails>;
 
-const Template: ComponentStory<typeof ArticleDetails> = (args) => <ArticleDetails {...args} />;
+const Template: ComponentStory<typeof ArticleDetails> = (args) => (
+    <ArticleDetails {...args} />
+);
 
 const article: Article = {
     id: '1',
@@ -46,15 +48,16 @@ const article: Article = {
             id: '4',
             type: ArticleBlockType.CODE,
             // eslint-disable-next-line max-len
-            code: 'export default {\n'
-                + '    title: \'entities/ArticleDetails\',\n'
-                + '    component: ArticleDetails,\n'
-                + '    argTypes: {\n'
-                + '        backgroundColor: { control: \'color\' },\n'
-                + '    },\n'
-                + '} as ComponentMeta<typeof ArticleDetails>;\n'
-                + '\n'
-                + 'const Template: ComponentStory<typeof ArticleDetails> = (args) => <ArticleDetails {...args} />;',
+            code:
+                'export default {\n' +
+                "    title: 'entities/ArticleDetails',\n" +
+                '    component: ArticleDetails,\n' +
+                '    argTypes: {\n' +
+                "        backgroundColor: { control: 'color' },\n" +
+                '    },\n' +
+                '} as ComponentMeta<typeof ArticleDetails>;\n' +
+                '\n' +
+                'const Template: ComponentStory<typeof ArticleDetails> = (args) => <ArticleDetails {...args} />;',
         },
         {
             id: '5',
@@ -110,24 +113,30 @@ const article: Article = {
 
 export const Normal = Template.bind({});
 Normal.args = {};
-Normal.decorators = [StoreDecorator({
-    articleDetails: {
-        data: article,
-    },
-})];
+Normal.decorators = [
+    StoreDecorator({
+        articleDetails: {
+            data: article,
+        },
+    }),
+];
 
 export const isLoading = Template.bind({});
 isLoading.args = {};
-isLoading.decorators = [StoreDecorator({
-    articleDetails: {
-        isLoading: true,
-    },
-})];
+isLoading.decorators = [
+    StoreDecorator({
+        articleDetails: {
+            isLoading: true,
+        },
+    }),
+];
 
 export const withError = Template.bind({});
 withError.args = {};
-withError.decorators = [StoreDecorator({
-    articleDetails: {
-        error: 'Произошла ошибка при загрузке статьи',
-    },
-})];
+withError.decorators = [
+    StoreDecorator({
+        articleDetails: {
+            error: 'Произошла ошибка при загрузке статьи',
+        },
+    }),
+];

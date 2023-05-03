@@ -4,7 +4,10 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { AppAvatar } from '@/shared/ui/AppAvatar';
 import { Dropdown } from '@/shared/ui/Popups';
 import {
-    getUserAuthData, isUserAdmin, isUserManager, userActions,
+    getUserAuthData,
+    isUserAdmin,
+    isUserManager,
+    userActions,
 } from '@/entities/User';
 import cls from './AvatarDropdown.module.scss';
 import { getRouteAdmin, getRouteProfile } from '@/shared/const/router';
@@ -14,9 +17,7 @@ interface AvatarDropdownProps {
 }
 
 export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
-    const {
-        className,
-    } = props;
+    const { className } = props;
 
     const isAdmin = useSelector(isUserAdmin);
     const isManager = useSelector(isUserManager);
@@ -35,13 +36,20 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
 
     return (
         <Dropdown
-            className={classNames(cls.AvatarDropdown, {}, [className, cls.dropdown])}
+            className={classNames(cls.AvatarDropdown, {}, [
+                className,
+                cls.dropdown,
+            ])}
             direction="bottom left"
             items={[
-                ...(isAdminPanelAvailable ? [{
-                    content: 'Админка',
-                    href: getRouteAdmin(),
-                }] : []),
+                ...(isAdminPanelAvailable
+                    ? [
+                          {
+                              content: 'Админка',
+                              href: getRouteAdmin(),
+                          },
+                      ]
+                    : []),
                 {
                     content: 'Профиль',
                     href: getRouteProfile(authData.id),
@@ -50,9 +58,10 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
                     content: 'Выйти',
                     onClick: onLogout,
                 },
-
             ]}
-            trigger={<AppAvatar size={30} src={authData.avatar} fallbackInverted />}
+            trigger={
+                <AppAvatar size={30} src={authData.avatar} fallbackInverted />
+            }
         />
     );
 });

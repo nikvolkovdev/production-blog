@@ -11,7 +11,7 @@ export enum AppTextVariant {
 export enum TextAlign {
     RIGHT = 'right',
     LEFT = 'left',
-    CENTER = 'center'
+    CENTER = 'center',
 }
 
 export enum TextSize {
@@ -25,7 +25,7 @@ interface AppTextProps {
     title?: string;
     description?: string;
     variant?: AppTextVariant;
-    align?: TextAlign
+    align?: TextAlign;
     size?: TextSize;
     'data-testid'?: string;
 }
@@ -52,9 +52,30 @@ export const AppText = memo((props: AppTextProps) => {
     const HeaderTag = mapSizeToHeaderTag[size];
 
     return (
-        <div className={classNames(cls.AppText, {}, [className, cls[variant], cls[align], cls[size]])}>
-            {title && <HeaderTag className={cls.title} data-testid={`${dataTestId}.Header`}>{title}</HeaderTag>}
-            {description && <p className={cls.description} data-testid={`${dataTestId}.Description`}>{description}</p>}
+        <div
+            className={classNames(cls.AppText, {}, [
+                className,
+                cls[variant],
+                cls[align],
+                cls[size],
+            ])}
+        >
+            {title && (
+                <HeaderTag
+                    className={cls.title}
+                    data-testid={`${dataTestId}.Header`}
+                >
+                    {title}
+                </HeaderTag>
+            )}
+            {description && (
+                <p
+                    className={cls.description}
+                    data-testid={`${dataTestId}.Description`}
+                >
+                    {description}
+                </p>
+            )}
         </div>
     );
 });

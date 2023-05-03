@@ -9,15 +9,15 @@ interface ArticleEditPageProps {
 }
 
 const ArticleEditPage = memo((props: ArticleEditPageProps) => {
-    const {
-        className,
-    } = props;
-    const { id } = useParams<{id: string}>();
+    const { className } = props;
+    const { id } = useParams<{ id: string }>();
     const isEdit = Boolean(id);
 
     return (
         <AppPage className={classNames(cls.ArticleEditPage, {}, [className])}>
-            {isEdit ? `Редактирование статьи с ID = ${id}` : 'Создание новой статьи'}
+            {isEdit
+                ? `Редактирование статьи с ID = ${id}`
+                : 'Создание новой статьи'}
         </AppPage>
     );
 });

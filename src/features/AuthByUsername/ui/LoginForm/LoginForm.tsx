@@ -5,7 +5,10 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { AppButton, ButtonVariant } from '@/shared/ui/AppButton';
 import { AppInput } from '@/shared/ui/AppInput';
 import { AppText, AppTextVariant } from '@/shared/ui/AppText';
-import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import {
+    DynamicModuleLoader,
+    ReducersList,
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDisptach';
 import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';
 import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading/getLoginIsLoading';
@@ -25,10 +28,7 @@ const initialReducers: ReducersList = {
 };
 
 const LoginForm = memo((props: LoginFormProps) => {
-    const {
-        className,
-        onSuccess,
-    } = props;
+    const { className, onSuccess } = props;
 
     const username = useSelector(getLoginUsername);
     const password = useSelector(getLoginPassword);
@@ -37,13 +37,19 @@ const LoginForm = memo((props: LoginFormProps) => {
 
     const dispatch = useAppDispatch();
 
-    const onChangeUsername = useCallback((value: string) => {
-        dispatch(loginActions.setUsername(value));
-    }, [dispatch]);
+    const onChangeUsername = useCallback(
+        (value: string) => {
+            dispatch(loginActions.setUsername(value));
+        },
+        [dispatch],
+    );
 
-    const onChangePassword = useCallback((value: string) => {
-        dispatch(loginActions.setPassword(value));
-    }, [dispatch]);
+    const onChangePassword = useCallback(
+        (value: string) => {
+            dispatch(loginActions.setPassword(value));
+        },
+        [dispatch],
+    );
 
     const onLoginClick = useCallback(async () => {
         const result = await dispatch(loginByUsername({ username, password }));
@@ -52,11 +58,14 @@ const LoginForm = memo((props: LoginFormProps) => {
         }
     }, [dispatch, onSuccess, password, username]);
 
-    const onEnter = useCallback(async (e: KeyboardEvent) => {
-        if (e.key === 'Enter') {
-            const result = await onLoginClick();
-        }
-    }, [onLoginClick]);
+    const onEnter = useCallback(
+        async (e: KeyboardEvent) => {
+            if (e.key === 'Enter') {
+                const result = await onLoginClick();
+            }
+        },
+        [onLoginClick],
+    );
 
     useEffect(() => {
         window.addEventListener('keydown', onEnter);
@@ -69,7 +78,9 @@ const LoginForm = memo((props: LoginFormProps) => {
     return (
         <DynamicModuleLoader reducers={initialReducers}>
             <div className={classNames(cls.LoginForm, {}, [className])}>
-                {error && <AppText title={error} variant={AppTextVariant.ERROR} />}
+                {error && (
+                    <AppText title={error} variant={AppTextVariant.ERROR} />
+                )}
                 <AppInput
                     autofocus
                     type="text"

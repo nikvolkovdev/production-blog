@@ -7,9 +7,7 @@ const defaultArticle = {
     views: 1022,
     createdAt: '26.04.2022',
     userId: '1',
-    type: [
-        'IT',
-    ],
+    type: ['IT'],
     blocks: [],
 };
 

@@ -12,10 +12,7 @@ interface SidebarItemProps {
 }
 
 export const SidebarItem = memo((props: SidebarItemProps) => {
-    const {
-        item,
-        collapsed,
-    } = props;
+    const { item, collapsed } = props;
 
     const isAuth = useSelector(getUserAuthData);
 
@@ -24,9 +21,17 @@ export const SidebarItem = memo((props: SidebarItemProps) => {
     }
 
     return (
-        <AppLink to={item.path} className={cls.item} variant={AppLinkVariant.INVERTED}>
+        <AppLink
+            to={item.path}
+            className={cls.item}
+            variant={AppLinkVariant.INVERTED}
+        >
             <item.Icon className={cls.icon} />
-            <span className={classNames(cls.link, { [cls.collapsed]: collapsed })}>{!collapsed && item.text}</span>
+            <span
+                className={classNames(cls.link, { [cls.collapsed]: collapsed })}
+            >
+                {!collapsed && item.text}
+            </span>
         </AppLink>
     );
 });

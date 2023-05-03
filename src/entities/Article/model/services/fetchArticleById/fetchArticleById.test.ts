@@ -34,15 +34,16 @@ const article: Article = {
             id: '4',
             type: ArticleBlockType.CODE,
             // eslint-disable-next-line max-len
-            code: 'export default {\n'
-                + '    title: \'entities/ArticleDetails\',\n'
-                + '    component: ArticleDetails,\n'
-                + '    argTypes: {\n'
-                + '        backgroundColor: { control: \'color\' },\n'
-                + '    },\n'
-                + '} as ComponentMeta<typeof ArticleDetails>;\n'
-                + '\n'
-                + 'const Template: ComponentStory<typeof ArticleDetails> = (args) => <ArticleDetails {...args} />;',
+            code:
+                'export default {\n' +
+                "    title: 'entities/ArticleDetails',\n" +
+                '    component: ArticleDetails,\n' +
+                '    argTypes: {\n' +
+                "        backgroundColor: { control: 'color' },\n" +
+                '    },\n' +
+                '} as ComponentMeta<typeof ArticleDetails>;\n' +
+                '\n' +
+                'const Template: ComponentStory<typeof ArticleDetails> = (args) => <ArticleDetails {...args} />;',
         },
         {
             id: '5',

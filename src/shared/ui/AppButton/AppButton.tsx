@@ -1,6 +1,4 @@
-import React, {
-    ButtonHTMLAttributes, ForwardedRef, ReactNode,
-} from 'react';
+import React, { ButtonHTMLAttributes, ForwardedRef, ReactNode } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './AppButton.module.scss';
 
@@ -10,13 +8,13 @@ export enum ButtonVariant {
     OUTLINE = 'outline',
     OUTLINE_RED = 'outline_red',
     BACKGROUND = 'background',
-    BACKGROUND_INVERTED = 'backgroundInverted'
+    BACKGROUND_INVERTED = 'backgroundInverted',
 }
 
 export enum ButtonSize {
     M = 'size_m',
     L = 'size_l',
-    XL = 'size_xl'
+    XL = 'size_xl',
 }
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -48,7 +46,11 @@ export const AppButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
             <button
                 className={classNames(
                     cls.AppButton,
-                    { [cls.square]: square, [cls.disabled]: disabled, [cls.fullWidth]: fullWidth },
+                    {
+                        [cls.square]: square,
+                        [cls.disabled]: disabled,
+                        [cls.fullWidth]: fullWidth,
+                    },
                     [className, cls[variant], cls[size]],
                 )}
                 // eslint-disable-next-line react/button-has-type

@@ -6,9 +6,7 @@
     "views": 100,
     "createdAt": "21.02.2022",
     "userId": "1",
-    "type": [
-        "IT"
-    ],
+    "type": ["IT"],
     "blocks": [
         {
             "id": "1",
@@ -25,9 +23,7 @@
         "id": "1",
         "username": "admin",
         "password": "123",
-        "roles": [
-            "ADMIN"
-        ],
+        "roles": ["ADMIN"],
         "avatar": "https://i.pinimg.com/originals/3f/37/07/3f37077c62d9cfe48e46b195b232f7e2.jpg"
     }
 }

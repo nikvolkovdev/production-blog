@@ -12,7 +12,9 @@ export default {
     },
 } as ComponentMeta<typeof ArticleDetailsPage>;
 
-const Template: ComponentStory<typeof ArticleDetailsPage> = (args) => <ArticleDetailsPage {...args} />;
+const Template: ComponentStory<typeof ArticleDetailsPage> = (args) => (
+    <ArticleDetailsPage {...args} />
+);
 
 const article: Article = {
     id: '1',
@@ -44,15 +46,16 @@ const article: Article = {
             id: '4',
             type: ArticleBlockType.CODE,
             // eslint-disable-next-line max-len
-            code: 'export default {\n'
-                + '    title: \'entities/ArticleDetails\',\n'
-                + '    component: ArticleDetails,\n'
-                + '    argTypes: {\n'
-                + '        backgroundColor: { control: \'color\' },\n'
-                + '    },\n'
-                + '} as ComponentMeta<typeof ArticleDetails>;\n'
-                + '\n'
-                + 'const Template: ComponentStory<typeof ArticleDetails> = (args) => <ArticleDetails {...args} />;',
+            code:
+                'export default {\n' +
+                "    title: 'entities/ArticleDetails',\n" +
+                '    component: ArticleDetails,\n' +
+                '    argTypes: {\n' +
+                "        backgroundColor: { control: 'color' },\n" +
+                '    },\n' +
+                '} as ComponentMeta<typeof ArticleDetails>;\n' +
+                '\n' +
+                'const Template: ComponentStory<typeof ArticleDetails> = (args) => <ArticleDetails {...args} />;',
         },
         {
             id: '5',
@@ -107,8 +110,10 @@ const article: Article = {
 };
 
 export const Normal = Template.bind({});
-Normal.decorators = [StoreDecorator({
-    articleDetails: {
-        data: article,
-    },
-})];
+Normal.decorators = [
+    StoreDecorator({
+        articleDetails: {
+            data: article,
+        },
+    }),
+];

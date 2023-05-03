@@ -15,21 +15,25 @@ interface AppAvatarProps {
 }
 
 export const AppAvatar = memo((props: AppAvatarProps) => {
-    const {
-        className,
-        src,
-        alt,
-        size,
-        fallbackInverted,
-    } = props;
+    const { className, src, alt, size, fallbackInverted } = props;
 
-    const styles = useMemo<CSSProperties>(() => ({
-        width: size || 100,
-        height: size || 100,
-    }), [size]);
+    const styles = useMemo<CSSProperties>(
+        () => ({
+            width: size || 100,
+            height: size || 100,
+        }),
+        [size],
+    );
 
     const fallback = <Skeleton width={size} height={size} borderRadius="50%" />;
-    const errorFallback = <AppIcon inverted={fallbackInverted} Svg={UserIcon} width={size} height={size} />;
+    const errorFallback = (
+        <AppIcon
+            inverted={fallbackInverted}
+            Svg={UserIcon}
+            width={size}
+            height={size}
+        />
+    );
 
     return (
         <AppImage

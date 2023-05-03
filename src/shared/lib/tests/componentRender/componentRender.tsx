@@ -34,19 +34,21 @@ export function TestProvider(props: TestProviderProps) {
 
     return (
         <MemoryRouter initialEntries={[route]}>
-            <StoreProvider asyncReducers={asyncReducers} initialState={initialState as StateSchema}>
+            <StoreProvider
+                asyncReducers={asyncReducers}
+                initialState={initialState as StateSchema}
+            >
                 <ThemeProvider>
-                    <div className={`app ${theme}`}>
-                        {children}
-                    </div>
+                    <div className={`app ${theme}`}>{children}</div>
                 </ThemeProvider>
             </StoreProvider>
         </MemoryRouter>
     );
 }
 
-export function componentRender(component: ReactNode, options: componentRenderOptions = {}) {
-    return render(
-        <TestProvider options={options}>{component}</TestProvider>,
-    );
+export function componentRender(
+    component: ReactNode,
+    options: componentRenderOptions = {},
+) {
+    return render(<TestProvider options={options}>{component}</TestProvider>);
 }

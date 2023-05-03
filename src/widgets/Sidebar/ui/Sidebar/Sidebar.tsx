@@ -13,9 +13,7 @@ interface SidebarProps {
 }
 
 export const Sidebar = memo((props: SidebarProps) => {
-    const {
-        className,
-    } = props;
+    const { className } = props;
 
     const [collapsed, setCollapsed] = useState(false);
     const sidebarItemsList = useSelector(getSidebarItems);
@@ -27,10 +25,12 @@ export const Sidebar = memo((props: SidebarProps) => {
     return (
         <aside
             data-testid="sidebar"
-            className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}
+            className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [
+                className,
+            ])}
         >
             <VStack role="navigation" gap="8" className={cls.items}>
-                { sidebarItemsList.map((item) => (
+                {sidebarItemsList.map((item) => (
                     <SidebarItem
                         item={item}
                         key={item.path}

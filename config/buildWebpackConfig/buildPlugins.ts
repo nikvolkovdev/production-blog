@@ -6,7 +6,9 @@ import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { BuildOptions } from './types/config';
 
-export const buildPlugins = (options: BuildOptions): webpack.WebpackPluginInstance[] => {
+export const buildPlugins = (
+    options: BuildOptions,
+): webpack.WebpackPluginInstance[] => {
     const isProd = !options.isDev;
 
     const plugins = [
@@ -39,10 +41,12 @@ export const buildPlugins = (options: BuildOptions): webpack.WebpackPluginInstan
     }
 
     if (isProd) {
-        plugins.push(new MiniCssExtractPlugin({
-            filename: 'css/[name].[contenthash:8].css',
-            chunkFilename: 'css/[name].[contenthash:8].css',
-        }));
+        plugins.push(
+            new MiniCssExtractPlugin({
+                filename: 'css/[name].[contenthash:8].css',
+                chunkFilename: 'css/[name].[contenthash:8].css',
+            }),
+        );
     }
 
     return plugins;

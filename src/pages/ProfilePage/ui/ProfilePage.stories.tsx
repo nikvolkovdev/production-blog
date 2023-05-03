@@ -16,38 +16,45 @@ export default {
     },
 } as ComponentMeta<typeof ProfilePage>;
 
-const Template: ComponentStory<typeof ProfilePage> = (args) => <ProfilePage {...args} />;
+const Template: ComponentStory<typeof ProfilePage> = (args) => (
+    <ProfilePage {...args} />
+);
 
 export const Normal = Template.bind({});
 Normal.args = {};
-Normal.decorators = [StoreDecorator({
-    profile: {
-        form: {
-            username: 'admin',
-            age: 22,
-            country: Country.KAZAKHSTAN,
-            firstname: 'Nikita',
-            lastname: 'Volkov',
-            city: 'Almaty',
-            currency: Currency.KZT,
-            avatar,
+Normal.decorators = [
+    StoreDecorator({
+        profile: {
+            form: {
+                username: 'admin',
+                age: 22,
+                country: Country.KAZAKHSTAN,
+                firstname: 'Nikita',
+                lastname: 'Volkov',
+                city: 'Almaty',
+                currency: Currency.KZT,
+                avatar,
+            },
         },
-    },
-})];
+    }),
+];
 
 export const Dark = Template.bind({});
 Dark.args = {};
-Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
-    profile: {
-        form: {
-            username: 'admin',
-            age: 22,
-            country: Country.KAZAKHSTAN,
-            firstname: 'Nikita',
-            lastname: 'Volkov',
-            city: 'Almaty',
-            currency: Currency.KZT,
-            avatar,
+Dark.decorators = [
+    ThemeDecorator(Theme.DARK),
+    StoreDecorator({
+        profile: {
+            form: {
+                username: 'admin',
+                age: 22,
+                country: Country.KAZAKHSTAN,
+                firstname: 'Nikita',
+                lastname: 'Volkov',
+                city: 'Almaty',
+                currency: Currency.KZT,
+                avatar,
+            },
         },
-    },
-})];
+    }),
+];

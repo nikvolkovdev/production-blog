@@ -4,10 +4,10 @@ import cls from './Card.module.scss';
 
 export enum CardVariant {
     NORMAL = 'normal',
-    OUTLINE = 'outline'
+    OUTLINE = 'outline',
 }
 
-interface CardProps extends HTMLAttributes<HTMLDivElement>{
+interface CardProps extends HTMLAttributes<HTMLDivElement> {
     className?: string;
     children: ReactNode;
     variant?: CardVariant;
@@ -25,7 +25,10 @@ export const Card = memo((props: CardProps) => {
 
     return (
         <div
-            className={classNames(cls.Card, { [cls.max]: max }, [className, cls[variant]])}
+            className={classNames(cls.Card, { [cls.max]: max }, [
+                className,
+                cls[variant],
+            ])}
             {...otherProps}
         >
             {children}

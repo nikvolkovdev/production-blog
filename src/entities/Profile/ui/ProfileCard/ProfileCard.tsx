@@ -13,7 +13,7 @@ import { Currency, CurrencySelect } from '@/entities/Currency';
 
 interface ProfileCardProps {
     className?: string;
-    data?: Profile
+    data?: Profile;
     isLoading?: boolean;
     error?: string | undefined;
     readOnly?: boolean | undefined;
@@ -51,7 +51,10 @@ export const ProfileCard = memo((props: ProfileCardProps) => {
             <HStack
                 justify="center"
                 max
-                className={classNames(cls.ProfileCard, {}, [className, cls.loading])}
+                className={classNames(cls.ProfileCard, {}, [
+                    className,
+                    cls.loading,
+                ])}
             >
                 <Loader />
             </HStack>
@@ -60,7 +63,13 @@ export const ProfileCard = memo((props: ProfileCardProps) => {
 
     if (error) {
         return (
-            <HStack justify="center" className={classNames(cls.ProfileCard, {}, [className, cls.error])}>
+            <HStack
+                justify="center"
+                className={classNames(cls.ProfileCard, {}, [
+                    className,
+                    cls.error,
+                ])}
+            >
                 <AppText
                     title="Произошла чудовищная ошибка при загрузке профиля"
                     description="Попробуйте обновить страницу"
@@ -76,7 +85,11 @@ export const ProfileCard = memo((props: ProfileCardProps) => {
     };
 
     return (
-        <VStack gap="8" max className={classNames(cls.ProfileCard, mods, [className])}>
+        <VStack
+            gap="8"
+            max
+            className={classNames(cls.ProfileCard, mods, [className])}
+        >
             {data?.avatar && (
                 <HStack justify="center" max>
                     <AppAvatar src={data?.avatar} alt="avatar" />

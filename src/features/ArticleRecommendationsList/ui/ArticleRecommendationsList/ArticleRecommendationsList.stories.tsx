@@ -27,9 +27,7 @@ const article: Article = {
         username: 'Nikita V',
         avatar: 'https://shapka-youtube.ru/wp-content/uploads/2021/03/mrachnaya-avatarka-dlya-parney.jpg',
     },
-    type: [
-        'IT',
-    ],
+    type: ['IT'],
     blocks: [
         {
             id: '1',
@@ -102,7 +100,9 @@ const article: Article = {
     ],
 } as Article;
 
-const Template: ComponentStory<typeof ArticleRecommendationsList> = (args) => <ArticleRecommendationsList {...args} />;
+const Template: ComponentStory<typeof ArticleRecommendationsList> = (args) => (
+    <ArticleRecommendationsList {...args} />
+);
 
 export const Normal = Template.bind({});
 Normal.args = {};

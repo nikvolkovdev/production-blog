@@ -9,10 +9,7 @@ interface LoginModalProps {
 }
 
 export const LoginModal = memo((props: LoginModalProps) => {
-    const {
-        onClose,
-        isOpen,
-    } = props;
+    const { onClose, isOpen } = props;
 
     return (
         <Modal onClose={onClose} isOpen={isOpen} lazy>
@@ -20,6 +17,5 @@ export const LoginModal = memo((props: LoginModalProps) => {
                 <LoginFormAsync onSuccess={onClose} />
             </Suspense>
         </Modal>
-
     );
 });

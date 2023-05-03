@@ -9,11 +9,16 @@ import { AdminPanelPage } from '@/pages/AdminPanelPage';
 import { UserRole } from '@/entities/User';
 import { ForbiddenPage } from '@/pages/ForbiddenPage';
 import {
-    AppRoutes, getRouteAbout,
+    AppRoutes,
+    getRouteAbout,
     getRouteAdmin,
-    getRouteArticleCreate, getRouteArticleDetails,
-    getRouteArticleEdit, getRouteArticles,
-    getRouteForbidden, getRouteMain, getRouteProfile,
+    getRouteArticleCreate,
+    getRouteArticleDetails,
+    getRouteArticleEdit,
+    getRouteArticles,
+    getRouteForbidden,
+    getRouteMain,
+    getRouteProfile,
 } from '@/shared/const/router';
 import { AppRoutesProps } from '@/shared/types/router';
 

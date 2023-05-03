@@ -7,12 +7,7 @@ interface PortalProps {
 }
 
 export const Portal = memo((props: PortalProps) => {
-    const {
-        children,
-        element = document.body,
-    } = props;
+    const { children, element = document.body } = props;
 
-    return (
-        createPortal(children, element)
-    );
+    return createPortal(children, element);
 });

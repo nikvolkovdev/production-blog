@@ -4,10 +4,7 @@ module.exports = {
         es2021: true,
         jest: true,
     },
-    extends: [
-        'plugin:react/recommended',
-        'airbnb',
-    ],
+    extends: ['plugin:react/recommended', 'airbnb', 'prettier'],
     parser: '@typescript-eslint/parser',
     parserOptions: {
         ecmaFeatures: {
@@ -25,10 +22,13 @@ module.exports = {
     ],
     rules: {
         'unused-imports/no-unused-imports': 'error',
-        'react/jsx-indent': [2, 4],
-        'react/jsx-indent-props': [2, 4],
-        indent: [2, 4],
-        'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.tsx'] }],
+        // 'react/jsx-indent': [2, 4],
+        // 'react/jsx-indent-props': [2, 4],
+        // indent: [2, 4],
+        'react/jsx-filename-extension': [
+            2,
+            { extensions: ['.js', '.jsx', '.tsx'] },
+        ],
         'import/no-unresolved': 'off',
         'import/prefer-default-export': 'off',
         'no-unused-vars': 'warn',
@@ -48,19 +48,26 @@ module.exports = {
         'no-undef': 'off',
         'react/no-array-index-key': 'off',
         'my-import-paths-check/path-checker': ['error', { alias: '@' }],
-        'my-import-paths-check/layer-imports': ['error',
+        'my-import-paths-check/layer-imports': [
+            'error',
             {
                 alias: '@',
                 ignoreImportPatterns: ['**/StoreProvider', '**/testing'],
             },
         ],
-        'my-import-paths-check/public-api-imports': ['error',
+        'my-import-paths-check/public-api-imports': [
+            'error',
             {
                 alias: '@',
-                testFilesPatterns: ['**/*.test.*', '**/*.story.*', '**/StoreDecorator.tsx'],
+                testFilesPatterns: [
+                    '**/*.test.*',
+                    '**/*.story.*',
+                    '**/StoreDecorator.tsx',
+                ],
             },
         ],
         'max-len': ['error', { ignoreComments: true, code: 120 }],
+        'react/jsx-max-props-per-line': ['error', { maximum: 3 }],
     },
     globals: {
         __IS_DEV__: true,

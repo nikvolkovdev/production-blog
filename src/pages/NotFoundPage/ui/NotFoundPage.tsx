@@ -9,12 +9,13 @@ interface NotFoundPageProps {
 }
 
 export const NotFoundPage = memo((props: NotFoundPageProps) => {
-    const {
-        className,
-    } = props;
+    const { className } = props;
 
     return (
-        <AppPage className={classNames(cls.NotFoundPage, {}, [className])} data-testid="NotFoundPage">
+        <AppPage
+            className={classNames(cls.NotFoundPage, {}, [className])}
+            data-testid="NotFoundPage"
+        >
             Страница не найдена
         </AppPage>
     );

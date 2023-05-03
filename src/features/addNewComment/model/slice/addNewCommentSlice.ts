@@ -12,8 +12,7 @@ export const addNewCommentSlice = createSlice({
         setText: (state, action: PayloadAction<string>) => {
             state.text = action.payload;
         },
-    }
-    ,
+    },
     // extraReducers: (builder) => {
     //     builder
     //         .addCase(fetchProfileData.pending, (state) => {

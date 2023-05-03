@@ -16,36 +16,38 @@ interface EditableProfileCardHeaderProps {
     className?: string;
 }
 
-export const EditableProfileCardHeader = memo((props: EditableProfileCardHeaderProps) => {
-    const {
-        className,
-    } = props;
+export const EditableProfileCardHeader = memo(
+    (props: EditableProfileCardHeaderProps) => {
+        const { className } = props;
 
-    const authData = useSelector(getUserAuthData);
-    const profileData = useSelector(getProfileData);
-    const canEdit = authData?.id === profileData?.id;
-    const readOnly = useSelector(getProfileReadonly);
-    const dispatch = useAppDispatch();
+        const authData = useSelector(getUserAuthData);
+        const profileData = useSelector(getProfileData);
+        const canEdit = authData?.id === profileData?.id;
+        const readOnly = useSelector(getProfileReadonly);
+        const dispatch = useAppDispatch();
 
-    const onEdit = useCallback(() => {
-        dispatch(profileActions.setReadOnly(false));
-    }, [dispatch]);
+        const onEdit = useCallback(() => {
+            dispatch(profileActions.setReadOnly(false));
+        }, [dispatch]);
 
-    const onCancel = useCallback(() => {
-        dispatch(profileActions.cancelEdit());
-    }, [dispatch]);
+        const onCancel = useCallback(() => {
+            dispatch(profileActions.cancelEdit());
+        }, [dispatch]);
 
-    const onSave = useCallback(() => {
-        dispatch(updateProfileData());
-    }, [dispatch]);
+        const onSave = useCallback(() => {
+            dispatch(updateProfileData());
+        }, [dispatch]);
 
-    return (
-        <HStack max justify="between" className={classNames('', {}, [className])}>
-            <AppText title="Профиль" className={cls.profile} />
-            {canEdit && (
-                <div>
-                    {readOnly
-                        ? (
+        return (
+            <HStack
+                max
+                justify="between"
+                className={classNames('', {}, [className])}
+            >
+                <AppText title="Профиль" className={cls.profile} />
+                {canEdit && (
+                    <div>
+                        {readOnly ? (
                             <AppButton
                                 variant={ButtonVariant.OUTLINE}
                                 onClick={onEdit}
@@ -53,8 +55,7 @@ export const EditableProfileCardHeader = memo((props: EditableProfileCardHeaderP
                             >
                                 Редактировать
                             </AppButton>
-                        )
-                        : (
+                        ) : (
                             <HStack gap="8">
                                 <AppButton
                                     variant={ButtonVariant.OUTLINE}
@@ -72,8 +73,9 @@ export const EditableProfileCardHeader = memo((props: EditableProfileCardHeaderP
                                 </AppButton>
                             </HStack>
                         )}
-                </div>
-            )}
-        </HStack>
-    );
-});
+                    </div>
+                )}
+            </HStack>
+        );
+    },
+);

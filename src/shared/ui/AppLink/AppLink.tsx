@@ -1,13 +1,11 @@
-import React, {
-    ForwardedRef, ReactNode,
-} from 'react';
+import React, { ForwardedRef, ReactNode } from 'react';
 import { Link, LinkProps } from 'react-router-dom';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './AppLink.module.scss';
 
 export enum AppLinkVariant {
     PRIMARY = 'primary',
-    INVERTED = 'inverted'
+    INVERTED = 'inverted',
 }
 
 interface AppLinkProps extends LinkProps {
@@ -27,7 +25,10 @@ export const AppLink = React.forwardRef<HTMLAnchorElement, AppLinkProps>(
 
         return (
             <Link
-                className={classNames(cls.AppLink, {}, [className, cls[variant]])}
+                className={classNames(cls.AppLink, {}, [
+                    className,
+                    cls[variant],
+                ])}
                 {...otherProps}
                 ref={ref}
             >

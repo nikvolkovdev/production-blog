@@ -11,15 +11,15 @@ interface ProfilePageProps {
 }
 
 const ProfilePage = memo((props: ProfilePageProps) => {
-    const {
-        className,
-    } = props;
+    const { className } = props;
 
-    const profile = useParams<{id: string}>();
+    const profile = useParams<{ id: string }>();
 
     return (
-        <AppPage className={classNames(cls.ProfilePage, {}, [className])} data-testid="ProfilePage">
-
+        <AppPage
+            className={classNames(cls.ProfilePage, {}, [className])}
+            data-testid="ProfilePage"
+        >
             <EditableProfileCard id={profile.id} />
             <ProfileRating profileId={profile.id || ''} />
         </AppPage>

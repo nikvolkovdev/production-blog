@@ -23,21 +23,30 @@ interface RatingCardProps {
 
 export const RatingCard = memo((props: RatingCardProps) => {
     const {
-        className, title, feedbackTitle, hasFeedback = true, onCancel, onAccept, rate,
+        className,
+        title,
+        feedbackTitle,
+        hasFeedback = true,
+        onCancel,
+        onAccept,
+        rate,
     } = props;
 
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [starsCount, setStarsCount] = useState(rate ?? 0);
     const [feedback, setFeedback] = useState('');
 
-    const onSelectStars = useCallback((selectedStarsCount: number) => {
-        setStarsCount(selectedStarsCount);
-        if (hasFeedback) {
-            setIsModalOpen(true);
-        } else {
-            onAccept?.(selectedStarsCount);
-        }
-    }, [hasFeedback, onAccept]);
+    const onSelectStars = useCallback(
+        (selectedStarsCount: number) => {
+            setStarsCount(selectedStarsCount);
+            if (hasFeedback) {
+                setIsModalOpen(true);
+            } else {
+                onAccept?.(selectedStarsCount);
+            }
+        },
+        [hasFeedback, onAccept],
+    );
 
     const acceptHandler = useCallback(() => {
         setIsModalOpen(false);
@@ -52,15 +61,27 @@ export const RatingCard = memo((props: RatingCardProps) => {
     const modalContent = (
         <>
             <AppText title={feedbackTitle} />
-            <AppInput placeholder="Ваш отзыв" value={feedback} onChange={setFeedback} data-testid="RatingCard.Input" />
+            <AppInput
+                placeholder="Ваш отзыв"
+                value={feedback}
+                onChange={setFeedback}
+                data-testid="RatingCard.Input"
+            />
         </>
     );
 
     return (
-        <Card className={classNames(cls.RatingCard, {}, [className])} data-testid="RatingCard">
+        <Card
+            className={classNames(cls.RatingCard, {}, [className])}
+            data-testid="RatingCard"
+        >
             <VStack align="center" gap="8">
                 <AppText title={starsCount ? 'Спасибо за оценку!' : title} />
-                <StarRating selectedStars={starsCount} size={40} onSelect={onSelectStars} />
+                <StarRating
+                    selectedStars={starsCount}
+                    size={40}
+                    onSelect={onSelectStars}
+                />
             </VStack>
             <BrowserView>
                 <Modal isOpen={isModalOpen} onClose={cancelHandler} lazy>
@@ -90,14 +111,16 @@ export const RatingCard = memo((props: RatingCardProps) => {
                 <Drawer isOpen={isModalOpen} onClose={cancelHandler} lazy>
                     <VStack gap="32">
                         {modalContent}
-                        <AppButton onClick={acceptHandler} size={ButtonSize.L} fullWidth>
+                        <AppButton
+                            onClick={acceptHandler}
+                            size={ButtonSize.L}
+                            fullWidth
+                        >
                             Отправить
                         </AppButton>
                     </VStack>
-
                 </Drawer>
             </MobileView>
-
         </Card>
     );
 });

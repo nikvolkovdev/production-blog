@@ -2,7 +2,11 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from '@/app/providers/StoreProvider';
 import { Profile } from '@/entities/Profile';
 
-export const fetchProfileData = createAsyncThunk<Profile, string, ThunkConfig<string>>(
+export const fetchProfileData = createAsyncThunk<
+    Profile,
+    string,
+    ThunkConfig<string>
+>(
     'profile/fetchProfileData',
 
     async (profileId, thunkAPI) => {
@@ -10,7 +14,9 @@ export const fetchProfileData = createAsyncThunk<Profile, string, ThunkConfig<st
 
         try {
             // получить мы хотим именно тип пользователя
-            const response = await extra.api.get<Profile>(`/profile/${profileId}`);
+            const response = await extra.api.get<Profile>(
+                `/profile/${profileId}`,
+            );
 
             if (!response.data) {
                 throw new Error();

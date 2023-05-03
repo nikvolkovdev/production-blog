@@ -8,9 +8,7 @@ interface PageErrorProps {
 }
 
 export const PageError = memo((props: PageErrorProps) => {
-    const {
-        className,
-    } = props;
+    const { className } = props;
 
     const onReload = () => {
         // eslint-disable-next-line no-restricted-globals
@@ -20,7 +18,11 @@ export const PageError = memo((props: PageErrorProps) => {
     return (
         <div className={classNames(cls.PageError, {}, [className])}>
             <p>Произошла чудовищная ошибка</p>
-            <AppButton buttonType="button" variant={ButtonVariant.OUTLINE} onClick={onReload}>
+            <AppButton
+                buttonType="button"
+                variant={ButtonVariant.OUTLINE}
+                onClick={onReload}
+            >
                 Обновить страницу
             </AppButton>
         </div>

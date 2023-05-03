@@ -9,29 +9,29 @@ interface LoginByUsernameProps {
 }
 
 export const loginByUsername = createAsyncThunk<
-        User,
-        LoginByUsernameProps,
-        ThunkConfig<string>
-    >(
-        'common/loginByUsername',
-        async (authData, thunkAPI) => {
-            const { dispatch, extra, rejectWithValue } = thunkAPI;
+    User,
+    LoginByUsernameProps,
+    ThunkConfig<string>
+>('common/loginByUsername', async (authData, thunkAPI) => {
+    const { dispatch, extra, rejectWithValue } = thunkAPI;
 
-            try {
-            // @ts-ignore
-                const response = await extra.api.post('/login', authData);
+    try {
+        // @ts-ignore
+        const response = await extra.api.post('/login', authData);
 
-                if (!response.data) {
-                    throw new Error();
-                }
+        if (!response.data) {
+            throw new Error();
+        }
 
-                dispatch(userActions.setAuthData(response.data));
+        dispatch(userActions.setAuthData(response.data));
 
-                localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(response.data));
+        localStorage.setItem(
+            USER_LOCALSTORAGE_KEY,
+            JSON.stringify(response.data),
+        );
 
-                return response.data;
-            } catch (e) {
-                return rejectWithValue('Вы ввели неверный логин или пароль');
-            }
-        },
-    );
+        return response.data;
+    } catch (e) {
+        return rejectWithValue('Вы ввели неверный логин или пароль');
+    }
+});

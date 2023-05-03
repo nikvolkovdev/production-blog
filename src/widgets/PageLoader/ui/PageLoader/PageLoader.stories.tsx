@@ -12,7 +12,9 @@ export default {
     },
 } as ComponentMeta<typeof PageLoader>;
 
-const Template: ComponentStory<typeof PageLoader> = (args) => <PageLoader {...args} />;
+const Template: ComponentStory<typeof PageLoader> = (args) => (
+    <PageLoader {...args} />
+);
 
 export const Normal = Template.bind({});
 Normal.args = {};

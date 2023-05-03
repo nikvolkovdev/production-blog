@@ -2,7 +2,10 @@ import { memo } from 'react';
 import { useParams } from 'react-router-dom';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { ArticleDetails } from '@/entities/Article';
-import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import {
+    DynamicModuleLoader,
+    ReducersList,
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { AppPage } from '@/widgets/AppPage';
 import { VStack } from '@/shared/ui/Stack';
 import { ArticleRecommendationsList } from '@/features/ArticleRecommendationsList';
@@ -21,15 +24,15 @@ const reducers: ReducersList = {
 };
 
 const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
-    const {
-        className,
-    } = props;
+    const { className } = props;
 
-    const { id } = useParams<{id: string}>();
+    const { id } = useParams<{ id: string }>();
 
     if (!id) {
         return (
-            <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
+            <div
+                className={classNames(cls.ArticleDetailsPage, {}, [className])}
+            >
                 Статья не найдена
             </div>
         );
@@ -43,11 +46,13 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
                     <ArticleDetails id={id} />
                     <ArticleRating articleId={id} />
                     <ArticleRecommendationsList />
-                    <ArticleDetailsComments id={id} className={cls.commentTitle} />
+                    <ArticleDetailsComments
+                        id={id}
+                        className={cls.commentTitle}
+                    />
                 </VStack>
             </AppPage>
         </DynamicModuleLoader>
-
     );
 };
 

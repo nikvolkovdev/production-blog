@@ -12,45 +12,51 @@ interface ProfileRatingProps {
 }
 
 export const ProfileRating = memo((props: ProfileRatingProps) => {
-    const {
-        className, profileId,
-    } = props;
+    const { className, profileId } = props;
 
     const user = useSelector(getUserAuthData);
 
     const { data, isLoading } = useGetProfileRating({
-        profileId, userId: user?.id ?? '',
+        profileId,
+        userId: user?.id ?? '',
     });
 
     const [rateProfileMutation] = useRateProfile();
 
     const rating = data?.[0];
 
-    const onRateProfile = useCallback((starsCount: number, feedback?: string) => {
-        try {
-            rateProfileMutation({
-                userId: user?.id ?? '',
-                profileId,
-                rate: starsCount,
-                feedback,
-            });
-        } catch (e) {
-            console.log(e);
-        }
-    }, [profileId, rateProfileMutation, user?.id]);
+    const onRateProfile = useCallback(
+        (starsCount: number, feedback?: string) => {
+            try {
+                rateProfileMutation({
+                    userId: user?.id ?? '',
+                    profileId,
+                    rate: starsCount,
+                    feedback,
+                });
+            } catch (e) {
+                console.log(e);
+            }
+        },
+        [profileId, rateProfileMutation, user?.id],
+    );
 
-    const onCancel = useCallback((starsCount: number) => {
-        onRateProfile(starsCount);
-    }, [onRateProfile]);
+    const onCancel = useCallback(
+        (starsCount: number) => {
+            onRateProfile(starsCount);
+        },
+        [onRateProfile],
+    );
 
-    const onAccept = useCallback((starsCount: number, feedback?: string) => {
-        onRateProfile(starsCount, feedback);
-    }, [onRateProfile]);
+    const onAccept = useCallback(
+        (starsCount: number, feedback?: string) => {
+            onRateProfile(starsCount, feedback);
+        },
+        [onRateProfile],
+    );
 
     if (isLoading) {
-        return (
-            <Skeleton width="100%" height={120} />
-        );
+        return <Skeleton width="100%" height={120} />;
     }
 
     return (

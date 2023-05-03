@@ -9,16 +9,13 @@ interface AppIconProps extends React.SVGProps<SVGSVGElement> {
 }
 
 export const AppIcon = memo((props: AppIconProps) => {
-    const {
-        className,
-        Svg,
-        inverted,
-        ...otherProps
-    } = props;
+    const { className, Svg, inverted, ...otherProps } = props;
 
     return (
         <Svg
-            className={classNames(inverted ? cls.inverted : cls.AppIcon, {}, [className])}
+            className={classNames(inverted ? cls.inverted : cls.AppIcon, {}, [
+                className,
+            ])}
             {...otherProps}
         />
     );

@@ -3,9 +3,7 @@ import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { AppButton, ButtonVariant } from '@/shared/ui/AppButton';
 import { LoginModal } from '@/features/AuthByUsername';
-import {
-    getUserAuthData,
-} from '@/entities/User';
+import { getUserAuthData } from '@/entities/User';
 import { AppText, AppTextVariant } from '@/shared/ui/AppText';
 import { AppLink, AppLinkVariant } from '@/shared/ui/AppLink';
 import { HStack } from '@/shared/ui/Stack';
@@ -36,7 +34,11 @@ export const Navbar = memo((props: NavbarProps) => {
     if (authData) {
         return (
             <header className={classNames(cls.Navbar, {}, [className])}>
-                <AppText className={cls.appName} title="Hmm..!?" variant={AppTextVariant.INVERTED} />
+                <AppText
+                    className={cls.appName}
+                    title="Hmm..!?"
+                    variant={AppTextVariant.INVERTED}
+                />
                 <AppLink
                     to={getRouteArticleCreate()}
                     variant={AppLinkVariant.INVERTED}
@@ -62,7 +64,9 @@ export const Navbar = memo((props: NavbarProps) => {
             >
                 Войти
             </AppButton>
-            {isAuthModal && <LoginModal onClose={onCloseModal} isOpen={isAuthModal} />}
+            {isAuthModal && (
+                <LoginModal onClose={onCloseModal} isOpen={isAuthModal} />
+            )}
         </header>
     );
 });

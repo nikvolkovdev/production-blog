@@ -1,30 +1,30 @@
 {
-  "compilerOptions": {
-    "outDir": "./build/",
-    "noImplicitAny": true,
-    "module": "ESNext",
-    "target": "es5",
-    "jsx": "react-jsx",
-    "allowJs": true,
-    "moduleResolution": "node",
-    "strict": true,
-    "baseUrl": ".",
-    "esModuleInterop": true,
-    "paths": {
-      "@/*" : ["./src/*"]
-    },
-    "allowSyntheticDefaultImports": true,
-    "isolatedModules": true,
-  },
-  "ts-node": {
     "compilerOptions": {
-      "module": "CommonJS"
-    }
-  },
-  "include": [
-    "./config/jest/jest-setup.ts",
-    "./src/**/*.ts",
-    "./src/**/*.tsx",
-    "./config/storybook/*.ts",
-  ]
+        "outDir": "./build/",
+        "noImplicitAny": true,
+        "module": "ESNext",
+        "target": "es5",
+        "jsx": "react-jsx",
+        "allowJs": true,
+        "moduleResolution": "node",
+        "strict": true,
+        "baseUrl": ".",
+        "esModuleInterop": true,
+        "paths": {
+            "@/*": ["./src/*"]
+        },
+        "allowSyntheticDefaultImports": true,
+        "isolatedModules": true
+    },
+    "ts-node": {
+        "compilerOptions": {
+            "module": "CommonJS"
+        }
+    },
+    "include": [
+        "./config/jest/jest-setup.ts",
+        "./src/**/*.ts",
+        "./src/**/*.tsx",
+        "./config/storybook/*.ts"
+    ]
 }
