@@ -10,8 +10,9 @@ import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetails
 import { ArticleDetailsPageHeader } from '../../ui/ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import { articleDetailsPageReducer } from '../../model/slices';
 import cls from './ArticleDetailsPage.module.scss';
+import { ToggleFeatures } from '@/shared/lib/features';
 import { ArticleRating } from '@/features/articleRating';
-import { getFeatureFlag } from '@/shared/lib/features';
+import { Card } from '@/shared/ui/Card';
 
 interface ArticleDetailsPageProps {
     className?: string;
@@ -24,7 +25,7 @@ const reducers: ReducersList = {
 const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     const { className } = props;
     const { id } = useParams<{ id: string }>();
-    const isArticleRatingEnabled = getFeatureFlag('isArticleRatingEnabled');
+    // const isArticleRatingEnabled = getFeatureFlag('isArticleRatingEnabled');
 
     if (!id) {
         return <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>Статья не найдена</div>;
@@ -42,14 +43,11 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
                 >
                     <ArticleDetailsPageHeader />
                     <ArticleDetails id={id} />
-                    {isArticleRatingEnabled && <ArticleRating articleId={id} />}
-                    {/* { */}
-                    {/*    toggleFeatures({ */}
-                    {/*        name: 'isArticleRatingEnabled', */}
-                    {/*        on: () => <ArticleDetailsPageRedesigned />, */}
-                    {/*        off: () => <ArticleDetailsPage />, */}
-                    {/*    }) */}
-                    {/* } */}
+                    <ToggleFeatures
+                        feature="isArticleRatingEnabled"
+                        on={<ArticleRating articleId={id} />}
+                        off={<Card>Оценка статей скоро появится</Card>}
+                    />
                     <ArticleRecommendationsList />
                     <ArticleDetailsComments
                         id={id}
