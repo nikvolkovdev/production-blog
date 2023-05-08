@@ -52,14 +52,7 @@ export const AppText = memo((props: AppTextProps) => {
     const HeaderTag = mapSizeToHeaderTag[size];
 
     return (
-        <div
-            className={classNames(cls.AppText, {}, [
-                className,
-                cls[variant],
-                cls[align],
-                cls[size],
-            ])}
-        >
+        <div className={classNames(cls.AppText, {}, [className, cls[variant], cls[align], cls[size]])}>
             {title && (
                 <HeaderTag
                     className={cls.title}

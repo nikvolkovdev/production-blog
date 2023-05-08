@@ -35,21 +35,19 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
     }, [article.id, navigate]);
 
     if (view === ArticleView.BIG) {
-        const textBlock = article.blocks.find(
-            (block) => block.type === ArticleBlockType.TEXT,
-        ) as ArticleTextBlock;
+        const textBlock = article.blocks.find((block) => block.type === ArticleBlockType.TEXT) as ArticleTextBlock;
 
         return (
             <div
                 data-testid="ArticleListItem"
-                className={classNames(cls.ArticleListItem, {}, [
-                    className,
-                    cls[view],
-                ])}
+                className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
             >
                 <Card>
                     <div className={cls.header}>
-                        <AppAvatar size={30} src={article.user.avatar} />
+                        <AppAvatar
+                            size={30}
+                            src={article.user.avatar}
+                        />
                         <AppText
                             description={article.user.username}
                             className={cls.user}
@@ -59,7 +57,10 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                             className={cls.date}
                         />
                     </div>
-                    <AppText title={article.title} className={cls.title} />
+                    <AppText
+                        title={article.title}
+                        className={cls.title}
+                    />
                     <AppText
                         description={article.type.join(',')}
                         className={cls.types}
@@ -68,7 +69,12 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                         src={article.img}
                         className={cls.img}
                         alt={article.title}
-                        fallback={<Skeleton width="100%" height={250} />}
+                        fallback={
+                            <Skeleton
+                                width="100%"
+                                height={250}
+                            />
+                        }
                     />
                     {textBlock && (
                         <ArticleTextBlockComponent
@@ -78,9 +84,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                     )}
                     <div className={cls.footer}>
                         <AppLink to={getRouteArticleDetails(article.id)}>
-                            <AppButton variant={ButtonVariant.OUTLINE}>
-                                Читать далее...
-                            </AppButton>
+                            <AppButton variant={ButtonVariant.OUTLINE}>Читать далее...</AppButton>
                         </AppLink>
                     </div>
                     <AppText
@@ -98,10 +102,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
             data-testid="ArticleListItem"
             target={target}
             to={getRouteArticleDetails(article.id)}
-            className={classNames(cls.ArticleListItem, {}, [
-                className,
-                cls[view],
-            ])}
+            className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
             {...bindHover}
         >
             <Card>
@@ -110,7 +111,12 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                         src={article.img}
                         className={cls.img}
                         alt={article.title}
-                        fallback={<Skeleton width={200} height={200} />}
+                        fallback={
+                            <Skeleton
+                                width={200}
+                                height={200}
+                            />
+                        }
                     />
                     <AppText
                         description={article.createdAt}
@@ -128,7 +134,10 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                     />
                     <AppIcon Svg={EyeIcon} />
                 </div>
-                <AppText description={article.title} className={cls.title} />
+                <AppText
+                    description={article.title}
+                    className={cls.title}
+                />
             </Card>
         </AppLink>
     );

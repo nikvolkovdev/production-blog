@@ -97,9 +97,7 @@ const article = {
     ],
 } as Article;
 
-const Template: ComponentStory<typeof ArticleList> = (args) => (
-    <ArticleList {...args} />
-);
+const Template: ComponentStory<typeof ArticleList> = (args) => <ArticleList {...args} />;
 
 export const isLoadingBig = Template.bind({});
 isLoadingBig.args = {

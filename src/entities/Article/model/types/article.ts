@@ -23,10 +23,7 @@ export interface ArticleTextBlock extends ArticleBlockBase {
     paragraphs: string[];
 }
 
-export type ArticleBlock =
-    | ArticleCodeBlock
-    | ArticleImageBlock
-    | ArticleTextBlock;
+export type ArticleBlock = ArticleCodeBlock | ArticleImageBlock | ArticleTextBlock;
 
 export interface Article {
     id: string;

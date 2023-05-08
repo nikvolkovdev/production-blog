@@ -13,9 +13,7 @@ export const AppIcon = memo((props: AppIconProps) => {
 
     return (
         <Svg
-            className={classNames(inverted ? cls.inverted : cls.AppIcon, {}, [
-                className,
-            ])}
+            className={classNames(inverted ? cls.inverted : cls.AppIcon, {}, [className])}
             {...otherProps}
         />
     );

@@ -15,9 +15,7 @@ const ArticleEditPage = memo((props: ArticleEditPageProps) => {
 
     return (
         <AppPage className={classNames(cls.ArticleEditPage, {}, [className])}>
-            {isEdit
-                ? `Редактирование статьи с ID = ${id}`
-                : 'Создание новой статьи'}
+            {isEdit ? `Редактирование статьи с ID = ${id}` : 'Создание новой статьи'}
         </AppPage>
     );
 });

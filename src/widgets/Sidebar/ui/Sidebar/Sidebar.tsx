@@ -25,11 +25,13 @@ export const Sidebar = memo((props: SidebarProps) => {
     return (
         <aside
             data-testid="sidebar"
-            className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [
-                className,
-            ])}
+            className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}
         >
-            <VStack role="navigation" gap="8" className={cls.items}>
+            <VStack
+                role="navigation"
+                gap="8"
+                className={cls.items}
+            >
                 {sidebarItemsList.map((item) => (
                     <SidebarItem
                         item={item}

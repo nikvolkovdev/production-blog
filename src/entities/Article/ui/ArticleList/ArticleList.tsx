@@ -17,25 +17,16 @@ interface ArticleListProps {
 }
 
 const getSkeletons = (view: ArticleView) =>
-    new Array(view === ArticleView.SMALL ? 12 : 3)
-        .fill(0)
-        .map((item, index) => (
-            <ArticleListItemSkeleton
-                className={cls.card}
-                view={view}
-                key={index}
-            />
-        ));
+    new Array(view === ArticleView.SMALL ? 12 : 3).fill(0).map((item, index) => (
+        <ArticleListItemSkeleton
+            className={cls.card}
+            view={view}
+            key={index}
+        />
+    ));
 
 export const ArticleList = memo((props: ArticleListProps) => {
-    const {
-        className,
-        articles,
-        isLoading,
-        view = ArticleView.SMALL,
-        target,
-        virtualized = false,
-    } = props;
+    const { className, articles, isLoading, view = ArticleView.SMALL, target, virtualized = false } = props;
 
     const renderArticle = (article: Article) => (
         <ArticleListItem
@@ -49,12 +40,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
 
     if (!isLoading && !articles.length) {
         return (
-            <div
-                className={classNames(cls.ArticleList, {}, [
-                    className,
-                    cls[view],
-                ])}
-            >
+            <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
                 <AppText title="Статьи не найдены" />
             </div>
         );

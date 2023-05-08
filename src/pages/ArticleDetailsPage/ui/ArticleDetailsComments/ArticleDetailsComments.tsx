@@ -4,10 +4,7 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { AppText, TextSize } from '@/shared/ui/AppText';
 import { AddNewCommentForm } from '@/features/addNewComment';
 import { CommentList } from '@/entities/Comment';
-import {
-    getArticleDetailsError,
-    getArticleDetailsIsLoading,
-} from '@/entities/Article';
+import { getArticleDetailsError, getArticleDetailsIsLoading } from '@/entities/Article';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDisptach';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
 import { VStack } from '@/shared/ui/Stack';
@@ -21,49 +18,45 @@ interface ArticleDetailsCommentsProps {
     id?: string;
 }
 
-export const ArticleDetailsComments = memo(
-    (props: ArticleDetailsCommentsProps) => {
-        const { className, id } = props;
+export const ArticleDetailsComments = memo((props: ArticleDetailsCommentsProps) => {
+    const { className, id } = props;
 
-        const comments = useSelector(getArticleComments.selectAll);
-        const commentsIsLoading = useSelector(getArticleDetailsIsLoading);
-        const commentsError = useSelector(getArticleDetailsError);
-        const dispatch = useAppDispatch();
+    const comments = useSelector(getArticleComments.selectAll);
+    const commentsIsLoading = useSelector(getArticleDetailsIsLoading);
+    const commentsError = useSelector(getArticleDetailsError);
+    const dispatch = useAppDispatch();
 
-        useInitialEffect(() => {
-            dispatch(fetchCommentsByArticleId(id));
-        });
+    useInitialEffect(() => {
+        dispatch(fetchCommentsByArticleId(id));
+    });
 
-        const onSendComment = useCallback(
-            (commentText: string) => {
-                dispatch(addCommentForArticle(commentText));
-            },
-            [dispatch],
-        );
+    const onSendComment = useCallback(
+        (commentText: string) => {
+            dispatch(addCommentForArticle(commentText));
+        },
+        [dispatch],
+    );
 
-        return (
-            <VStack
-                gap="16"
-                max
-                className={classNames(cls.ArticleDetailsComments, {}, [
-                    className,
-                ])}
-            >
-                {!commentsError && (
-                    <>
-                        <AppText
-                            size={TextSize.L}
-                            className={cls.commentTitle}
-                            title="Комментарии"
-                        />
-                        <AddNewCommentForm onSendComment={onSendComment} />
-                        <CommentList
-                            isLoading={commentsIsLoading}
-                            comments={comments}
-                        />
-                    </>
-                )}
-            </VStack>
-        );
-    },
-);
+    return (
+        <VStack
+            gap="16"
+            max
+            className={classNames(cls.ArticleDetailsComments, {}, [className])}
+        >
+            {!commentsError && (
+                <>
+                    <AppText
+                        size={TextSize.L}
+                        className={cls.commentTitle}
+                        title="Комментарии"
+                    />
+                    <AddNewCommentForm onSendComment={onSendComment} />
+                    <CommentList
+                        isLoading={commentsIsLoading}
+                        comments={comments}
+                    />
+                </>
+            )}
+        </VStack>
+    );
+});

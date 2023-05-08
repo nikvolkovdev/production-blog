@@ -12,45 +12,43 @@ interface ArticleDetailsPageHeaderProps {
     className?: string;
 }
 
-export const ArticleDetailsPageHeader = memo(
-    (props: ArticleDetailsPageHeaderProps) => {
-        const { className } = props;
+export const ArticleDetailsPageHeader = memo((props: ArticleDetailsPageHeaderProps) => {
+    const { className } = props;
 
-        const navigate = useNavigate();
-        const canEdit = useSelector(getCanEditArticle);
-        const article = useSelector(getArticleDetailsData);
+    const navigate = useNavigate();
+    const canEdit = useSelector(getCanEditArticle);
+    const article = useSelector(getArticleDetailsData);
 
-        const onBackToList = useCallback(() => {
-            navigate(getRouteArticles());
-        }, [navigate]);
+    const onBackToList = useCallback(() => {
+        navigate(getRouteArticles());
+    }, [navigate]);
 
-        const onEditArticle = useCallback(() => {
-            if (article) {
-                navigate(getRouteArticleEdit(article?.id));
-            }
-        }, [article, navigate]);
+    const onEditArticle = useCallback(() => {
+        if (article) {
+            navigate(getRouteArticleEdit(article?.id));
+        }
+    }, [article, navigate]);
 
-        return (
-            <HStack
-                max
-                justify="between"
-                className={classNames('', {}, [className])}
+    return (
+        <HStack
+            max
+            justify="between"
+            className={classNames('', {}, [className])}
+        >
+            <AppButton
+                variant={ButtonVariant.OUTLINE}
+                onClick={onBackToList}
             >
+                Назад к списку
+            </AppButton>
+            {canEdit && (
                 <AppButton
                     variant={ButtonVariant.OUTLINE}
-                    onClick={onBackToList}
+                    onClick={onEditArticle}
                 >
-                    Назад к списку
+                    Редактировать
                 </AppButton>
-                {canEdit && (
-                    <AppButton
-                        variant={ButtonVariant.OUTLINE}
-                        onClick={onEditArticle}
-                    >
-                        Редактировать
-                    </AppButton>
-                )}
-            </HStack>
-        );
-    },
-);
+            )}
+        </HStack>
+    );
+});

@@ -19,13 +19,20 @@ export const NotificationItem = memo((props: NotificationItemProps) => {
             variant={CardVariant.OUTLINE}
             className={classNames(cls.NotificationItem, {}, [className])}
         >
-            <AppText title={item.title} description={item.description} />
+            <AppText
+                title={item.title}
+                description={item.description}
+            />
         </Card>
     );
 
     if (item.href) {
         return (
-            <AppLink className={cls.link} target="_blank" to={item.href}>
+            <AppLink
+                className={cls.link}
+                target="_blank"
+                to={item.href}
+            >
                 {content}
             </AppLink>
         );

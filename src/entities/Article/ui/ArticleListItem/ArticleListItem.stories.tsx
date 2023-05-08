@@ -97,9 +97,7 @@ const article = {
     ],
 } as Article;
 
-const Template: ComponentStory<typeof ArticleListItem> = (args) => (
-    <ArticleListItem {...args} />
-);
+const Template: ComponentStory<typeof ArticleListItem> = (args) => <ArticleListItem {...args} />;
 
 export const BIG = Template.bind({});
 BIG.args = {

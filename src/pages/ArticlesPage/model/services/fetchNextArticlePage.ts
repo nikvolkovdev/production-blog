@@ -8,18 +8,17 @@ import { getArticlesPageIsLoading } from '../../model/selectors/getArticlesPageI
 
 interface FetchArticlesListProps {}
 
-export const fetchNextArticlesPage = createAsyncThunk<
-    void,
-    void,
-    ThunkConfig<string>
->('articlesPage/fetchNextArticlesPage', async (props, thunkAPI) => {
-    const { extra, rejectWithValue, getState, dispatch } = thunkAPI;
-    const hasMore = getArticlePageHasMore(getState());
-    const page = getArticlesPageNumber(getState());
-    const isLoading = getArticlesPageIsLoading(getState());
+export const fetchNextArticlesPage = createAsyncThunk<void, void, ThunkConfig<string>>(
+    'articlesPage/fetchNextArticlesPage',
+    async (props, thunkAPI) => {
+        const { extra, rejectWithValue, getState, dispatch } = thunkAPI;
+        const hasMore = getArticlePageHasMore(getState());
+        const page = getArticlesPageNumber(getState());
+        const isLoading = getArticlesPageIsLoading(getState());
 
-    if (hasMore && !isLoading) {
-        dispatch(articlePageActions.setPage(page + 1));
-        dispatch(fetchArticlesList({}));
-    }
-});
+        if (hasMore && !isLoading) {
+            dispatch(articlePageActions.setPage(page + 1));
+            dispatch(fetchArticlesList({}));
+        }
+    },
+);

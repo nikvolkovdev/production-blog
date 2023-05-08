@@ -7,10 +7,7 @@ import { Currency } from '@/entities/Currency';
 import { Country } from '@/entities/Country';
 import { AppText, AppTextVariant } from '@/shared/ui/AppText';
 import { ProfileCard } from '@/entities/Profile';
-import {
-    DynamicModuleLoader,
-    ReducersList,
-} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { VStack } from '@/shared/ui/Stack';
 import { ValidateProfileError } from '../../model/consts/consts';
 import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading/getProfileIsLoading';
@@ -40,8 +37,7 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
     const validateErrors = useSelector(getProfileValidateErrors);
 
     const validateErrorMap = {
-        [ValidateProfileError.INCORRECT_USER_DATA]:
-            'Неверно указано имя или фамилия',
+        [ValidateProfileError.INCORRECT_USER_DATA]: 'Неверно указано имя или фамилия',
         [ValidateProfileError.INCORRECT_AGE]: 'Неверно указан возраст',
         [ValidateProfileError.INCORRECT_COUNTRY]: 'Неверно указана страна',
         [ValidateProfileError.NO_DATA]: 'Нет данных',
@@ -65,9 +61,7 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
 
     const onChangeLastname = useCallback(
         (lastname: string | undefined) => {
-            dispatch(
-                profileActions.updateProfile({ lastname: lastname || '' }),
-            );
+            dispatch(profileActions.updateProfile({ lastname: lastname || '' }));
         },
         [dispatch],
     );
@@ -88,9 +82,7 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
 
     const onChangeUsername = useCallback(
         (username: string | undefined) => {
-            dispatch(
-                profileActions.updateProfile({ username: username || '' }),
-            );
+            dispatch(profileActions.updateProfile({ username: username || '' }));
         },
         [dispatch],
     );

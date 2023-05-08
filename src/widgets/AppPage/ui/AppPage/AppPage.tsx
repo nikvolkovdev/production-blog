@@ -4,10 +4,7 @@ import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDisptach';
-import {
-    getScrollByPath,
-    scrollRecoveryActions,
-} from '@/features/ScrollRecovery';
+import { getScrollByPath, scrollRecoveryActions } from '@/features/ScrollRecovery';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
 import { StateSchema } from '@/app/providers/StoreProvider';
 import { useThrottle } from '@/shared/lib/hooks/useThrottle';
@@ -27,9 +24,7 @@ export const AppPage = memo((props: AppPageProps) => {
     const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
     const dispatch = useAppDispatch();
     const { pathname } = useLocation();
-    const scrollPosition = useSelector((state: StateSchema) =>
-        getScrollByPath(state, pathname),
-    );
+    const scrollPosition = useSelector((state: StateSchema) => getScrollByPath(state, pathname));
 
     useInfiniteScroll({
         triggerRef,
@@ -59,7 +54,10 @@ export const AppPage = memo((props: AppPageProps) => {
         >
             {children}
             {onScrollEnd ? (
-                <div className={cls.trigger} ref={triggerRef} />
+                <div
+                    className={cls.trigger}
+                    ref={triggerRef}
+                />
             ) : null}
         </main>
     );

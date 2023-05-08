@@ -23,14 +23,11 @@ const data = {
 
 describe('updateProfileData.test', () => {
     test('success update', async () => {
-        const thunk = new TestAsyncThunk(
-            updateProfileData as AsyncThunk<Profile, void, any>,
-            {
-                profile: {
-                    form: data,
-                },
+        const thunk = new TestAsyncThunk(updateProfileData as AsyncThunk<Profile, void, any>, {
+            profile: {
+                form: data,
             },
-        );
+        });
 
         thunk.api.put.mockReturnValue(Promise.resolve({ data }));
 
@@ -41,14 +38,11 @@ describe('updateProfileData.test', () => {
     });
 
     test('error update', async () => {
-        const thunk = new TestAsyncThunk(
-            updateProfileData as AsyncThunk<Profile, void, any>,
-            {
-                profile: {
-                    form: data,
-                },
+        const thunk = new TestAsyncThunk(updateProfileData as AsyncThunk<Profile, void, any>, {
+            profile: {
+                form: data,
             },
-        );
+        });
         thunk.api.put.mockReturnValue(Promise.resolve({ status: 403 }));
         const result = await thunk.callThunk();
 
@@ -57,19 +51,14 @@ describe('updateProfileData.test', () => {
     });
 
     test('validate error', async () => {
-        const thunk = new TestAsyncThunk(
-            updateProfileData as AsyncThunk<Profile, void, any>,
-            {
-                profile: {
-                    form: { ...data, lastname: '' },
-                },
+        const thunk = new TestAsyncThunk(updateProfileData as AsyncThunk<Profile, void, any>, {
+            profile: {
+                form: { ...data, lastname: '' },
             },
-        );
+        });
         const result = await thunk.callThunk();
 
         expect(result.meta.requestStatus).toEqual('rejected');
-        expect(result.payload).toEqual([
-            ValidateProfileError.INCORRECT_USER_DATA,
-        ]);
+        expect(result.payload).toEqual([ValidateProfileError.INCORRECT_USER_DATA]);
     });
 });

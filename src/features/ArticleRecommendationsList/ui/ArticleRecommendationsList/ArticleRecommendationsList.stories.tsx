@@ -100,9 +100,7 @@ const article: Article = {
     ],
 } as Article;
 
-const Template: ComponentStory<typeof ArticleRecommendationsList> = (args) => (
-    <ArticleRecommendationsList {...args} />
-);
+const Template: ComponentStory<typeof ArticleRecommendationsList> = (args) => <ArticleRecommendationsList {...args} />;
 
 export const Normal = Template.bind({});
 Normal.args = {};

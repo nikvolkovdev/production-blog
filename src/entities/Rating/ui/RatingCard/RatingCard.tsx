@@ -22,15 +22,7 @@ interface RatingCardProps {
 }
 
 export const RatingCard = memo((props: RatingCardProps) => {
-    const {
-        className,
-        title,
-        feedbackTitle,
-        hasFeedback = true,
-        onCancel,
-        onAccept,
-        rate,
-    } = props;
+    const { className, title, feedbackTitle, hasFeedback = true, onCancel, onAccept, rate } = props;
 
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [starsCount, setStarsCount] = useState(rate ?? 0);
@@ -75,7 +67,10 @@ export const RatingCard = memo((props: RatingCardProps) => {
             className={classNames(cls.RatingCard, {}, [className])}
             data-testid="RatingCard"
         >
-            <VStack align="center" gap="8">
+            <VStack
+                align="center"
+                gap="8"
+            >
                 <AppText title={starsCount ? 'Спасибо за оценку!' : title} />
                 <StarRating
                     selectedStars={starsCount}
@@ -84,10 +79,21 @@ export const RatingCard = memo((props: RatingCardProps) => {
                 />
             </VStack>
             <BrowserView>
-                <Modal isOpen={isModalOpen} onClose={cancelHandler} lazy>
-                    <VStack max gap="32">
+                <Modal
+                    isOpen={isModalOpen}
+                    onClose={cancelHandler}
+                    lazy
+                >
+                    <VStack
+                        max
+                        gap="32"
+                    >
                         {modalContent}
-                        <HStack max gap="16" justify="end">
+                        <HStack
+                            max
+                            gap="16"
+                            justify="end"
+                        >
                             <AppButton
                                 onClick={acceptHandler}
                                 variant={ButtonVariant.OUTLINE}
@@ -108,7 +114,11 @@ export const RatingCard = memo((props: RatingCardProps) => {
             </BrowserView>
 
             <MobileView>
-                <Drawer isOpen={isModalOpen} onClose={cancelHandler} lazy>
+                <Drawer
+                    isOpen={isModalOpen}
+                    onClose={cancelHandler}
+                    lazy
+                >
                     <VStack gap="32">
                         {modalContent}
                         <AppButton

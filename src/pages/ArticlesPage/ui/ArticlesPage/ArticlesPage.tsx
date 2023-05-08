@@ -1,9 +1,6 @@
 import { memo, useCallback } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import {
-    DynamicModuleLoader,
-    ReducersList,
-} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDisptach';
 
 import { ArticleInfiniteList } from '../ArticleInfiniteList/ArticleInfiniteList';
@@ -31,7 +28,10 @@ const ArticlesPage = (props: ArticlesPageProps) => {
     }, [dispatch]);
 
     return (
-        <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
+        <DynamicModuleLoader
+            reducers={reducers}
+            removeAfterUnmount={false}
+        >
             <AppPage
                 data-testid="ArticlesPage"
                 onScrollEnd={onLoadNextPart}

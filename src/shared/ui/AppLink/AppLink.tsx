@@ -16,19 +16,11 @@ interface AppLinkProps extends LinkProps {
 
 export const AppLink = React.forwardRef<HTMLAnchorElement, AppLinkProps>(
     (props: AppLinkProps, ref: ForwardedRef<HTMLAnchorElement>) => {
-        const {
-            className,
-            children,
-            variant = AppLinkVariant.PRIMARY,
-            ...otherProps
-        } = props;
+        const { className, children, variant = AppLinkVariant.PRIMARY, ...otherProps } = props;
 
         return (
             <Link
-                className={classNames(cls.AppLink, {}, [
-                    className,
-                    cls[variant],
-                ])}
+                className={classNames(cls.AppLink, {}, [className, cls[variant]])}
                 {...otherProps}
                 ref={ref}
             >

@@ -11,9 +11,7 @@ export default {
     },
 } as ComponentMeta<typeof AppAvatar>;
 
-const Template: ComponentStory<typeof AppAvatar> = (args) => (
-    <AppAvatar {...args} />
-);
+const Template: ComponentStory<typeof AppAvatar> = (args) => <AppAvatar {...args} />;
 
 export const Normal = Template.bind({});
 Normal.args = {

@@ -26,49 +26,29 @@ interface ListBoxProps {
 }
 
 export function ListBox(props: ListBoxProps) {
-    const {
-        items,
-        className,
-        value,
-        defaultValue,
-        onChange,
-        readonly,
-        direction = 'bottom right',
-        label,
-    } = props;
+    const { items, className, value, defaultValue, onChange, readonly, direction = 'bottom right', label } = props;
     const [selectedPerson, setSelectedPerson] = useState();
 
     return (
-        <HStack gap="4" align="center">
-            {label && (
-                <span
-                    className={classNames('', { [cls.label]: readonly }, [
-                        className,
-                    ])}
-                >
-                    {label}
-                </span>
-            )}
+        <HStack
+            gap="4"
+            align="center"
+        >
+            {label && <span className={classNames('', { [cls.label]: readonly }, [className])}>{label}</span>}
             <HListBox
                 disabled={readonly}
                 as="div"
                 value={selectedPerson}
                 onChange={onChange}
-                className={classNames(cls.ListBox, {}, [
-                    className,
-                    popupCls.popup,
-                ])}
+                className={classNames(cls.ListBox, {}, [className, popupCls.popup])}
             >
-                <HListBox.Button as="div" className={popupCls.trigger}>
-                    <AppButton disabled={readonly}>
-                        {value ?? defaultValue}
-                    </AppButton>
-                </HListBox.Button>
-                <HListBox.Options
-                    className={classNames(cls.options, {}, [
-                        mapDirectionClass[direction],
-                    ])}
+                <HListBox.Button
+                    as="div"
+                    className={popupCls.trigger}
                 >
+                    <AppButton disabled={readonly}>{value ?? defaultValue}</AppButton>
+                </HListBox.Button>
+                <HListBox.Options className={classNames(cls.options, {}, [mapDirectionClass[direction]])}>
                     {items?.map((item) => (
                         <HListBox.Option
                             key={item.value}

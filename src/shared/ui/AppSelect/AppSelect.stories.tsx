@@ -10,9 +10,7 @@ export default {
     },
 } as ComponentMeta<typeof AppSelect>;
 
-const Template: ComponentStory<typeof AppSelect> = (args) => (
-    <AppSelect {...args} />
-);
+const Template: ComponentStory<typeof AppSelect> = (args) => <AppSelect {...args} />;
 
 export const Normal = Template.bind({});
 Normal.args = {

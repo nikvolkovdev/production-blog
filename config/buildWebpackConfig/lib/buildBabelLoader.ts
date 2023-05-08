@@ -6,10 +6,7 @@ interface BuildBabelLoaderProps extends BuildOptions {
     isTsx?: boolean;
 }
 
-export function buildBabelLoader({
-    isDev,
-    isTsx,
-}: BuildBabelLoaderProps): RuleSetRule {
+export function buildBabelLoader({ isDev, isTsx }: BuildBabelLoaderProps): RuleSetRule {
     const isProd = !isDev;
     return {
         test: isTsx ? /\.(jsx|tsx)$/ : /\.(js|ts)$/,

@@ -24,8 +24,7 @@ export default {
     rootDir: '../../',
     setupFilesAfterEnv: ['<rootDir>config/jest/jest-setup.ts'],
     moduleNameMapper: {
-        '.+\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$':
-            'identity-obj-proxy',
+        '.+\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$': 'identity-obj-proxy',
         '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
         axios: 'axios/dist/node/axios.cjs',
         '^@/(.*)$': '<rootDir>/src/$1',

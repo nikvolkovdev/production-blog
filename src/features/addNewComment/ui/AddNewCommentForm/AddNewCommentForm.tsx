@@ -4,19 +4,10 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { AppInput } from '@/shared/ui/AppInput';
 import { AppButton, ButtonVariant } from '@/shared/ui/AppButton';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDisptach';
-import {
-    DynamicModuleLoader,
-    ReducersList,
-} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { HStack } from '@/shared/ui/Stack';
-import {
-    addNewCommentActions,
-    addNewCommentReducer,
-} from '../../model/slice/addNewCommentSlice';
-import {
-    getAddCommentFormError,
-    getAddCommentFormText,
-} from '../../model/selectors/addNewCommentSelectors';
+import { addNewCommentActions, addNewCommentReducer } from '../../model/slice/addNewCommentSlice';
+import { getAddCommentFormError, getAddCommentFormText } from '../../model/selectors/addNewCommentSelectors';
 import cls from './AddNewCommentForm.module.scss';
 
 interface addNewCommentFormProps {
@@ -48,7 +39,10 @@ const AddNewCommentForm = memo((props: addNewCommentFormProps) => {
     }, [onCommentTextChange, onSendComment, text]);
 
     return (
-        <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
+        <DynamicModuleLoader
+            reducers={reducers}
+            removeAfterUnmount
+        >
             <HStack
                 justify="between"
                 max

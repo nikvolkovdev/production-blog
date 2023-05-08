@@ -13,9 +13,7 @@ export default {
     },
 } as ComponentMeta<typeof AppButton>;
 
-const Template: ComponentStory<typeof AppButton> = (args) => (
-    <AppButton {...args} />
-);
+const Template: ComponentStory<typeof AppButton> = (args) => <AppButton {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {

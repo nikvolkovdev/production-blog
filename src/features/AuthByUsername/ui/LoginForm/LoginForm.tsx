@@ -5,10 +5,7 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { AppButton, ButtonVariant } from '@/shared/ui/AppButton';
 import { AppInput } from '@/shared/ui/AppInput';
 import { AppText, AppTextVariant } from '@/shared/ui/AppText';
-import {
-    DynamicModuleLoader,
-    ReducersList,
-} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDisptach';
 import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';
 import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading/getLoginIsLoading';
@@ -79,7 +76,10 @@ const LoginForm = memo((props: LoginFormProps) => {
         <DynamicModuleLoader reducers={initialReducers}>
             <div className={classNames(cls.LoginForm, {}, [className])}>
                 {error && (
-                    <AppText title={error} variant={AppTextVariant.ERROR} />
+                    <AppText
+                        title={error}
+                        variant={AppTextVariant.ERROR}
+                    />
                 )}
                 <AppInput
                     autofocus

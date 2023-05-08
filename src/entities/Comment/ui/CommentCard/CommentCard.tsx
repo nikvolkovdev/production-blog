@@ -21,14 +21,15 @@ export const CommentCard = memo((props: CommentCardProps) => {
     if (isLoading) {
         return (
             <div
-                className={classNames(cls.CommentCard, {}, [
-                    className,
-                    cls.loading,
-                ])}
+                className={classNames(cls.CommentCard, {}, [className, cls.loading])}
                 data-testid="CommentCard.Loading"
             >
                 <div className={cls.header}>
-                    <Skeleton width={30} height={30} borderRadius="50%" />
+                    <Skeleton
+                        width={30}
+                        height={30}
+                        borderRadius="50%"
+                    />
                     <Skeleton
                         width={100}
                         height={16}
@@ -60,14 +61,20 @@ export const CommentCard = memo((props: CommentCardProps) => {
                 className={cls.header}
             >
                 {comment.user.avatar ? (
-                    <AppAvatar size={30} src={comment.user.avatar} />
+                    <AppAvatar
+                        size={30}
+                        src={comment.user.avatar}
+                    />
                 ) : null}
                 <AppText
                     className={cls.username}
                     title={comment.user.username}
                 />
             </AppLink>
-            <AppText className={cls.description} description={comment.text} />
+            <AppText
+                className={cls.description}
+                description={comment.text}
+            />
         </VStack>
     );
 });

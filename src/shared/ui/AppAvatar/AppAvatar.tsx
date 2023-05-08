@@ -25,7 +25,13 @@ export const AppAvatar = memo((props: AppAvatarProps) => {
         [size],
     );
 
-    const fallback = <Skeleton width={size} height={size} borderRadius="50%" />;
+    const fallback = (
+        <Skeleton
+            width={size}
+            height={size}
+            borderRadius="50%"
+        />
+    );
     const errorFallback = (
         <AppIcon
             inverted={fallbackInverted}

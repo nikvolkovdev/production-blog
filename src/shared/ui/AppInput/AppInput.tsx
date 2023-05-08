@@ -1,10 +1,4 @@
-import React, {
-    InputHTMLAttributes,
-    memo,
-    useEffect,
-    useRef,
-    useState,
-} from 'react';
+import React, { InputHTMLAttributes, memo, useEffect, useRef, useState } from 'react';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import cls from './AppInput.module.scss';
 
@@ -15,10 +9,7 @@ export enum InputVariant {
 
 // Таким образом исключаем стандартные свойства инпута. Стандартный инпут принимает ивент,
 // а мы хотим наверх отдавать сразу value.
-type HTMLInputProps = Omit<
-    InputHTMLAttributes<HTMLInputElement>,
-    'value' | 'onChange' | 'readOnly'
->;
+type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readOnly'>;
 
 interface AppInputProps extends HTMLInputProps {
     className?: string;
@@ -67,9 +58,7 @@ export const AppInput = memo((props: AppInputProps) => {
 
     return (
         <div className={classNames(cls.AppInputWrapper, mods, [className])}>
-            {placeholder && (
-                <div className={cls.placeholder}>{placeholder}</div>
-            )}
+            {placeholder && <div className={cls.placeholder}>{placeholder}</div>}
             <input
                 ref={ref}
                 type={type}

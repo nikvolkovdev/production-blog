@@ -15,20 +15,11 @@ interface CardProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 export const Card = memo((props: CardProps) => {
-    const {
-        className,
-        children,
-        variant = CardVariant.NORMAL,
-        max = false,
-        ...otherProps
-    } = props;
+    const { className, children, variant = CardVariant.NORMAL, max = false, ...otherProps } = props;
 
     return (
         <div
-            className={classNames(cls.Card, { [cls.max]: max }, [
-                className,
-                cls[variant],
-            ])}
+            className={classNames(cls.Card, { [cls.max]: max }, [className, cls[variant]])}
             {...otherProps}
         >
             {children}

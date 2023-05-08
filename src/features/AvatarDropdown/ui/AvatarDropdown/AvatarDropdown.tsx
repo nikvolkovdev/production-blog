@@ -3,12 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { AppAvatar } from '@/shared/ui/AppAvatar';
 import { Dropdown } from '@/shared/ui/Popups';
-import {
-    getUserAuthData,
-    isUserAdmin,
-    isUserManager,
-    userActions,
-} from '@/entities/User';
+import { getUserAuthData, isUserAdmin, isUserManager, userActions } from '@/entities/User';
 import cls from './AvatarDropdown.module.scss';
 import { getRouteAdmin, getRouteProfile } from '@/shared/const/router';
 
@@ -36,10 +31,7 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
 
     return (
         <Dropdown
-            className={classNames(cls.AvatarDropdown, {}, [
-                className,
-                cls.dropdown,
-            ])}
+            className={classNames(cls.AvatarDropdown, {}, [className, cls.dropdown])}
             direction="bottom left"
             items={[
                 ...(isAdminPanelAvailable
@@ -60,7 +52,11 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
                 },
             ]}
             trigger={
-                <AppAvatar size={30} src={authData.avatar} fallbackInverted />
+                <AppAvatar
+                    size={30}
+                    src={authData.avatar}
+                    fallbackInverted
+                />
             }
         />
     );

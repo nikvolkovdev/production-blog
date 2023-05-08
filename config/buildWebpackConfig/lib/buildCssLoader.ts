@@ -10,9 +10,7 @@ export const buildCssLoader = (isDev: boolean) => ({
             options: {
                 modules: {
                     auto: (resPath: string) => resPath.includes('.module.'),
-                    localIdentName: isDev
-                        ? '[path][name]__[local]--[hash:base64:6]'
-                        : '[hash:base64:8]',
+                    localIdentName: isDev ? '[path][name]__[local]--[hash:base64:6]' : '[hash:base64:8]',
                 },
             },
         },

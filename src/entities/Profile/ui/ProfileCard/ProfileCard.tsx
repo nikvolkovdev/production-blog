@@ -51,10 +51,7 @@ export const ProfileCard = memo((props: ProfileCardProps) => {
             <HStack
                 justify="center"
                 max
-                className={classNames(cls.ProfileCard, {}, [
-                    className,
-                    cls.loading,
-                ])}
+                className={classNames(cls.ProfileCard, {}, [className, cls.loading])}
             >
                 <Loader />
             </HStack>
@@ -65,10 +62,7 @@ export const ProfileCard = memo((props: ProfileCardProps) => {
         return (
             <HStack
                 justify="center"
-                className={classNames(cls.ProfileCard, {}, [
-                    className,
-                    cls.error,
-                ])}
+                className={classNames(cls.ProfileCard, {}, [className, cls.error])}
             >
                 <AppText
                     title="Произошла чудовищная ошибка при загрузке профиля"
@@ -91,8 +85,14 @@ export const ProfileCard = memo((props: ProfileCardProps) => {
             className={classNames(cls.ProfileCard, mods, [className])}
         >
             {data?.avatar && (
-                <HStack justify="center" max>
-                    <AppAvatar src={data?.avatar} alt="avatar" />
+                <HStack
+                    justify="center"
+                    max
+                >
+                    <AppAvatar
+                        src={data?.avatar}
+                        alt="avatar"
+                    />
                 </HStack>
             )}
             <AppInput
