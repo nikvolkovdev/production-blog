@@ -13,22 +13,13 @@ module.exports = {
         ecmaVersion: 'latest',
         sourceType: 'module',
     },
-    plugins: [
-        'react',
-        '@typescript-eslint',
-        'react-hooks',
-        'my-import-paths-check',
-        'unused-imports',
-    ],
+    plugins: ['react', '@typescript-eslint', 'react-hooks', 'my-import-paths-check', 'unused-imports'],
     rules: {
         'unused-imports/no-unused-imports': 'error',
         // 'react/jsx-indent': [2, 4],
         // 'react/jsx-indent-props': [2, 4],
         // indent: [2, 4],
-        'react/jsx-filename-extension': [
-            2,
-            { extensions: ['.js', '.jsx', '.tsx'] },
-        ],
+        'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.tsx'] }],
         'import/no-unresolved': 'off',
         'import/prefer-default-export': 'off',
         'no-unused-vars': 'warn',
@@ -59,15 +50,11 @@ module.exports = {
             'error',
             {
                 alias: '@',
-                testFilesPatterns: [
-                    '**/*.test.*',
-                    '**/*.story.*',
-                    '**/StoreDecorator.tsx',
-                ],
+                testFilesPatterns: ['**/*.test.*', '**/*.story.*', '**/StoreDecorator.tsx'],
             },
         ],
         'max-len': ['error', { ignoreComments: true, code: 120 }],
-        'react/jsx-max-props-per-line': ['error', { maximum: 3 }],
+        'react/jsx-max-props-per-line': ['error', { maximum: 4 }],
     },
     globals: {
         __IS_DEV__: true,

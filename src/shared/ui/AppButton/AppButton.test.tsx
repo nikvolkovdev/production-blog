@@ -9,7 +9,10 @@ describe('AppButton', () => {
 
     test('render AppButton with clear theme', () => {
         render(
-            <AppButton buttonType="button" variant={ButtonVariant.CLEAR}>
+            <AppButton
+                buttonType="button"
+                variant={ButtonVariant.CLEAR}
+            >
                 Test
             </AppButton>,
         );

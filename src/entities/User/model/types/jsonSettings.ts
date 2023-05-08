@@ -3,5 +3,6 @@ import { Theme } from '@/shared/const/theme';
 export interface JsonSettings {
     theme?: Theme;
     isFirstVisit?: boolean;
-    settingsPageHasBeenOpen?: false;
+    settingsPageHasBeenOpen?: boolean;
+    isArticlePageWasOpened?: boolean;
 }
