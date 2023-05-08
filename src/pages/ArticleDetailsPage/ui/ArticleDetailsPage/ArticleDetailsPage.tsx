@@ -46,6 +46,13 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
                     <ArticleDetailsPageHeader />
                     <ArticleDetails id={id} />
                     {isArticleRatingEnabled && <ArticleRating articleId={id} />}
+                    {/* { */}
+                    {/*    toggleFeatures({ */}
+                    {/*        name: 'isArticleRatingEnabled', */}
+                    {/*        on: () => <ArticleDetailsPageRedesigned />, */}
+                    {/*        off: () => <ArticleDetailsPage />, */}
+                    {/*    }) */}
+                    {/* } */}
                     <ArticleRecommendationsList />
                     <ArticleDetailsComments
                         id={id}
